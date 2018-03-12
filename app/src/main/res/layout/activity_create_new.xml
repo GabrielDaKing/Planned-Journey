@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gncis.test1.CreateNew">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:weightSum="2">
+            <ImageButton
+                android:id="@+id/plane"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:src="@drawable/ic_flight_black_36dp"
+                android:background="@drawable/buttom_custom"
+                android:layout_margin="5dp"/>
+
+            <ImageButton
+                android:id="@+id/train"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:src="@drawable/ic_directions_railway_black_36dp"
+                android:background="@drawable/button_custom2"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:weightSum="2">
+        <ImageButton
+            android:id="@+id/boat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:src="@drawable/ic_directions_boat_black_36dp"
+            android:background="@drawable/button_custom3"
+            android:layout_margin="5dp"/>
+
+        <ImageButton
+            android:id="@+id/bus"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:src="@drawable/ic_directions_bus_black_36dp"
+            android:background="@drawable/buttom_custom"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:weightSum="2">
+        <ImageButton
+            android:id="@+id/motorcycle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:src="@drawable/ic_motorcycle_black_24dp"
+            android:background="@drawable/button_custom2"
+            android:layout_margin="5dp"/>
+
+        <ImageButton
+            android:id="@+id/walk"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="30dp"
+            android:src="@drawable/ic_directions_walk_black_36dp"
+            android:background="@drawable/button_custom3"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
