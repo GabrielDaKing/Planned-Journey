@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateNewActivity extends AppCompatActivity {
 
@@ -27,6 +28,7 @@ public class CreateNewActivity extends AppCompatActivity {
 
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
+        cnfrm=findViewById(R.id.crm);
 
         img1=findViewById(R.id.image1);
 
@@ -37,9 +39,9 @@ public class CreateNewActivity extends AppCompatActivity {
         switch(select){
 
             case 1 : img1.setImageResource(R.drawable.ic_flight_takeoff_black_24dp);
-                    txt1.setText("Flight NO :");
-                    head.setText("PLANE");
-                    break;
+                txt1.setText("Flight NO :");
+                head.setText("PLANE");
+                break;
 
             case 2 : img1.setImageResource(R.drawable.ic_directions_railway_black_36dp);
                 txt1.setText("Train NO :");
@@ -56,7 +58,7 @@ public class CreateNewActivity extends AppCompatActivity {
                 head.setText("BUS");
                 break;
 
-            case 5 : img1.setImageResource(R.drawable.ic_motorcycle_black_24dp);
+            case 5 : img1.setImageResource(R.drawable.ic_directions_car_black_36dp);
                 txt1.setText("Car NO :");
                 head.setText("CAR");
                 break;
@@ -68,6 +70,7 @@ public class CreateNewActivity extends AppCompatActivity {
         }
 
         onCancelClickListener();
+        onConfirmClickListener();
     }
 
     public void onCancelClickListener(){
@@ -80,7 +83,34 @@ public class CreateNewActivity extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        startActivity(new Intent(CreateNewActivity.this,Main2Activity.class));
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                builder.show();
+
+            }
+        });
+    }
+    
+    public void onConfirmClickListener(){
+        cnfrm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
+                builder.setMessage("Are you want to create this trip ?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(CreateNewActivity.this,Main2Activity.class));
+                        Toast.makeText(CreateNewActivity.this, "YAY!", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

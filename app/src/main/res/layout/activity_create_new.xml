@@ -77,7 +77,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="30dp"
-            android:src="@drawable/ic_motorcycle_black_24dp"
+            android:src="@drawable/ic_directions_car_black_36dp"
             android:background="@drawable/button_custom2"
             android:layout_margin="5dp"/>
 
