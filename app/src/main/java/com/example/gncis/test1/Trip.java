@@ -6,7 +6,7 @@ package com.example.gncis.test1;
 
 import java.util.Date;
 
-public class Journey {
+public class Trip {
 
     int type,party;
     String name,hotel;
