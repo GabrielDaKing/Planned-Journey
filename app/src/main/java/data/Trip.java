@@ -2,7 +2,7 @@
  * Created by gncis on 12-Mar-18.
  */
 
-package com.example.gncis.test1;
+package data;
 
 import java.util.Date;
 

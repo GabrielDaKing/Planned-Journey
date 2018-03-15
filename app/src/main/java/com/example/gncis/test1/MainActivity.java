@@ -1,8 +1,11 @@
 package com.example.gncis.test1;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -16,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
     private ImageView iv;
-    private static final int RC_SIGN_IN = 123;
+
+
    // private Animation.AnimationListener al;
 
     @Override
@@ -37,16 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                startActivityForResult(
-                        AuthUI.getInstance()
-                                .createSignInIntentBuilder()
-                                .setIsSmartLockEnabled(false)
-                                .setAvailableProviders(Arrays.asList(
-                                        new AuthUI.IdpConfig.EmailBuilder().build(),
-                                        new AuthUI.IdpConfig.GoogleBuilder().build(),
-                                        new AuthUI.IdpConfig.FacebookBuilder().build()))
-                                .build(),
-                        RC_SIGN_IN);
                 startActivity(new Intent(MainActivity.this , Main2Activity.class));
             }
 
@@ -57,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
 
     }
 

@@ -31,6 +31,8 @@ public class CreateNewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new2);
 
+        myCalendar = Calendar.getInstance();
+
         Bundle bun = getIntent().getExtras();
 
         int select;
@@ -43,6 +45,8 @@ public class CreateNewActivity extends AppCompatActivity {
 
         txt1=findViewById(R.id.text1);
 
+        StartDate=findViewById(R.id.StartDate2);
+        EndDate=findViewById(R.id.EndDate2);
         select = bun.getInt("selection");
 
         switch(select){
