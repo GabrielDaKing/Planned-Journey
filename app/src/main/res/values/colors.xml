@@ -16,5 +16,11 @@
     <color name="buttonTertiary">#b867c6</color>
     <color name="buttonTertiaryLight">#ec97f9</color>
     <color name="buttonTertiaryDark">#863895</color>
+    <color name="cancelButton">#ff1744</color>
+    <color name="cancelButtonLight">#ff616f</color>
+    <color name="cancelButtonDark">#c4001d</color>
+    <color name="confirmButton">#76ff03</color>
+    <color name="confirmButtonLight">#b0ff57</color>
+    <color name="confirmButtonDark">#32cb00</color>
 
 </resources>

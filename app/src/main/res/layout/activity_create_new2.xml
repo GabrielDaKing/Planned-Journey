@@ -201,7 +201,7 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image4"
+                android:id="@+id/image8"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_event_busy_black_24dp" />
@@ -224,13 +224,13 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image4"
+                android:id="@+id/image9"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/EndDate2"
+                android:id="@+id/EndTime"
                 android:layout_width="0dp"
 
                 android:editable="false"
@@ -248,7 +248,7 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image5"
+                android:id="@+id/image10"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_people_black_24dp" />
