@@ -1,4 +1,4 @@
-package data;
+package com.example.gncis.test1.data;
 
 import android.provider.BaseColumns;
 

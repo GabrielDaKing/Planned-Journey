@@ -26,8 +26,7 @@ public class CreateNew extends AppCompatActivity {
         btn2 = findViewById(R.id.train);
         btn3 = findViewById(R.id.boat);
         btn4 = findViewById(R.id.bus);
-        btn5 = findViewById(R.id.motorcycle);
-        btn6 = findViewById(R.id.walk);
+
 
         bar.setTitle("A New Trip");
 
@@ -81,27 +80,6 @@ public class CreateNew extends AppCompatActivity {
             }
         });
 
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selection=5;
-                flag=true;
-                Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
-                i.putExtra("selection"  , selection);
-                startActivity(i);
-            }
-        });
-
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selection=6;
-                flag=true;
-                Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
-                i.putExtra("selection"  , selection);
-                startActivity(i);
-            }
-        });
 
     }
 }

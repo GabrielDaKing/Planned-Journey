@@ -44,20 +44,13 @@
                 android:layout_height="36dp"
                 android:src="@drawable/ic_tag_faces_black_36dp"/>
 
-            <TextView
-                android:id="@+id/text2"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:textSize="20dp"
-                android:text="Name : "
-                android:textStyle="bold" />
-
             <EditText
                 android:id="@+id/name"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="44dp"
-                android:background="@color/colorPrimaryLight"/>
+                android:hint="Name"
+                />
 
         </LinearLayout>
 
@@ -71,21 +64,64 @@
             <ImageView
                 android:id="@+id/image1"
                 android:layout_width="36dp"
-                android:layout_height="36dp" />
-
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:layout_height="36dp"
+                android:src="@drawable/ic_flight_black_36dp"/>
 
             <EditText
                 android:id="@+id/num"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="44dp" />
+                android:layout_height="44dp"
+                android:hint="Flight Number"/>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_event_busy_black_24dp" />
+
+            <EditText
+                android:id="@+id/EndDate2"
+                android:layout_width="0dp"
+
+                android:editable="false"
+                android:hint="Origin"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="44dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_event_busy_black_24dp" />
+
+            <EditText
+                android:id="@+id/EndDate2"
+                android:layout_width="0dp"
+
+                android:editable="false"
+                android:hint="Destination"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="44dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -100,19 +136,11 @@
                 android:layout_height="36dp"
                 android:src="@drawable/ic_event_available_black_24dp" />
 
-            <TextView
-                android:id="@+id/text3"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:text="Start Date :"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
             <EditText
                 android:id="@+id/StartDate2"
                 android:layout_width="0dp"
                 android:editable="false"
-                android:hint="MM-DD-YY"
+                android:hint="Start Date : DD-MM-YY"
                 android:focusable="false"
                 android:clickable="true"
                 android:layout_height="44dp"
@@ -132,20 +160,59 @@
                 android:layout_height="36dp"
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
-            <TextView
-                android:id="@+id/text4"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:text="End Date :"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/EndDate2"
+                android:layout_width="0dp"
+
+                android:editable="false"
+                android:hint="Start Time"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="44dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
                 android:id="@+id/EndDate2"
                 android:layout_width="0dp"
 
                 android:editable="false"
-                android:hint="MM-DD-YY"
+                android:hint="End Date : DD-MM-YY"
+                android:focusable="false"
+                android:clickable="true"
+                android:layout_height="44dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_event_busy_black_24dp" />
+
+            <EditText
+                android:id="@+id/EndDate2"
+                android:layout_width="0dp"
+
+                android:editable="false"
+                android:hint="End Time"
                 android:focusable="false"
                 android:clickable="true"
                 android:layout_height="44dp"
@@ -164,47 +231,14 @@
                 android:layout_height="36dp"
                 android:src="@drawable/ic_people_black_24dp" />
 
-            <TextView
-                android:id="@+id/text5"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:text="Members in the Party :"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+
 
             <EditText
                 android:id="@+id/party"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="44dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
-
-            <ImageView
-                android:id="@+id/image6"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_hotel_black_24dp" />
-
-            <TextView
-                android:id="@+id/text6"
-                android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:text="Hotel :"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/hotel"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="44dp" />
+                android:layout_height="44dp"
+                android:hint="Members in the Party "/>
 
         </LinearLayout>
 

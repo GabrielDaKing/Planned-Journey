@@ -12,6 +12,13 @@
         android:orientation="vertical"
         android:weightSum="6">
 
+        <EditText
+            android:id="@+id/namw"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:hint="Name Of Journey"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +56,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="30dp"
-            android:src="@drawable/ic_directions_boat_black_36dp"
+            android:src="@drawable/ic_hotel_black_24dp"
             android:background="@drawable/button_custom3"
             android:layout_margin="5dp"/>
 
@@ -60,38 +67,38 @@
             android:layout_weight="1"
             android:textSize="30dp"
             android:src="@drawable/ic_directions_bus_black_36dp"
-            android:background="@drawable/buttom_custom"
+            android:background="@drawable/button_custom4"
             android:layout_margin="5dp"/>
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:weightSum="2">
-        <ImageButton
-            android:id="@+id/motorcycle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textSize="30dp"
-            android:src="@drawable/ic_directions_car_black_36dp"
-            android:background="@drawable/button_custom2"
-            android:layout_margin="5dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageButton
-            android:id="@+id/walk"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textSize="30dp"
-            android:src="@drawable/ic_directions_walk_black_36dp"
-            android:background="@drawable/button_custom3"
-            android:layout_margin="5dp"/>
+            android:background="#ff1744"
+            android:layout_margin="5dp"
+            android:src="@drawable/cancel_button"
+            android:scaleType="fitCenter"
+            />
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#76ff03"
+            android:layout_margin="5dp"
+            android:src="@drawable/confrim_button"
+            android:scaleType="fitCenter"
+            />
 
     </LinearLayout>
+
 
     </LinearLayout>
 

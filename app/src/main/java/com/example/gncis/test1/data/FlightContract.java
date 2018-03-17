@@ -1,11 +1,11 @@
-package data;
+package com.example.gncis.test1.data;
 
 import android.provider.BaseColumns;
 
 /**
  * Created by gncis on 14-Mar-18.*/
 
-public class FlightContract {
+public final class FlightContract {
 
     private FlightContract() {}
 

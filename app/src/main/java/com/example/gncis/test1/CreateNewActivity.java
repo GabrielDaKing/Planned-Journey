@@ -43,45 +43,9 @@ public class CreateNewActivity extends AppCompatActivity {
 
         img1=findViewById(R.id.image1);
 
-        txt1=findViewById(R.id.text1);
-
         StartDate=findViewById(R.id.StartDate2);
         EndDate=findViewById(R.id.EndDate2);
         select = bun.getInt("selection");
-
-        switch(select){
-
-            case 1 : img1.setImageResource(R.drawable.ic_flight_takeoff_black_24dp);
-                txt1.setText("Flight NO :");
-                head.setText("PLANE");
-                break;
-
-            case 2 : img1.setImageResource(R.drawable.ic_directions_railway_black_36dp);
-                txt1.setText("Train NO :");
-                head.setText("TRAIN");
-                break;
-
-            case 3 : img1.setImageResource(R.drawable.ic_directions_boat_black_36dp);
-                txt1.setText("Boat NO :");
-                head.setText("BOAT");
-                break;
-
-            case 4 : img1.setImageResource(R.drawable.ic_directions_bus_black_36dp);
-                txt1.setText("Bus NO :");
-                head.setText("BUS");
-                break;
-
-            case 5 : img1.setImageResource(R.drawable.ic_directions_car_black_36dp);
-                txt1.setText("Car NO :");
-                head.setText("CAR");
-                break;
-
-            case 6 : img1.setImageResource(R.drawable.ic_directions_walk_black_36dp);
-                txt1.setText(" NO :");
-                head.setText("WALK");
-                break;
-        }
-
 
         final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
             @Override

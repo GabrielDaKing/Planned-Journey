@@ -13,5 +13,8 @@
     <color name="buttonSecondary">#00e676</color>
     <color name="buttonSecondaryLight">#66ffa6</color>
     <color name="buttonSecondaryDark">#00b248</color>
+    <color name="buttonTertiary">#b867c6</color>
+    <color name="buttonTertiaryLight">#ec97f9</color>
+    <color name="buttonTertiaryDark">#863895</color>
 
 </resources>
