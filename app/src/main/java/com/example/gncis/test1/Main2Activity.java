@@ -29,9 +29,9 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        btn1 =(Button)findViewById(R.id.button_send1);
-        btn2 =(Button)findViewById(R.id.button_send2);
-        btn3 =(Button)findViewById(R.id.button_send3);
+        btn1 =findViewById(R.id.button_send1);
+        btn2 =findViewById(R.id.button_send2);
+        btn3 =findViewById(R.id.button_send3);
 
         startActivityForResult(
                 AuthUI.getInstance()
@@ -45,6 +45,7 @@ public class Main2Activity extends AppCompatActivity {
                 RC_SIGN_IN);
 
         // Choose authentication providers
+
         onButtonListener();
 
     }
