@@ -114,10 +114,9 @@
                 android:id="@+id/Origin"
                 android:layout_width="0dp"
 
-                android:editable="false"
+
                 android:hint="Origin"
-                android:focusable="false"
-                android:clickable="true"
+
                 android:layout_height="44dp"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -138,10 +137,8 @@
                 android:id="@+id/destination"
                 android:layout_width="0dp"
 
-                android:editable="false"
+
                 android:hint="Destination"
-                android:focusable="false"
-                android:clickable="true"
                 android:layout_height="44dp"
                 android:layout_weight="1" />
         </LinearLayout>
