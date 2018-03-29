@@ -27,7 +27,7 @@
             android:layout_height="0dp"
             android:layout_weight="5"
             android:gravity="center"
-            android:text="TEST"
+            android:text="FLIGHT"
             android:textSize="45sp"
             android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
                 android:id="@+id/image1"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_flight_black_36dp"/>
+                android:src="@drawable/ic_airline_seat_recline_extra_black_24dp"/>
 
             <EditText
                 android:id="@+id/seat"
@@ -183,15 +183,15 @@
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/EndDate2"
+                android:id="@+id/StartTime2"
                 android:layout_width="0dp"
 
-                android:editable="false"
-                android:hint="Start Time"
-                android:focusable="false"
-                android:clickable="true"
                 android:layout_height="44dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="Start Time" />
         </LinearLayout>
 
         <LinearLayout
@@ -230,15 +230,15 @@
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/EndTime"
+                android:id="@+id/EndTime2"
                 android:layout_width="0dp"
 
-                android:editable="false"
-                android:hint="End Time"
-                android:focusable="false"
-                android:clickable="true"
                 android:layout_height="44dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
+                android:hint="End Time" />
         </LinearLayout>
 
         <LinearLayout

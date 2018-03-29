@@ -38,13 +38,12 @@ public class CreateNew extends AppCompatActivity {
 
     }
 
+    int seelction =1;
     public void onButtonClickListener(){
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection=1;
-                flag=true;
                 Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
                 i.putExtra("selection"  , selection);
                 startActivity(i);
@@ -54,9 +53,8 @@ public class CreateNew extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection=2;
-                flag=true;
-                Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
+
+                Intent i = new Intent(CreateNew.this,CreateNewTrain.class);
                 i.putExtra("selection"  , selection);
                 startActivity(i);
             }
@@ -65,8 +63,6 @@ public class CreateNew extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection=3;
-                flag=true;
                 Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
                 i.putExtra("selection"  , selection);
                 startActivity(i);
@@ -76,9 +72,7 @@ public class CreateNew extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selection=4;
-                flag=true;
-                Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
+                Intent i = new Intent(CreateNew.this,CreateNewBus.class);
                 i.putExtra("selection"  , selection);
                 startActivity(i);
             }

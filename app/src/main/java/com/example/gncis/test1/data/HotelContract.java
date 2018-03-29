@@ -13,7 +13,7 @@ public class HotelContract {
         public static final class HotelEntry implements BaseColumns {
 
             public static final String TABLE_NAME = "hotels";
-            public static final String HOTEL_USER = "User";
+            public static final String HOTEL_USER_ID = "User";
             public static final String HOTEL_ID= BaseColumns._ID;
             public static final String LOCATION = "Origin";
             public static final String DURATION = "Duration";

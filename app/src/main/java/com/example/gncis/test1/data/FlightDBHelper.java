@@ -33,10 +33,11 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_PETS_TABLE = "CREATE TABLE " + FlightEntry.TABLE_NAME + "("
-                + FlightEntry.FLIGHT_USER + "INTEGER"
+        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE " + FlightEntry.TABLE_NAME + "("
+                + FlightEntry.FLIGHT_USER_Id + "INTEGER"
                 + FlightEntry.FLIGHT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + FlightEntry.FLIGHT_NO + " TEXT, "
+                + FlightEntry.FLIGHT_SEAT_NO + " TEXT, "
                 + FlightEntry.ORIGIN + " TEXT, "
                 + FlightEntry.DESTINATION + " TEXT, "
                 + FlightEntry.DEPARTURE_DATE + " TEXT, "
@@ -44,7 +45,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
                 + FlightEntry.ARRIVAL_DATE + " TEXT, "
                 + FlightEntry.ARRIVAL_TIME + " TEXT, "
                 + FlightEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ("+FlightEntry.FLIGHT_USER+") REFERENCES "+UserContract.UserEntry._ID+" ( "
+                + "FOREIGN KEY ("+FlightEntry.FLIGHT_USER_Id+") REFERENCES "+UserContract.UserEntry._ID+" ) "
 
                 ;
     }

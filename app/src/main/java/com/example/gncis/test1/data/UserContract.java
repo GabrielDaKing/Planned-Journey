@@ -13,8 +13,8 @@ public final class UserContract {
     public static final class UserEntry implements BaseColumns{
 
         public static final String TABLE_NAME = "flights";
-        public static final String FLIGHT_USER = "User";
-        public static final String FLIGHT_ID= BaseColumns._ID;
+        public static final String USER = "User";
+        public static final String USER_ID= BaseColumns._ID;
 
 
     }

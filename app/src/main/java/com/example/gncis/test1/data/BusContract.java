@@ -3,19 +3,19 @@ package com.example.gncis.test1.data;
 import android.provider.BaseColumns;
 
 /**
- * Created by gncis on 14-Mar-18.*/
+ * Created by Anant on 3/29/2018.
+ */
 
-public final class FlightContract {
+public class BusContract {
+    private BusContract() {}
 
-    private FlightContract() {}
+    public static final class BusEntry implements BaseColumns {
 
-    public static final class FlightEntry implements BaseColumns{
-
-        public static final String TABLE_NAME = "flights";
-        public static final String FLIGHT_USER_Id = "User Id";
-        public static final String FLIGHT_ID= BaseColumns._ID;
-        public static final String FLIGHT_NO = "Number";
-        public static final String FLIGHT_SEAT_NO = "SEAT Number";
+        public static final String TABLE_NAME = "BUS";
+        public static final String BUS_USER_Id = "User Id";
+        public static final String BUS_ID= BaseColumns._ID;
+        public static final String BUS_NO = "Number";
+        public static final String BUS_SEAT_NO = "SEAT Number";
         public static final String ORIGIN = "Origin";
         public static final String DESTINATION = "Destination";
         public static final String DEPARTURE_DATE = "Departure Date";
@@ -30,3 +30,4 @@ public final class FlightContract {
 
     }
 }
+

@@ -22,7 +22,12 @@
         <activity android:name=".ViewCurrent" />
         <activity android:name=".CreateNew" />
         <activity android:name=".ViewOld" />
-        <activity android:name=".CreateNewActivity"></activity>
+        <activity android:name=".CreateNewActivity" />
+        <activity
+            android:name=".CreateNewTrain"
+            android:label="@string/title_activity_create_new_train"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CreateNewBus" />
     </application>
 
 </manifest>
