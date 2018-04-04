@@ -27,7 +27,7 @@ public class CreateNewBus extends AppCompatActivity {
         ImageView img1;
         TextView head,txt1;
         ImageButton cncl,cnfrm;
-        EditText StartDate, EndDate,StartTime,EndTime;
+        EditText StartDate, EndDate,StartTime,EndTime,number;
         Calendar myCalendar;
 
         @Override
@@ -35,6 +35,7 @@ public class CreateNewBus extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_create_new_bus);
 
+            number=findViewById(R.id.num);
             myCalendar = Calendar.getInstance();
 
             Bundle bun = getIntent().getExtras();
@@ -165,23 +166,29 @@ public class CreateNewBus extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(number==null)
+                    Toast.makeText(CreateNewBus.this, "Enter Bus Number", Toast.LENGTH_SHORT).show();
+                else
+                {
+                    AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewBus.this);
+                    builder.setMessage("Are you want to create this trip ?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(CreateNewBus.this,Main2Activity.class));
+                            Toast.makeText(CreateNewBus.this, "YAY!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    builder.show();
+                }
 
-                AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewBus.this);
-                builder.setMessage("Are you want to create this trip ?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(CreateNewBus.this,Main2Activity.class));
-                        Toast.makeText(CreateNewBus.this, "YAY!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                builder.show();
+
 
             }
         });
