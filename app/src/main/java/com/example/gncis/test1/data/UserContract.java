@@ -7,6 +7,7 @@ import android.provider.BaseColumns;
  */
 
 public final class UserContract {
+    //test
 
     private UserContract () {}
 
