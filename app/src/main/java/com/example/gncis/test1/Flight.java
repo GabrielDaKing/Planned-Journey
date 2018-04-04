@@ -6,7 +6,6 @@ package com.example.gncis.test1;
 
 public class Flight {
 
-    private String fName;
     private String fnumber;
     private String fSeat;
     private String fOrigin;
@@ -16,14 +15,6 @@ public class Flight {
     private String fArrivalDate;
     private String fArrivalTime;
     private int fClass;
-
-    public String getfName() {
-        return fName;
-    }
-
-    public void setfName(String fName) {
-        this.fName = fName;
-    }
 
     public String getFnumber() {
         return fnumber;
