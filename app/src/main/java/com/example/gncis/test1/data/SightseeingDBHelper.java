@@ -23,7 +23,6 @@ public class SightseeingDBHelper extends SQLiteOpenHelper {
                 + SightseeingContract.SightseeingEntry.SIGHTSEEING_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + SightseeingContract.SightseeingEntry.SIGHTSEEING_NAME + "TEXT, "
                 + SightseeingContract.SightseeingEntry.LOCATION + "TEXT, "
-                + SightseeingContract.SightseeingEntry.SIGHTSEEING_Date + "TEXT, "
                 + SightseeingContract.SightseeingEntry.TICKET + "TEXT, "
                 + SightseeingContract.SightseeingEntry.TIME + "TEXT, "
                 + SightseeingContract.SightseeingEntry.DURATION + "TEXT,"
