@@ -14,6 +14,7 @@ public class SightseeingContract {
         public static final String SIGHTSEEING_USER_ID = "SIGHTSEEING USER ID";
         public static final String SIGHTSEEING_ID = BaseColumns._ID;
         public static final String SIGHTSEEING_NAME = "SIGHTSEEING NAME";
+        public static final String SIGHTSEEING_Date = "Date";
         public static final String LOCATION = "LOCATION";
         public static final String TICKET = "TICKET";
         public static final String TIME = "TIME";
