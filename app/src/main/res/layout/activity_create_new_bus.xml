@@ -177,7 +177,6 @@
                     android:id="@+id/StartTime2"
                     android:layout_width="0dp"
 
-                    android:editable="false"
                     android:hint="Start Time"
                     android:focusable="false"
                     android:clickable="true"
