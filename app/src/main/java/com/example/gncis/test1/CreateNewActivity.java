@@ -49,7 +49,6 @@ public class CreateNewActivity extends AppCompatActivity {
         EndTime=findViewById(R.id.EndTime2);
         StartDate=findViewById(R.id.StartDate2);
         EndDate=findViewById(R.id.EndDate2);
-        select = bun.getInt("selection");
 
         final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
             @Override
