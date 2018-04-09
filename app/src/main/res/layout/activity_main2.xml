@@ -34,7 +34,8 @@
                     android:id="@+id/button_send2"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:background="@drawable/button_custom2"
@@ -44,7 +45,9 @@
                     android:id="@+id/button_send3"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_height="match_parent"
-                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:background="@drawable/button_custom3"
@@ -52,6 +55,6 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
+    
 </android.support.constraint.ConstraintLayout>
