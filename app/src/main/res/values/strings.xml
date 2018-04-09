@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tripeze</string>
-    <string name="facebook_application_id" translatable="false">YOUR_APP_ID</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">fbYOUR_APP_ID</string>
     <string name="title_activity_create_new_train">CreateNewTrain</string>
+    <string name="bus_number">Bus Number</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
 </resources>

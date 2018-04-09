@@ -16,5 +16,7 @@ public class ViewOld extends AppCompatActivity {
         bar = getSupportActionBar();
 
         bar.setTitle("Your Past Trips");
+
+
     }
 }

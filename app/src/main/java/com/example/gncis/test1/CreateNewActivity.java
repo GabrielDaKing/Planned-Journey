@@ -184,14 +184,14 @@ public class CreateNewActivity extends AppCompatActivity {
     }
 
     private void updateLabel1() {
-        String myFormat = "dd/MM/yy";
+        String myFormat = "d MMM yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
 
         StartDate.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void updateLabel2() {
-        String myFormat = "dd/MM/yy";
+        String myFormat = "d MMM yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
 
         EndDate.setText(sdf.format(myCalendar.getTime()));

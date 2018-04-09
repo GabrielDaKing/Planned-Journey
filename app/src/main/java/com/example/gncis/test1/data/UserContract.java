@@ -15,6 +15,8 @@ public final class UserContract {
 
         public static final String TABLE_NAME = "users";
         public static final String USER = "User";
+        public static final String START_DATE = "Start";
+        public static final String END_DATE = "End";
         public static final String USER_ID= BaseColumns._ID;
 
 

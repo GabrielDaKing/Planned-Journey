@@ -24,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
     Button btn1;
     Button btn2;
     Button btn3;
+    public static final String ANONYMOUS = "anonymous";
 
     private FirebaseAuth mFirebaseAuth;
 
@@ -53,22 +54,22 @@ public class Main2Activity extends AppCompatActivity {
                     mUsername = user.getDisplayName();
                 }
                 else{
+                    mUsername = ANONYMOUS;
                     startActivityForResult(
                             AuthUI.getInstance()
                                     .createSignInIntentBuilder()
                                     .setIsSmartLockEnabled(false)
                                     .setAvailableProviders(Arrays.asList(
                                             new AuthUI.IdpConfig.EmailBuilder().build(),
-                                            new AuthUI.IdpConfig.GoogleBuilder().build()))
+                                            new AuthUI.IdpConfig.GoogleBuilder().build(),
+                                            new AuthUI.IdpConfig.PhoneBuilder().build()))
                                     .build(),
                             RC_SIGN_IN);
                 }
             }
         };
         // Choose authentication providers
-
         onButtonListener();
-
     }
 
     public void onButtonListener(){
@@ -130,6 +131,23 @@ public class Main2Activity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN) {
+            if (resultCode == RESULT_OK) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null)
+                    if (user.getDisplayName() != null)
+                        Toast.makeText(this, "Welcome to Tripese, " + user.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
+            }
+            else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Sign In Cancelled!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
         }
     }
 }

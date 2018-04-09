@@ -32,6 +32,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
                 + TrainContract.TrainEntry.CLASS + " INTEGER, "
                 + "FOREIGN KEY ("+ TrainContract.TrainEntry.TRAIN_USER_ID+") REFERENCES "+UserContract.UserEntry._ID+" ( ";
 
+        sqLiteDatabase.execSQL(SQL_CREATE_TRAINS_TABLE);
     }
 
     @Override
