@@ -22,8 +22,11 @@ public class TripAdapter extends ArrayAdapter<Trip> {
 
     LinearLayout linearLayout;
 
+    public ArrayList<Trip> object;
+
     public TripAdapter(@NonNull Context context, int resource,@NonNull ArrayList<Trip> objects) {
         super(context, resource, objects);
+        this.object = objects;
     }
 
     @NonNull
@@ -32,9 +35,9 @@ public class TripAdapter extends ArrayAdapter<Trip> {
         if(convertView == null)
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.user_tile, parent,false);
 
-        TextView Number = convertView.findViewById(R.id.number);
-        TextView StartDate = convertView.findViewById(R.id.sdate);
-        TextView EndDate = convertView.findViewById(R.id.edate);
+        TextView Number = convertView.findViewById(R.id.name);
+        TextView StartDate = convertView.findViewById(R.id.sDate);
+        TextView EndDate = convertView.findViewById(R.id.eDate);
 
         linearLayout = convertView.findViewById(R.id.trip_tile);
 
@@ -53,7 +56,8 @@ public class TripAdapter extends ArrayAdapter<Trip> {
             }
         });
 
-
         return convertView;
     }
+
+
 }

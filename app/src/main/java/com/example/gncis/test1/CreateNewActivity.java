@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.gncis.test1.data.UserDBHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -27,6 +29,7 @@ public class CreateNewActivity extends AppCompatActivity {
     ImageButton cncl,cnfrm;
     EditText StartDate, EndDate,StartTime,EndTime;
     Calendar myCalendar;
+    UserDBHelper userDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,6 +181,7 @@ public class CreateNewActivity extends AppCompatActivity {
                     }
                 });
                 builder.show();
+
 
             }
         });

@@ -7,7 +7,7 @@
     tools:context="com.example.gncis.test1.ViewCurrent">
 
     <ListView
-    android:id="@+id/oldTripsList"
+    android:id="@+id/currentTripsList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="5dp"

@@ -6,7 +6,7 @@
     android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="@color/buttonPrimary">
+    android:background="@drawable/buttom_custom">
 
     <ImageView
         android:layout_width="60dp"
@@ -21,6 +21,7 @@
         android:layout_margin="5dp"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:hint="Trip Name"/>
@@ -30,12 +31,14 @@
             android:layout_height="30dp">
 
             <TextView
+                android:id="@+id/sDate"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:hint="Start Date"/>
 
             <TextView
+                android:id="@+id/eDate"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
