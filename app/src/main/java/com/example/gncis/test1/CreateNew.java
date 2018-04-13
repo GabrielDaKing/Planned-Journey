@@ -20,7 +20,7 @@ public class CreateNew extends AppCompatActivity {
     ImageButton btn1, btn2, btn3, btn4, can, cfrm;
     int selection;
     UserDBHelper userDBHelper;
-    EditText name;
+    static EditText name;
     Trip trip;
 
     @Override

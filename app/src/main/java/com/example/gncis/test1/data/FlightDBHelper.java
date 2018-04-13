@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.gncis.test1.Flight;
 import com.example.gncis.test1.data.FlightContract.FlightEntry;
 
 /**
@@ -34,7 +35,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE " + FlightEntry.TABLE_NAME + "("
-                + FlightEntry.FLIGHT_USER_Id + "INTEGER"
+                + FlightEntry.FLIGHT_USER_Id + "INTEGER ,"
                 + FlightEntry.FLIGHT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + FlightEntry.FLIGHT_NO + " TEXT, "
                 + FlightEntry.FLIGHT_SEAT_NO + " TEXT, "
@@ -45,13 +46,17 @@ public class FlightDBHelper extends SQLiteOpenHelper {
                 + FlightEntry.ARRIVAL_DATE + " TEXT, "
                 + FlightEntry.ARRIVAL_TIME + " TEXT, "
                 + FlightEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ("+FlightEntry.FLIGHT_USER_Id+") REFERENCES "+UserContract.UserEntry._ID+" ) "
+                + "FOREIGN KEY ("+FlightEntry.FLIGHT_USER_Id+") REFERENCES "+UserContract.UserEntry._ID+" ) ";
 
-                ;
+        db.execSQL(SQL_CREATE_FLIGHT_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public void addFlight(Flight flight, int id){};
+
+    public void deleteFlight(){};
 }

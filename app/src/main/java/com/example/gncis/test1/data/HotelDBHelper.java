@@ -23,6 +23,8 @@ public class HotelDBHelper extends SQLiteOpenHelper {
                 + HotelContract.HotelEntry.CHECKOUT_DATE + "TEXT, "
                 + HotelContract.HotelEntry.ROOM_TYPE + "INTEGER, "
                 +"FORIEGN KEY (" + HotelContract.HotelEntry.HOTEL_USER_ID + ") REFERENCES " +UserContract.UserEntry._ID + ")";
+
+        db.execSQL(SQL_CREATE_HOTELS_TABLE);
     }
 
     @Override
