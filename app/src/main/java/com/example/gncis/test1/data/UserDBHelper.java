@@ -96,7 +96,6 @@ public class UserDBHelper extends SQLiteOpenHelper{
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         cursor.moveToFirst();
 
-        //int i=0;
         while (!cursor.isAfterLast()) {
 
 

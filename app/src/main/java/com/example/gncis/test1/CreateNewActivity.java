@@ -165,7 +165,7 @@ public class CreateNewActivity extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(CreateNewActivity.this,Main2Activity.class));
+                        startActivity(new Intent(CreateNewActivity.this,CreateNew.class));
                         Toast.makeText(CreateNewActivity.this, "YAY!", Toast.LENGTH_SHORT).show();
                     }
                 });

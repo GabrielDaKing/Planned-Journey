@@ -128,7 +128,7 @@ public class CreateNewHotel extends AppCompatActivity {
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(CreateNewHotel.this,Main2Activity.class));
+                            startActivity(new Intent(CreateNewHotel.this,CreateNew.class));
                             Toast.makeText(CreateNewHotel.this, "YAY!", Toast.LENGTH_SHORT).show();
                         }
                     });

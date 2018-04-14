@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.gncis.test1.Train;
 import com.example.gncis.test1.Trip;
 
 /**
@@ -32,8 +33,8 @@ public class TrainDBHelper extends SQLiteOpenHelper {
                 + TrainContract.TrainEntry.DEPARTURE_TIME + " TEXT, "
                 + TrainContract.TrainEntry.ARRIVAL_DATE + " TEXT, "
                 + TrainContract.TrainEntry.ARRIVAL_TIME + " TEXT, "
-                + TrainContract.TrainEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ("+ TrainContract.TrainEntry.TRAIN_USER_ID+") REFERENCES "+UserContract.UserEntry._ID+" ( ";
+                + TrainContract.TrainEntry.CLASS + " TEXT, "
+                + "FOREIGN KEY ("+ TrainContract.TrainEntry.TRAIN_USER_ID+") REFERENCES "+UserContract.UserEntry._ID+" ); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_TRAINS_TABLE);
     }
@@ -44,7 +45,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void addTrip(Trip trip){
+    public void addTrain(Train train, int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 

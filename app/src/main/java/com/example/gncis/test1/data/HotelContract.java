@@ -18,14 +18,8 @@ public class HotelContract {
             public static final String HOTEL_NAME= "Name";
             public static final String LOCATION = "Location";
             public static final String DURATION = "Duration";
-            public static final String CHECKIN_DATE = "CheckIn Date";
-            public static final String CHECKOUT_DATE = "CheckOut Date";
-            public static final String ROOM_TYPE = "Room Type";
-
-            public static final int ROOM_STANDARD = 0;
-            public static final int ROOM_DELUXE = 1;
-            public static final int ROOM_SUPER_DELUXE = 2;
-            public static final int ROOM_SUITE = 3;
-
+            public static final String CHECKIN_DATE = "CheckIn_Date";
+            public static final String CHECKOUT_DATE = "CheckOut_Date";
+            public static final String ROOM_TYPE = "Room_Type";
         }
 }

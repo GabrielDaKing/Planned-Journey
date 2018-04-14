@@ -168,7 +168,7 @@ public class CreateNewTrain extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(CreateNewTrain.this,Main2Activity.class));
+                        startActivity(new Intent(CreateNewTrain.this,CreateNew.class));
                         Toast.makeText(CreateNewTrain.this, "YAY!", Toast.LENGTH_SHORT).show();
                     }
                 });

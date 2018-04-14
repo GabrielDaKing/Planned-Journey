@@ -27,8 +27,10 @@ public class SightseeingDBHelper extends SQLiteOpenHelper {
                 + SightseeingContract.SightseeingEntry.TICKET + "TEXT, "
                 + SightseeingContract.SightseeingEntry.TIME + "TEXT, "
                 + SightseeingContract.SightseeingEntry.DURATION + "TEXT,"
-                +"FORIEGN KEY ("+ SightseeingContract.SightseeingEntry.SIGHTSEEING_USER_ID + ") REFERENCES "
+                +"FOREIGN KEY ("+ SightseeingContract.SightseeingEntry.SIGHTSEEING_USER_ID + ") REFERENCES "
                 + UserContract.UserEntry._ID + ")";
+
+        sqLiteDatabase.execSQL(SQL_CREATE_SIGHTSEEING_TABLE);
     }
 
     @Override

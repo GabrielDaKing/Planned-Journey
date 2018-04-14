@@ -172,7 +172,7 @@ public class CreateNewBus extends AppCompatActivity {
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(CreateNewBus.this,Main2Activity.class));
+                            startActivity(new Intent(CreateNewBus.this,CreateNew.class));
                             Toast.makeText(CreateNewBus.this, "YAY!", Toast.LENGTH_SHORT).show();
                         }
                     });
