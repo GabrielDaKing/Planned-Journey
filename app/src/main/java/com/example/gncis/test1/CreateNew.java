@@ -70,7 +70,7 @@ public class CreateNew extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
+                Intent i = new Intent(CreateNew.this,CreateNewHotel.class);
                 startActivity(i);
             }
         });

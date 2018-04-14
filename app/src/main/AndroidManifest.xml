@@ -28,7 +28,8 @@
             android:label="@string/title_activity_create_new_train"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateNewBus" />
-        <activity android:name=".DisplayParts"></activity>
+        <activity android:name=".DisplayParts" />
+        <activity android:name=".CreateNewHotel"></activity>
     </application>
 
 </manifest>

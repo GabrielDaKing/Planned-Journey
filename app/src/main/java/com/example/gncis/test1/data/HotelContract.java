@@ -16,7 +16,7 @@ public class HotelContract {
             public static final String HOTEL_USER_ID = "User";
             public static final String HOTEL_ID= BaseColumns._ID;
             public static final String HOTEL_NAME= "Name";
-            public static final String LOCATION = "Loctaion";
+            public static final String LOCATION = "Location";
             public static final String DURATION = "Duration";
             public static final String CHECKIN_DATE = "CheckIn Date";
             public static final String CHECKOUT_DATE = "CheckOut Date";
