@@ -12,16 +12,16 @@ public final class FlightContract {
     public static final class FlightEntry implements BaseColumns{
 
         public static final String TABLE_NAME = "flights";
-        public static final String FLIGHT_USER_Id = "User Id";
+        public static final String FLIGHT_USER_Id = "User_Id";
         public static final String FLIGHT_ID= BaseColumns._ID;
         public static final String FLIGHT_NO = "Number";
-        public static final String FLIGHT_SEAT_NO = "SEAT Number";
+        public static final String FLIGHT_SEAT_NO = "SeatNumber";
         public static final String ORIGIN = "Origin";
         public static final String DESTINATION = "Destination";
-        public static final String DEPARTURE_DATE = "Departure Date";
-        public static final String DEPARTURE_TIME = "Departure Time";
-        public static final String ARRIVAL_DATE = "Arrival Date";
-        public static final String ARRIVAL_TIME = "Arrival Time";
+        public static final String DEPARTURE_DATE = "Departure_Date";
+        public static final String DEPARTURE_TIME = "Departure_Time";
+        public static final String ARRIVAL_DATE = "Arrival_Date";
+        public static final String ARRIVAL_TIME = "Arrival_Time";
         public static final String CLASS = "Class";
 
         public static final int CLASS_ECONOMY = 0;

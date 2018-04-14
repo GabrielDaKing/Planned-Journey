@@ -49,7 +49,6 @@ public class CreateNew extends AppCompatActivity {
 
     }
 
-    int seelction =1;
     public void onButtonClickListener(){
 
         btn1.setOnClickListener(new View.OnClickListener() {

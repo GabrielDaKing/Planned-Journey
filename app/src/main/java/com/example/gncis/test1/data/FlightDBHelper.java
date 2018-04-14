@@ -1,11 +1,15 @@
 package com.example.gncis.test1.data;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.gncis.test1.Flight;
 import com.example.gncis.test1.data.FlightContract.FlightEntry;
+
+import java.util.ArrayList;
 
 /**
  * Created by gncis on 16-Mar-18.
@@ -46,7 +50,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
                 + FlightEntry.ARRIVAL_DATE + " TEXT, "
                 + FlightEntry.ARRIVAL_TIME + " TEXT, "
                 + FlightEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ("+FlightEntry.FLIGHT_USER_Id+") REFERENCES "+UserContract.UserEntry._ID+" ) ";
+                + "FOREIGN KEY ( "+FlightEntry.FLIGHT_USER_Id+ ") REFERENCES "+UserContract.UserEntry._ID+" ) ";
 
         db.execSQL(SQL_CREATE_FLIGHT_TABLE);
     }
@@ -56,7 +60,54 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addFlight(Flight flight, int id){};
+    public void addFlight(Flight flight, int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(FlightEntry.FLIGHT_USER_Id, id);
+        contentValues.put(FlightEntry.FLIGHT_NO, flight.getFnumber());
+        contentValues.put(FlightEntry.FLIGHT_SEAT_NO, flight.getfSeat());
+        contentValues.put(FlightEntry.ORIGIN, flight.getfOrigin());
+        contentValues.put(FlightEntry.DESTINATION, flight.getfDestination());
+        contentValues.put(FlightEntry.DEPARTURE_DATE, flight.getfDepartureDate());
+        contentValues.put(FlightEntry.DEPARTURE_TIME, flight.getfDepartureTime());
+        contentValues.put(FlightEntry.ARRIVAL_DATE, flight.getfArrivalDate());
+        contentValues.put(FlightEntry.ARRIVAL_TIME, flight.getfArrivalTime());
+        contentValues.put(FlightEntry.CLASS, flight.getfClass());
+
+
+        sqLiteDatabase.insert(FlightEntry.TABLE_NAME, null, contentValues);
+    }
+
+    public ArrayList<Flight> displayFlights(int id){
+        Flight flight = new Flight();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + ";";
+
+        ArrayList<Flight> flights = new ArrayList<>();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+
+            flight.setFnumber(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+            flight.setfSeat(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_SEAT_NO)));
+            flight.setfOrigin(cursor.getString(cursor.getColumnIndex(FlightEntry.ORIGIN)));
+            flight.setfDestination(cursor.getString(cursor.getColumnIndex(FlightEntry.DESTINATION)));
+            flight.setfDepartureDate(cursor.getString(cursor.getColumnIndex(FlightEntry.DEPARTURE_DATE)));
+            flight.setfDepartureTime(cursor.getString(cursor.getColumnIndex(FlightEntry.DEPARTURE_TIME)));
+            flight.setfArrivalDate(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_DATE)));
+            flight.setfArrivalTime(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_TIME)));
+            flight.setfClass(cursor.getInt(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+
+            flights.add(flight);
+            cursor.moveToNext();
+        }
+
+        return flights;
+    }
 
     public void deleteFlight(){};
 }
