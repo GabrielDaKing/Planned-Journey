@@ -18,7 +18,6 @@ public class CreateNew extends AppCompatActivity {
 
     ActionBar bar;
     ImageButton btn1, btn2, btn3, btn4, can, cfrm;
-    int selection;
     UserDBHelper userDBHelper;
     static EditText name;
     Trip trip;
@@ -55,7 +54,6 @@ public class CreateNew extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
-                i.putExtra("selection"  , selection);
                 startActivity(i);
             }
         });
@@ -65,7 +63,6 @@ public class CreateNew extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent i = new Intent(CreateNew.this,CreateNewTrain.class);
-                i.putExtra("selection"  , selection);
                 startActivity(i);
             }
         });
@@ -74,7 +71,6 @@ public class CreateNew extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
-                i.putExtra("selection"  , selection);
                 startActivity(i);
             }
         });
@@ -83,7 +79,6 @@ public class CreateNew extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(CreateNew.this,CreateNewBus.class);
-                i.putExtra("selection"  , selection);
                 startActivity(i);
             }
         });
