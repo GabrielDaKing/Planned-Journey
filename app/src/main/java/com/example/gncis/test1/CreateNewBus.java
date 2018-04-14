@@ -22,10 +22,7 @@ import java.util.Locale;
 
 public class CreateNewBus extends AppCompatActivity {
 
-  
-
-        ImageView img1;
-        TextView head,txt1;
+        TextView head;
         ImageButton cncl,cnfrm;
         EditText StartDate, EndDate,StartTime,EndTime,number;
         Calendar myCalendar;

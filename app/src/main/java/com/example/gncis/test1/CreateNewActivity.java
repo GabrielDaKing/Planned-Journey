@@ -24,8 +24,7 @@ import java.util.Locale;
 
 public class CreateNewActivity extends AppCompatActivity {
 
-    ImageView img1;
-    TextView head,txt1;
+    TextView head;
     ImageButton cncl,cnfrm;
     EditText StartDate, EndDate,StartTime,EndTime;
     Calendar myCalendar;
@@ -40,13 +39,9 @@ public class CreateNewActivity extends AppCompatActivity {
 
         Bundle bun = getIntent().getExtras();
 
-        int select;
-
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
         cnfrm=findViewById(R.id.crm);
-
-        img1=findViewById(R.id.image1);
 
         StartTime=findViewById(R.id.StartTime2);
         EndTime=findViewById(R.id.EndTime2);
