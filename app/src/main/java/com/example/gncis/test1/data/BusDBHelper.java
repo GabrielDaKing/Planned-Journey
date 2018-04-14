@@ -1,8 +1,15 @@
 package com.example.gncis.test1.data;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.gncis.test1.Bus;
+import com.example.gncis.test1.Flight;
+
+import java.util.ArrayList;
 
 /**
  * Created by Anant on 3/29/2018.
@@ -30,8 +37,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
                 + BusContract.BusEntry.DEPARTURE_TIME + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_DATE + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_TIME + " TEXT, "
-                + BusContract.BusEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ("+ BusContract.BusEntry.BUS_USER_Id+") REFERENCES "+UserContract.UserEntry._ID+" ) ";
+                + BusContract.BusEntry.CLASS + " INTEGER " + " ) ";
 
         db.execSQL(SQL_CREATE_BUS_TABLE);
     }
@@ -40,4 +46,55 @@ public class BusDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public void addBus(Bus bus, int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(BusContract.BusEntry.BUS_USER_Id, id);
+        contentValues.put(BusContract.BusEntry.BUS_NO, bus.getbNumber());
+        contentValues.put(BusContract.BusEntry.BUS_SEAT_NO, bus.getbSeat());
+        contentValues.put(BusContract.BusEntry.ORIGIN, bus.getbOrigin());
+        contentValues.put(BusContract.BusEntry.DESTINATION, bus.getbDestination());
+        contentValues.put(BusContract.BusEntry.DEPARTURE_DATE, bus.getbDepartureDate());
+        contentValues.put(BusContract.BusEntry.DEPARTURE_TIME, bus.getbDepartureTime());
+        contentValues.put(BusContract.BusEntry.ARRIVAL_DATE, bus.getbArrivalDate());
+        contentValues.put(BusContract.BusEntry.ARRIVAL_TIME, bus.getbArrivalTime());
+        contentValues.put(BusContract.BusEntry.CLASS, bus.getbClass());
+
+
+        sqLiteDatabase.insert(BusContract.BusEntry.TABLE_NAME, null, contentValues);
+    }
+
+    public ArrayList<Bus> displayBuses(int id){
+        Bus bus = new Bus();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String query = "SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " +id + ";";
+
+        ArrayList<Bus> buses = new ArrayList<>();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+
+            bus.setbNumber(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.BUS_NO)));
+            bus.setbSeat(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.BUS_SEAT_NO)));
+            bus.setbOrigin(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.ORIGIN)));
+            bus.setbDestination(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.DESTINATION)));
+            bus.setbDepartureDate(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.DEPARTURE_DATE)));
+            bus.setbDepartureTime(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.DEPARTURE_TIME)));
+            bus.setbArrivalDate(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.ARRIVAL_DATE)));
+            bus.setbArrivalTime(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.ARRIVAL_TIME)));
+            bus.setbClass(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.CLASS)));
+
+            buses.add(bus);
+            cursor.moveToNext();
+        }
+
+        return buses;
+    }
+
+    public void deleteBus(){};
 }

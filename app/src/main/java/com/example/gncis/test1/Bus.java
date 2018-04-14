@@ -10,6 +10,13 @@ public class Bus {
     private String bSeat;
     private String bOrigin;
     private String bDestination;
+    private String bDepartureDate;
+    private String bDepartureTime;
+    private String bArrivalDate;
+    private String bArrivalTime;
+    private String bClass;
+
+
 
     public String getbNumber() {
         return bNumber;
@@ -75,17 +82,13 @@ public class Bus {
         this.bArrivalTime = bArrivalTime;
     }
 
-    public int getbClass() {
+    public String getbClass() {
         return bClass;
     }
 
-    public void setbClass(int bClass) {
+    public void setbClass(String bClass) {
         this.bClass = bClass;
     }
 
-    private String bDepartureDate;
-    private String bDepartureTime;
-    private String bArrivalDate;
-    private String bArrivalTime;
-    private int bClass;
+
 }
