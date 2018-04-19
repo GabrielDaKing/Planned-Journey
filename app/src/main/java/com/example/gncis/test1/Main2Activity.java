@@ -130,6 +130,8 @@ public class Main2Activity extends AppCompatActivity {
             case R.id.sign_out:
                 AuthUI.getInstance().signOut(this);
                 return true;
+
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -143,7 +145,7 @@ public class Main2Activity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null)
                     if (user.getDisplayName() != null)
-                        Toast.makeText(this, "Welcome to Tripese, " + user.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Welcome to Tripeze, " + user.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
             }
             else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Sign In Cancelled!", Toast.LENGTH_SHORT).show();

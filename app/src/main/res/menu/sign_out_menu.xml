@@ -4,7 +4,11 @@
     <item
         android:id="@+id/sign_out"
         android:title="SignOut">
-
+    </item>
+    <item
+        android:id="@+id/about"
+        android:title="About">
+        
     </item>
 
 </menu>
