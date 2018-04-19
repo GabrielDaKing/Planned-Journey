@@ -1,9 +1,9 @@
 package com.example.gncis.test1;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -31,7 +31,7 @@ public class ViewOld extends AppCompatActivity {
 
         userDBHelper =new UserDBHelper(getApplicationContext());
 
-        trips = userDBHelper.displayAllNewTrips();
+        userDBHelper.displayAllNewTrips();
 
         final ListView listView = findViewById(R.id.currentTripsList);
         tripAdapter = new TripAdapter(this, R.layout.user_tile, trips);

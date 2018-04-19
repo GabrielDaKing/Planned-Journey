@@ -132,7 +132,7 @@
                     android:src="@drawable/ic_event_busy_black_24dp" />
 
                 <EditText
-                    android:id="@+id/destination"
+                    android:id="@+id/EndDate2"
                     android:layout_width="0dp"
                     android:hint="Check-Out Date : DD-MM-YY"
                     android:layout_height="44dp"
@@ -161,6 +161,34 @@
                     android:clickable="true"
                     android:layout_height="44dp"
                     android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="5dp"
+                android:layout_weight="4"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/crm"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="30dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/confrim_button" />
+
+                <ImageButton
+                    android:id="@+id/ccl"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="30dp"
+                    android:background="@color/colorPrimaryLight"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cancel_button" />
+
 
             </LinearLayout>
 

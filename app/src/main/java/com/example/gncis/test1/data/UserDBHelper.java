@@ -5,13 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.gncis.test1.R;
 import com.example.gncis.test1.Trip;
-import com.example.gncis.test1.TripAdapter;
-import com.firebase.ui.auth.data.model.User;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -56,7 +51,6 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public ArrayList<Trip> displayAllNewTrips(){
 
-        Trip trip = new Trip();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         DateFormat df = new SimpleDateFormat("d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
@@ -68,12 +62,10 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         //int i=0;
         while (!cursor.isAfterLast()) {
-
-
+            Trip trip = new Trip();
             trip.setTripName(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER)));
             trip.settSDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE)));
             trip.settEDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE)));
-
             trips.add(trip);
             cursor.moveToNext();
         }

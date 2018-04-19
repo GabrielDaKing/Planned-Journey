@@ -1,7 +1,7 @@
 package com.example.gncis.test1;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class DisplayParts extends AppCompatActivity {
@@ -30,8 +30,5 @@ public class DisplayParts extends AppCompatActivity {
             sDATE.setText(trip.gettSDate());
             eDATE.setText(trip.gettEDate());
         }
-
-
-
     }
 }

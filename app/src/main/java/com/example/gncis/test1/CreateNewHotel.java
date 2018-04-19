@@ -27,9 +27,8 @@ public class CreateNewHotel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_new_bus);
+        setContentView(R.layout.activity_create_new_hotel);
 
-        number=findViewById(R.id.num);
         myCalendar = Calendar.getInstance();
 
         head=findViewById(R.id.head);
@@ -107,10 +106,6 @@ public class CreateNewHotel extends AppCompatActivity {
         cnfrm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(number==null)
-                    Toast.makeText(CreateNewHotel.this, "Enter Bus Number", Toast.LENGTH_SHORT).show();
-                else
-                {
                     AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
                     builder.setMessage("Are you want to create this trip ?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -127,7 +122,6 @@ public class CreateNewHotel extends AppCompatActivity {
                         }
                     });
                     builder.show();
-                }
             }
         });
     }
