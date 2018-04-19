@@ -4,14 +4,13 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -36,8 +35,6 @@ public class CreateNewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_new2);
 
         myCalendar = Calendar.getInstance();
-
-        Bundle bun = getIntent().getExtras();
 
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
@@ -68,12 +65,9 @@ public class CreateNewActivity extends AppCompatActivity {
             }
         };
 
-
-
         StartTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Calendar mcurrentTime=Calendar.getInstance();
                 int hour=mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute=mcurrentTime.get(Calendar.MINUTE);
@@ -91,14 +85,13 @@ public class CreateNewActivity extends AppCompatActivity {
         EndTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Calendar mcurrentTime=Calendar.getInstance();
                 int hour=mcurrentTime.get(Calendar.HOUR_OF_DAY);
                 int minute=mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog mTimePicker=new TimePickerDialog(CreateNewActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        StartTime.setText(i+":"+i1);
+                        EndTime.setText(i + ":" + i1);
                     }
                 },hour,minute,true);
                 mTimePicker.setTitle("Select Time");
@@ -106,13 +99,11 @@ public class CreateNewActivity extends AppCompatActivity {
             }
         });
 
-        StartDate = (EditText) findViewById(R.id.StartDate2);
-        EndDate = (EditText) findViewById(R.id.EndDate2);
+        StartDate = findViewById(R.id.StartDate2);
+        EndDate = findViewById(R.id.EndDate2);
         StartDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
                 new DatePickerDialog(CreateNewActivity.this, stdate, myCalendar.
                         get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
@@ -133,9 +124,8 @@ public class CreateNewActivity extends AppCompatActivity {
         cncl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
-                builder.setMessage("Are you want to cancel creating this journey ?");
+                builder.setMessage("Are you sure you want to cancel creating this journey?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -158,10 +148,8 @@ public class CreateNewActivity extends AppCompatActivity {
         cnfrm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
-                builder.setMessage("Are you want to create this trip ?");
+                builder.setMessage("Are you sure you want to create this trip?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -185,14 +173,12 @@ public class CreateNewActivity extends AppCompatActivity {
     private void updateLabel1() {
         String myFormat = "d MMM yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
-
         StartDate.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void updateLabel2() {
         String myFormat = "d MMM yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
-
         EndDate.setText(sdf.format(myCalendar.getTime()));
     }
 }

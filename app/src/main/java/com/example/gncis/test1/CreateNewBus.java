@@ -4,14 +4,13 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -35,23 +34,14 @@ public class CreateNewBus extends AppCompatActivity {
             number=findViewById(R.id.num);
             myCalendar = Calendar.getInstance();
 
-            Bundle bun = getIntent().getExtras();
-
-            int select;
-
             head=findViewById(R.id.head);
             cncl=findViewById(R.id.ccl);
             cnfrm=findViewById(R.id.crm);
-
-            //img1=findViewById(R.id.image1);
 
             StartTime=findViewById(R.id.StartTime2);
             EndTime=findViewById(R.id.EndTime2);
             StartDate=findViewById(R.id.StartDate2);
             EndDate=findViewById(R.id.EndDate2);
-
-
-            select = bun.getInt("selection");
 
             final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
                 @Override
@@ -78,7 +68,6 @@ public class CreateNewBus extends AppCompatActivity {
             StartTime.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Calendar mcurrentTime=Calendar.getInstance();
                     int hour=mcurrentTime.get(Calendar.HOUR_OF_DAY);
                     int minute=mcurrentTime.get(Calendar.MINUTE);
@@ -96,14 +85,13 @@ public class CreateNewBus extends AppCompatActivity {
             EndTime.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Calendar mcurrentTime=Calendar.getInstance();
                     int hour=mcurrentTime.get(Calendar.HOUR_OF_DAY);
                     int minute=mcurrentTime.get(Calendar.MINUTE);
                     TimePickerDialog mTimePicker=new TimePickerDialog(CreateNewBus.this, new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                            StartTime.setText(i+":"+i1);
+                            EndTime.setText(i + ":" + i1);
                         }
                     },hour,minute,true);
                     mTimePicker.setTitle("Select Time");
@@ -115,8 +103,6 @@ public class CreateNewBus extends AppCompatActivity {
             StartDate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
                     new DatePickerDialog(CreateNewBus.this, stdate, myCalendar.
                             get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
                 }
@@ -137,7 +123,6 @@ public class CreateNewBus extends AppCompatActivity {
         cncl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewBus.this);
                 builder.setMessage("Are you want to cancel creating this journey ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -162,7 +147,6 @@ public class CreateNewBus extends AppCompatActivity {
         cnfrm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if(number==null)
                     Toast.makeText(CreateNewBus.this, "Enter Bus Number", Toast.LENGTH_SHORT).show();
                 else
@@ -184,9 +168,6 @@ public class CreateNewBus extends AppCompatActivity {
                     });
                     builder.show();
                 }
-
-
-
             }
         });
     }
@@ -194,14 +175,12 @@ public class CreateNewBus extends AppCompatActivity {
     private void updateLabel1() {
         String myFormat = "dd/MM/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
-
         StartDate.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void updateLabel2() {
         String myFormat = "dd/MM/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
-
         EndDate.setText(sdf.format(myCalendar.getTime()));
     }
 }

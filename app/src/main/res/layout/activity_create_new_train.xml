@@ -251,6 +251,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
+                    android:inputType="number"
                     android:hint="Members in the Party "/>
 
             </LinearLayout>
