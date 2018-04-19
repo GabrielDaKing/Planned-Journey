@@ -64,7 +64,7 @@
                     android:id="@+id/bus"
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_directions_bus_black_36dp" />
+                    android:src="@drawable/sic_directions_bus_black_36dp" />
 
                 <EditText
                     android:id="@+id/num"
@@ -250,7 +250,6 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:inputType="number"
                     android:hint="Members in the Party "/>
 
             </LinearLayout>

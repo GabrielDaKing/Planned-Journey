@@ -61,8 +61,8 @@ public class UserDBHelper extends SQLiteOpenHelper{
         DateFormat df = new SimpleDateFormat("d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
         ArrayList<Trip> trips = new ArrayList<>();
-        //String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.END_DATE  + " > " + "\"" + date + "\";";
-        String query ="select * from " + UserContract.UserEntry.TABLE_NAME;
+        String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.END_DATE  + " > " + "\"" + date + "\";";
+
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         cursor.moveToFirst();
 
@@ -110,10 +110,5 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         cursor.close();
         return trips;
-    }
-
-    public void deleteAll(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM "+ UserContract.UserEntry.TABLE_NAME);
     }
 }

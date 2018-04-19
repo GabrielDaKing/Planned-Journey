@@ -11,9 +11,9 @@ public class SightseeingContract {
     private  SightseeingContract(){}
     public static final class SightseeingEntry implements BaseColumns{
         public static final String TABLE_NAME = "SIGHTSEEING";
-        public static final String SIGHTSEEING_USER_ID = "SIGHTSEEING_USER_ID";
+        public static final String SIGHTSEEING_USER_ID = "SIGHTSEEING USER ID";
         public static final String SIGHTSEEING_ID = BaseColumns._ID;
-        public static final String SIGHTSEEING_NAME = "SIGHTSEEING_NAME";
+        public static final String SIGHTSEEING_NAME = "SIGHTSEEING NAME";
         public static final String SIGHTSEEING_Date = "Date";
         public static final String LOCATION = "LOCATION";
         public static final String TICKET = "TICKET";

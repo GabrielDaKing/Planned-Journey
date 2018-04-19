@@ -11,8 +11,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,45 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Main2Activity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ViewCurrent"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".CreateNew"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ViewOld"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".CreateNewActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".ViewCurrent" />
+        <activity android:name=".CreateNew" />
+        <activity android:name=".ViewOld" />
+        <activity android:name=".CreateNewActivity" />
         <activity
             android:name=".CreateNewTrain"
-            android:configChanges="orientation"
             android:label="@string/title_activity_create_new_train"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".CreateNewBus"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".DisplayParts"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".CreateNewHotel"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait" />
-        <activity android:name=".About"></activity>
+        <activity android:name=".CreateNewBus" />
+        <activity android:name=".DisplayParts" />
+        <activity android:name=".CreateNewHotel"></activity>
     </application>
 
 </manifest>
