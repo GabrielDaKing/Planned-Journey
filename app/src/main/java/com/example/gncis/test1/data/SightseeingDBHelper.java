@@ -18,8 +18,8 @@ public class SightseeingDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String SQL_CREATE_SIGHTSEEING_TABLE = "CREATE TABLE " + SightseeingContract.SightseeingEntry.TABLE_NAME + "("
-                + SightseeingContract.SightseeingEntry.SIGHTSEEING_USER_ID + "INTEGER, "
+        String SQL_CREATE_SIGHTSEEING_TABLE = "CREATE TABLE " + SightseeingContract.SightseeingEntry.TABLE_NAME + " ( "
+                + SightseeingContract.SightseeingEntry.SIGHTSEEING_USER_ID + " INTEGER, "
                 + SightseeingContract.SightseeingEntry.SIGHTSEEING_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + SightseeingContract.SightseeingEntry.SIGHTSEEING_NAME + "TEXT, "
                 + SightseeingContract.SightseeingEntry.LOCATION + "TEXT, "

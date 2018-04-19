@@ -23,10 +23,5 @@ public final class FlightContract {
         public static final String ARRIVAL_DATE = "Arrival_Date";
         public static final String ARRIVAL_TIME = "Arrival_Time";
         public static final String CLASS = "Class";
-
-        public static final int CLASS_ECONOMY = 0;
-        public static final int CLASS_BUSINESS = 1;
-        public static final int CLASS_FIRST = 2;
-
     }
 }

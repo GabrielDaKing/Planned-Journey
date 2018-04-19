@@ -32,6 +32,7 @@ public class TripAdapter extends ArrayAdapter<Trip> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
         if(convertView == null)
             convertView = ((Activity) getContext()).getLayoutInflater().inflate(R.layout.user_tile, parent,false);
 
@@ -41,7 +42,7 @@ public class TripAdapter extends ArrayAdapter<Trip> {
 
         linearLayout = convertView.findViewById(R.id.trip_tile);
 
-        final Trip trip = getItem(position);
+        Trip trip = getItem(position);
 
         assert trip != null;
 

@@ -17,6 +17,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ViewCurrent extends AppCompatActivity {
 
@@ -39,7 +40,7 @@ public class ViewCurrent extends AppCompatActivity {
 
         trips = userDBHelper.displayAllNewTrips();
 
-        final ListView listView = findViewById(R.id.currentTripsList);
+        ListView listView = findViewById(R.id.currentTripsList);
         tripAdapter = new TripAdapter(this, R.layout.user_tile, trips);
         listView.setAdapter(tripAdapter);
 
