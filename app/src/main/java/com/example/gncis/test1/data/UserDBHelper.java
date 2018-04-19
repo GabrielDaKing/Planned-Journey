@@ -111,4 +111,9 @@ public class UserDBHelper extends SQLiteOpenHelper{
         cursor.close();
         return trips;
     }
+
+    public void deleteAll(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM "+ UserContract.UserEntry.TABLE_NAME);
+    }
 }
