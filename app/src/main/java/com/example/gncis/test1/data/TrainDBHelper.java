@@ -2,14 +2,18 @@ package com.example.gncis.test1.data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.gncis.test1.Hotel;
 import com.example.gncis.test1.Train;
-import com.example.gncis.test1.Trip;
+
+
+import java.util.ArrayList;
 
 /**
- * Created by Anant on 3/29/2018.
+ * Created by Apoorva on 4/21/18
  */
 
 public class TrainDBHelper extends SQLiteOpenHelper {
@@ -48,6 +52,66 @@ public class TrainDBHelper extends SQLiteOpenHelper {
     public void addTrain(Train train, int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(TrainContract.TrainEntry.TRAIN_ID,train.getTid());
+        contentValues.put(TrainContract.TrainEntry.TRAIN_NO,train.getTnumber());
+        contentValues.put(TrainContract.TrainEntry.TRAIN_SEAT_NO,train.gettSeat());
+        contentValues.put(TrainContract.TrainEntry.ORIGIN,train.gettOrigin());
+        contentValues.put(TrainContract.TrainEntry.DESTINATION,train.gettDestination());
+        contentValues.put(TrainContract.TrainEntry.DEPARTURE_DATE,train.gettDepartureDate());
+        contentValues.put(TrainContract.TrainEntry.DEPARTURE_TIME,train.gettDepartureTime());
+        contentValues.put(TrainContract.TrainEntry.ARRIVAL_DATE,train.gettArrivalDate());
+        contentValues.put(TrainContract.TrainEntry.ARRIVAL_TIME,train.gettArrivalTime());
+        contentValues.put(TrainContract.TrainEntry.CLASS,train.gettClass());
+        sqLiteDatabase.insert(TrainContract.TrainEntry.TABLE_NAME, null, contentValues);
+    }
+    public ArrayList<Train> displayTrains(int id){
 
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id + ";";
+
+        ArrayList<Train> trains = new ArrayList<>();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+
+            Train train = new Train();
+
+
+            train.setTnumber(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.TRAIN_NO)));
+            train.settSeat(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.TRAIN_SEAT_NO)));
+            train.settOrigin(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.ORIGIN)));
+            train.settDestination(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.DESTINATION)));
+            train.settDepartureDate(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.DEPARTURE_DATE)));
+            train.settDepartureTime(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.DEPARTURE_TIME)));
+            train.settArrivalDate(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.ARRIVAL_DATE)));
+            train.settArrivalTime(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.ARRIVAL_TIME)));
+
+
+            trains.add(train);
+            cursor.moveToNext();
+        }
+
+        return trains;
+    }
+    public void deleteTrainofTrip(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id ;
+        sqLiteDatabase.execSQL(Query);
+    }
+    public void deleteTrainint(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id ;
+        sqLiteDatabase.execSQL(Query);
     }
 }
+
+
+
+
+
+
