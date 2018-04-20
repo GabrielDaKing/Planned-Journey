@@ -50,13 +50,6 @@ public class TripAdapter extends ArrayAdapter<Trip> {
         StartDate.setText(trip.gettSDate());
         EndDate.setText(trip.gettEDate());
 
-        linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         return convertView;
     }
 

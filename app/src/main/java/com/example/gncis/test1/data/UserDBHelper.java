@@ -56,7 +56,6 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public ArrayList<Trip> displayAllNewTrips(){
 
-        Trip trip = new Trip();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         DateFormat df = new SimpleDateFormat("d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
@@ -69,7 +68,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
         //int i=0;
         while (!cursor.isAfterLast()) {
 
-
+            Trip trip = new Trip();
             trip.setTripName(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER)));
             trip.settSDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE)));
             trip.settEDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE)));
@@ -86,7 +85,6 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public ArrayList<Trip> displayAllOldTrips(){
 
-        Trip trip = new Trip();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
         DateFormat df = new SimpleDateFormat("d MMM yyyy");
         String date = df.format(Calendar.getInstance().getTime());
@@ -98,7 +96,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         while (!cursor.isAfterLast()) {
 
-
+            Trip trip = new Trip();
             trip.setTripName(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER)));
             trip.settSDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE)));
             trip.settEDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE)));
