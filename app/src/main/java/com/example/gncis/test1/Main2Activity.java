@@ -1,25 +1,29 @@
 package com.example.gncis.test1;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.transition.TransitionManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.transition.Explode;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import android.view.animation.AnticipateOvershootInterpolator;
 import java.util.Arrays;
 
 
 public class Main2Activity extends AppCompatActivity {
+
 
     Button btn1;
     Button btn2;
@@ -78,8 +82,11 @@ public class Main2Activity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main2Activity.this, "View Current trip", Toast.LENGTH_SHORT).show();
+
+               Toast.makeText(Main2Activity.this, "View Current trip", Toast.LENGTH_SHORT).show();
+
                 startActivity(new Intent(Main2Activity.this , ViewCurrent.class));
+
             }
         });
 
@@ -100,6 +107,7 @@ public class Main2Activity extends AppCompatActivity {
         });
 
     }
+
 
     @Override
     protected void onPause(){
@@ -130,8 +138,6 @@ public class Main2Activity extends AppCompatActivity {
             case R.id.sign_out:
                 AuthUI.getInstance().signOut(this);
                 return true;
-
-
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -145,7 +151,7 @@ public class Main2Activity extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user != null)
                     if (user.getDisplayName() != null)
-                        Toast.makeText(this, "Welcome to Tripeze, " + user.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Welcome to Tripese, " + user.getDisplayName() + "!", Toast.LENGTH_SHORT).show();
             }
             else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Sign In Cancelled!", Toast.LENGTH_SHORT).show();

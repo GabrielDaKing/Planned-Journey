@@ -1,16 +1,19 @@
 package com.example.gncis.test1;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -32,12 +35,19 @@ public class CreateNewHotel extends AppCompatActivity {
         number=findViewById(R.id.num);
         myCalendar = Calendar.getInstance();
 
+        Bundle bun = getIntent().getExtras();
+
+        int select;
+
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
         cnfrm=findViewById(R.id.crm);
         
         StartDate=findViewById(R.id.StartDate2);
         EndDate=findViewById(R.id.EndDate2);
+
+
+        select = bun.getInt("selection");
 
         final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -83,6 +93,7 @@ public class CreateNewHotel extends AppCompatActivity {
         cncl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
                 builder.setMessage("Are you want to cancel creating this journey ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -107,6 +118,7 @@ public class CreateNewHotel extends AppCompatActivity {
         cnfrm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(number==null)
                     Toast.makeText(CreateNewHotel.this, "Enter Bus Number", Toast.LENGTH_SHORT).show();
                 else
@@ -135,12 +147,14 @@ public class CreateNewHotel extends AppCompatActivity {
     private void updateLabel1() {
         String myFormat = "dd/MM/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
+
         StartDate.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void updateLabel2() {
         String myFormat = "dd/MM/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
+
         EndDate.setText(sdf.format(myCalendar.getTime()));
     }
 }

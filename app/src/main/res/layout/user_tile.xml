@@ -6,7 +6,7 @@
     android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="@drawable/buttom_custom">
+    android:background="#000000">
 
     <ImageView
         android:layout_width="60dp"
@@ -20,11 +20,15 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:hint="Trip Name"/>
+            android:fontFamily="@font/aentury"
+            android:hint="Trip Name"
+            android:text="Trip Name"
+            android:textColor="@android:color/background_light" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,17 +36,23 @@
 
             <TextView
                 android:id="@+id/sDate"
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="Start Date"/>
+                android:layout_weight="1"
+                android:fontFamily="@font/aentury"
+                android:hint="Start Date"
+                android:text="Start Date"
+                android:textColor="@android:color/background_light" />
 
             <TextView
                 android:id="@+id/eDate"
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="End Date"/>
+                android:layout_weight="1"
+                android:fontFamily="@font/aentury"
+                android:hint="End Date"
+                android:text="End Date"
+                android:textColor="@android:color/background_light" />
 
         </LinearLayout>
 
