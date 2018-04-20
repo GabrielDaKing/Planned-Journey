@@ -12,6 +12,15 @@ public class Hotel {
     private String hCheckinDate;
     private String hCheckoutDate;
     private int hRoomType;
+    private int hid;
+
+    public int getHid() {
+        return hid;
+    }
+
+    public void setHid(int hid) {
+        this.hid = hid;
+    }
 
     public String gethName() {
         return hName;

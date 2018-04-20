@@ -20,6 +20,7 @@ public class Trip  {
         this.TripName = "NULL";
         this.tSDate = "N/A";
         this.tEDate = "N/A";
+        this.id = -1;
     }
 
     public String getTripName() {

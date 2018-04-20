@@ -138,6 +138,9 @@ public class Main2Activity extends AppCompatActivity {
             case R.id.sign_out:
                 AuthUI.getInstance().signOut(this);
                 return true;
+            case R.id.about:
+                startActivity(new Intent(Main2Activity.this , About.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -15,6 +15,15 @@ public class Flight {
     private String fArrivalDate;
     private String fArrivalTime;
     private int fClass;
+    private int fid;
+
+    public int getFid() {
+        return fid;
+    }
+
+    public void setFid(int fid) {
+        this.fid = fid;
+    }
 
     public String getFnumber() {
         return fnumber;

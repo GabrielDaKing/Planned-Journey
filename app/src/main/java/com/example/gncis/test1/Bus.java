@@ -10,6 +10,15 @@ public class Bus {
     private String bSeat;
     private String bOrigin;
     private String bDestination;
+    private int bid;
+
+    public int getBid() {
+        return bid;
+    }
+
+    public void setBid(int bid) {
+        this.bid = bid;
+    }
 
     public String getbNumber() {
         return bNumber;
