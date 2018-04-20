@@ -16,7 +16,15 @@ public class Train {
     private String tArrivalDate;
     private String tArrivalTime;
     private int tClass;
+    private int tid;
 
+    public int getTid() {
+        return tid;
+    }
+
+    public void setTid(int tid) {
+        this.tid = tid;
+    }
 
     public String gettName() {
         return tName;
