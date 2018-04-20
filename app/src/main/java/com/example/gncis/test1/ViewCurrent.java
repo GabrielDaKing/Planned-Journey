@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.gncis.test1.data.UserContract;
 import com.example.gncis.test1.data.UserDBHelper;
@@ -52,7 +53,8 @@ public class ViewCurrent extends AppCompatActivity {
                 bundle.putString("name", trip.getTripName());
                 bundle.putString("sdate", trip.gettSDate());
                 bundle.putString("edate", trip.gettEDate());
-                startActivity(new Intent(ViewCurrent.this,DisplayParts.class).putExtra("trip", bundle));
+                Toast.makeText(ViewCurrent.this, "Details of trip "+ trip.getTripName(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ViewCurrent.this,DisplayParts.class).putExtra("TRIP", bundle));
 
             }
         });

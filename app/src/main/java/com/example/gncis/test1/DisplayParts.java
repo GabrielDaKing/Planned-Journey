@@ -20,14 +20,14 @@ public class DisplayParts extends AppCompatActivity {
         sDATE=findViewById(R.id.sDate);
         eDATE=findViewById(R.id.edate);
 
-        Bundle bundle = getIntent().getBundleExtra("trip");
+        Bundle bundle = getIntent().getBundleExtra("TRIP");
         if(bundle != null){
             trip.setTripName(bundle.getString("name"));
             trip.settSDate(bundle.getString("sdate"));
             trip.settEDate(bundle.getString("edate"));
 
             NAME.setText(trip.getTripName());
-            sDATE.setText(trip.gettSDate());
+            //sDATE.setText(trip.gettSDate());
             eDATE.setText(trip.gettEDate());
         }
 
