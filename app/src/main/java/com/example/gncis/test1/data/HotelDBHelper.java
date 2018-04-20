@@ -6,12 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.gncis.test1.Flight;
+
 
 import java.util.ArrayList;
 
 import com.example.gncis.test1.Hotel;
-import com.example.gncis.test1.data.FlightContract.FlightEntry;
+
 /**
  * Created by Apoorva on 4/21/2018.
  */
