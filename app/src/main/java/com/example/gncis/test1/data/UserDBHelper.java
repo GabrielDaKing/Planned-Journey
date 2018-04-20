@@ -99,6 +99,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
             trip.setTripName(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER)));
             trip.settSDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE)));
             trip.settEDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE)));
+            trip.setId(cursor.getInt(cursor.getColumnIndex(UserContract.UserEntry.USER_ID)));
 
             trips.add(trip);
             cursor.moveToNext();

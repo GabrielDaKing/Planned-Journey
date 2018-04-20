@@ -110,9 +110,17 @@ public class FlightDBHelper extends SQLiteOpenHelper {
         return flights;
     }
 
-    public void deleteFlight(){
+    public void deleteFlightOfTrip(int id){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String Query = "DE"
-    };
+        String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id;
+        sqLiteDatabase.execSQL(Query);
+    }
+
+    public void deleteFlightint(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id;
+        sqLiteDatabase.execSQL(Query);
+    }
 }

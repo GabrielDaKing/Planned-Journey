@@ -57,6 +57,7 @@ public class ViewCurrent extends AppCompatActivity {
                 bundle.putString("name", trip.getTripName());
                 bundle.putString("sdate", trip.gettSDate());
                 bundle.putString("edate", trip.gettEDate());
+                bundle.putInt("id", trip.getId());
                 Toast.makeText(ViewCurrent.this, "Details of trip "+ trip.getTripName(), Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(ViewCurrent.this,DisplayParts.class).putExtra("TRIP", bundle));
 

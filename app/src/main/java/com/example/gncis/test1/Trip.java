@@ -10,22 +10,11 @@ import java.text.DateFormat;
  */
 
 public class Trip  {
-/*
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeS
-    } */
-
-
 
     public String TripName;
     public String tSDate;
     public String tEDate;
+    public int id;
 
     public Trip() {
         this.TripName = "NULL";
@@ -55,5 +44,13 @@ public class Trip  {
 
     public void settEDate(String tEDate) {
         this.tEDate = tEDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

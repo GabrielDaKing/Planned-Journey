@@ -29,7 +29,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateNewBus" />
         <activity android:name=".DisplayParts" />
-        <activity android:name=".CreateNewHotel"></activity>
+        <activity android:name=".CreateNewHotel" />
+        <activity android:name=".DisplayPartsFlight"></activity>
     </application>
 
 </manifest>
