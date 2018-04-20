@@ -66,7 +66,7 @@ public class Hotel {
         return hRoomType;
     }
 
-    public void sethRoomType(int hRoomType) {
+    public void sethRoomType(String hRoomType) {
         this.hRoomType = hRoomType;
     }
 }
