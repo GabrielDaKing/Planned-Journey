@@ -14,7 +14,7 @@ public class Flight {
     private String fDepartureTime;
     private String fArrivalDate;
     private String fArrivalTime;
-    private int fClass;
+    private String fClass;
     private int fid;
 
     public int getFid() {
@@ -89,11 +89,11 @@ public class Flight {
         this.fArrivalTime = fArrivalTime;
     }
 
-    public int getfClass() {
+    public String getfClass() {
         return fClass;
     }
 
-    public void setfClass(int fClass) {
+    public void setfClass(String fClass) {
         this.fClass = fClass;
     }
 }

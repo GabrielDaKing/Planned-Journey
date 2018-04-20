@@ -15,7 +15,7 @@ public class Train {
     private String tDepartureTime;
     private String tArrivalDate;
     private String tArrivalTime;
-    private int tClass;
+    private String tClass;
     private int tid;
 
     public int getTid() {
@@ -98,11 +98,11 @@ public class Train {
         this.tArrivalTime = tArrivalTime;
     }
 
-    public int gettClass() {
+    public String gettClass() {
         return tClass;
     }
 
-    public void settClass(int tClass) {
+    public void settClass(String tClass) {
         this.tClass = tClass;
     }
 

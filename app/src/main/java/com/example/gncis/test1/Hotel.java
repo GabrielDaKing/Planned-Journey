@@ -11,7 +11,7 @@ public class Hotel {
     private String hDuration;
     private String hCheckinDate;
     private String hCheckoutDate;
-    private int hRoomType;
+    private String hRoomType;
     private int hid;
 
     public int getHid() {
@@ -62,7 +62,7 @@ public class Hotel {
         this.hCheckoutDate = hCheckoutDate;
     }
 
-    public int gethRoomType() {
+    public String gethRoomType() {
         return hRoomType;
     }
 

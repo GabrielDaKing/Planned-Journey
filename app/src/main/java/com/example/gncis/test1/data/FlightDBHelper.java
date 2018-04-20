@@ -101,7 +101,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
             flight.setfDepartureTime(cursor.getString(cursor.getColumnIndex(FlightEntry.DEPARTURE_TIME)));
             flight.setfArrivalDate(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_DATE)));
             flight.setfArrivalTime(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_TIME)));
-            flight.setfClass(cursor.getInt(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+            flight.setfClass(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
 
             flights.add(flight);
             cursor.moveToNext();
