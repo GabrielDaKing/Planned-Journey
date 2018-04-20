@@ -80,7 +80,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Flight> displayFlights(int id){
-        Flight flight = new Flight();
+
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + ";";
@@ -92,6 +92,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
         while (!cursor.isAfterLast()) {
 
+            Flight flight = new Flight();
             flight.setFnumber(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
             flight.setfSeat(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_SEAT_NO)));
             flight.setfOrigin(cursor.getString(cursor.getColumnIndex(FlightEntry.ORIGIN)));
@@ -109,5 +110,9 @@ public class FlightDBHelper extends SQLiteOpenHelper {
         return flights;
     }
 
-    public void deleteFlight(){};
+    public void deleteFlight(){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "DE"
+    };
 }

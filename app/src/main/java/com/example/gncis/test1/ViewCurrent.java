@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -13,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.gncis.test1.data.UserContract;
 import com.example.gncis.test1.data.UserDBHelper;
+import com.firebase.ui.auth.AuthUI;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -59,5 +63,23 @@ public class ViewCurrent extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.delete_all_trips, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.delete_all:
+                userDBHelper.deleteAllTrips();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

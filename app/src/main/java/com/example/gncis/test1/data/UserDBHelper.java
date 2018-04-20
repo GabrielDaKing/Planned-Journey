@@ -77,7 +77,6 @@ public class UserDBHelper extends SQLiteOpenHelper{
             cursor.moveToNext();
         }
 
-
         cursor.close();
         return trips;
     }
@@ -108,5 +107,11 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         cursor.close();
         return trips;
+    }
+
+    public void deleteAllTrips(){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME ;
+        sqLiteDatabase.execSQL(DELETE_QUERY);
     }
 }
