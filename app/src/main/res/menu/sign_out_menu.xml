@@ -6,5 +6,11 @@
         android:title="SignOut">
 
     </item>
+    <item
+        android:id="@+id/about"
+        android:title="About">
+
+    </item>
+
 
 </menu>

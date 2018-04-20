@@ -27,7 +27,7 @@ public class DisplayParts extends AppCompatActivity {
             trip.settEDate(bundle.getString("edate"));
 
             NAME.setText(trip.getTripName());
-            //sDATE.setText(trip.gettSDate());
+            sDATE.setText(trip.gettSDate());
             eDATE.setText(trip.gettEDate());
         }
 
