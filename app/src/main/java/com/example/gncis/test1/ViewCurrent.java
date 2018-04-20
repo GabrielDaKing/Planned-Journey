@@ -78,6 +78,10 @@ public class ViewCurrent extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.delete_all:
                 userDBHelper.deleteAllTrips();
+                trips = userDBHelper.displayAllNewTrips();
+                tripAdapter = new TripAdapter(this, R.layout.user_tile, trips);
+                final ListView listView = findViewById(R.id.currentTripsList);
+                listView.setAdapter(tripAdapter);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

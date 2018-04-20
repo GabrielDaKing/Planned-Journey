@@ -27,6 +27,8 @@ public class CreateNew extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
 
+        userDBHelper = new UserDBHelper(getApplicationContext());
+
         bar = getSupportActionBar();
 
         btn1 = findViewById(R.id.plane);

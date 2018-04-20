@@ -24,10 +24,13 @@ import java.util.ArrayList;
 
 public class FlightAdapter extends ArrayAdapter<Flight> {
 
-    private ArrayList<Flight> flights;
+    private ArrayList<Flight> object;
+
     LinearLayout linearLayout;
-    public FlightAdapter(@NonNull Context context, int resource, int textViewResourceId) {
-        super(context, resource, textViewResourceId);
+
+    public FlightAdapter(@NonNull Context context, int resource,@NonNull ArrayList<Flight> objects) {
+        super(context, resource, objects);
+        this.object = objects;
     }
 
     @NonNull
