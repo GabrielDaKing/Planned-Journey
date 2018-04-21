@@ -22,6 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:fontFamily="@font/aentury"
             android:hint="@string/bus_number"
             android:text="Bus Number"
             android:textColor="@android:color/background_light" />
@@ -34,6 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/aentury"
                 android:hint="@string/start_date"
                 android:text="Start Date"
                 android:textColor="@android:color/background_light" />
@@ -42,6 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/aentury"
                 android:hint="@string/end_date"
                 android:text="End Date"
                 android:textColor="@android:color/background_light" />
