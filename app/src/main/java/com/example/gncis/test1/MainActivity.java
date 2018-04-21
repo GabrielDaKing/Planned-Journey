@@ -18,7 +18,7 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
 
     private TextView tv;
-    private ImageView iv;
+    private TextView iv;
 
 
    // private Animation.AnimationListener al;
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tv = (TextView)findViewById(R.id.txt);
-        iv =(ImageView)findViewById(R.id.img);
+        tv = findViewById(R.id.txt);
+        iv =findViewById(R.id.textView);
         Animation myanim = AnimationUtils.loadAnimation(this,R.anim.mytransition);
         tv.startAnimation(myanim);
         iv.startAnimation(myanim);
