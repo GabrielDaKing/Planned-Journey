@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.gncis.test1.data.FlightDBHelper;
 import com.example.gncis.test1.data.UserDBHelper;
 
 import java.text.SimpleDateFormat;
@@ -26,9 +27,11 @@ public class CreateNewActivity extends AppCompatActivity {
 
     TextView head;
     ImageButton cncl,cnfrm;
-    EditText StartDate, EndDate,StartTime,EndTime;
+    EditText StartDate, EndDate,StartTime,EndTime,FlightNumber,Seat,Origin,Destination,Cls;
     Calendar myCalendar;
-    UserDBHelper userDBHelper;
+    FlightDBHelper flightDBHelper;
+    int id;
+    Flight flight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +40,19 @@ public class CreateNewActivity extends AppCompatActivity {
 
         myCalendar = Calendar.getInstance();
 
-        Bundle bun = getIntent().getExtras();
-
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
         cnfrm=findViewById(R.id.crm);
 
-        StartTime=findViewById(R.id.StartTime2);
-        EndTime=findViewById(R.id.EndTime2);
-        StartDate=findViewById(R.id.StartDate2);
-        EndDate=findViewById(R.id.EndDate2);
+        FlightNumber = findViewById(R.id.flightnumber);
+        Seat = findViewById(R.id.seat);
+        Origin = findViewById(R.id.origin);
+        Destination = findViewById(R.id.destination);
+        StartTime=findViewById(R.id.StartTime);
+        EndTime=findViewById(R.id.EndTime);
+        StartDate=findViewById(R.id.StartDate);
+        EndDate=findViewById(R.id.EndDate);
+        Cls = findViewById(R.id.CLS);
 
         final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -67,8 +73,6 @@ public class CreateNewActivity extends AppCompatActivity {
                 updateLabel2();
             }
         };
-
-
 
         StartTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +102,7 @@ public class CreateNewActivity extends AppCompatActivity {
                 TimePickerDialog mTimePicker=new TimePickerDialog(CreateNewActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        StartTime.setText(i+":"+i1);
+                        EndTime.setText(i+":"+i1);
                     }
                 },hour,minute,true);
                 mTimePicker.setTitle("Select Time");
@@ -106,8 +110,8 @@ public class CreateNewActivity extends AppCompatActivity {
             }
         });
 
-        StartDate = (EditText) findViewById(R.id.StartDate2);
-        EndDate = (EditText) findViewById(R.id.EndDate2);
+        StartDate = (EditText) findViewById(R.id.StartDate);
+        EndDate = (EditText) findViewById(R.id.EndDate);
         StartDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,13 +163,32 @@ public class CreateNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                flight = new Flight();
+
+                flightDBHelper = new FlightDBHelper(getApplicationContext());
+
+                flight.setFnumber(FlightNumber.toString());
+                flight.setfSeat(Seat.toString());
+                flight.setfOrigin(Origin.toString());
+                flight.setfDestination(Destination.toString());
+                flight.setfDepartureDate(StartDate.toString());
+                flight.setfDepartureTime(StartTime.toString());
+                flight.setfArrivalDate(EndDate.toString());
+                flight.setfArrivalTime(EndTime.toString());
+                flight.setfClass(Cls.toString());
+
+                Bundle bun = getIntent().getExtras();
+                id = bun.getInt("id");
+
+                flightDBHelper.addFlight(flight,id);
+
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
                 builder.setMessage("Are you want to create this trip ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(CreateNewActivity.this,CreateNew.class));
+                        finish();
                         Toast.makeText(CreateNewActivity.this, "YAY!", Toast.LENGTH_SHORT).show();
                     }
                 });

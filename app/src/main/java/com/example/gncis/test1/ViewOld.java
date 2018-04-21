@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class ViewOld extends AppCompatActivity {
 
     ActionBar bar;
-    static ArrayList<Trip> trips;
+    ArrayList<Trip> trips;
     private TripAdapter tripAdapter;
 
     UserDBHelper userDBHelper;
@@ -23,17 +23,17 @@ public class ViewOld extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_current);
+        setContentView(R.layout.activity_view_old);
 
         bar = getSupportActionBar();
 
         bar.setTitle("Your Current Trip");
 
-        userDBHelper =new UserDBHelper(getApplicationContext());
+        userDBHelper = new UserDBHelper(getApplicationContext());
 
-        trips = userDBHelper.displayAllNewTrips();
+        trips = userDBHelper.displayAllOldTrips();
 
-        final ListView listView = findViewById(R.id.currentTripsList);
+        ListView listView = findViewById(R.id.oldTripsList);
         tripAdapter = new TripAdapter(this, R.layout.user_tile, trips);
         listView.setAdapter(tripAdapter);
 
@@ -46,7 +46,7 @@ public class ViewOld extends AppCompatActivity {
                 bundle.putString("name", trip.getTripName());
                 bundle.putString("sdate", trip.gettSDate());
                 bundle.putString("edate", trip.gettEDate());
-                startActivity(new Intent(ViewOld.this,DisplayParts.class).putExtra("trip", bundle));
+                startActivity(new Intent(ViewOld.this,DisplayParts.class).putExtra("TRIP", bundle));
 
             }
         });

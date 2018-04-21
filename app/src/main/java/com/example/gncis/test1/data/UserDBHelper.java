@@ -129,4 +129,10 @@ public class UserDBHelper extends SQLiteOpenHelper{
         String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME ;
         sqLiteDatabase.execSQL(DELETE_QUERY);
     }
+
+    public void deleteTripForID(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.USER_ID + " = " +id;
+        sqLiteDatabase.execSQL(DELETE_QUERY);
+    }
 }

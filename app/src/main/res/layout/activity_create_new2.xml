@@ -39,36 +39,13 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image2"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_tag_faces_black_36dp"/>
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="44dp"
-                android:hint="Name"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2">
-
-            <ImageView
                 android:id="@+id/image1"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_flight_black_36dp"/>
+                android:src="@drawable/ic_flight_takeoff_black_24dp"/>
 
             <EditText
-                android:id="@+id/num"
+                android:id="@+id/flightnumber"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="44dp"
@@ -84,7 +61,7 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image1"
+                android:id="@+id/image3"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_airline_seat_recline_extra_black_24dp"/>
@@ -111,7 +88,7 @@
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/Origin"
+                android:id="@+id/origin"
                 android:layout_width="0dp"
 
 
@@ -150,13 +127,13 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image3"
+                android:id="@+id/image6"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_event_available_black_24dp" />
 
             <EditText
-                android:id="@+id/StartDate2"
+                android:id="@+id/StartDate"
                 android:layout_width="0dp"
                 android:editable="false"
                 android:hint="Start Date : DD-MM-YY"
@@ -174,13 +151,13 @@
             android:layout_weight="2">
 
             <ImageView
-                android:id="@+id/image4"
+                android:id="@+id/image7"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/StartTime2"
+                android:id="@+id/StartTime"
                 android:layout_width="0dp"
 
                 android:layout_height="44dp"
@@ -204,7 +181,7 @@
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/EndDate2"
+                android:id="@+id/EndDate"
                 android:layout_width="0dp"
 
                 android:editable="false"
@@ -227,7 +204,7 @@
                 android:src="@drawable/ic_event_busy_black_24dp" />
 
             <EditText
-                android:id="@+id/EndTime2"
+                android:id="@+id/EndTime"
                 android:layout_width="0dp"
 
                 android:layout_height="44dp"
@@ -253,11 +230,11 @@
 
 
             <EditText
-                android:id="@+id/party"
+                android:id="@+id/CLS"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="44dp"
-                android:hint="Members in the Party "/>
+                android:hint="Class"/>
 
         </LinearLayout>
 

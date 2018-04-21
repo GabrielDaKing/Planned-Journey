@@ -36,11 +36,9 @@ public class DisplayParts extends AppCompatActivity {
             eDATE.setText(trip.gettEDate());
         }
 
-        final ListView listView = findViewById(R.id.currentTripsList);
-        flightAdapter = new FlightAdapter(this, R.layout.flight_tile, flights);
-        listView.setAdapter(flightAdapter);
-
-
+        //final ListView listView = findViewById(R.id.currentTripsList);
+        //flightAdapter = new FlightAdapter(this, R.layout.flight_tile, flights);
+        //listView.setAdapter(flightAdapter);
 
     }
 }

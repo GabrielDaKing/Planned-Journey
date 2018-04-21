@@ -21,6 +21,7 @@ public class CreateNew extends AppCompatActivity {
     UserDBHelper userDBHelper;
     EditText name;
     Trip trip;
+    static int insert=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class CreateNew extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insert=1;
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -67,6 +69,7 @@ public class CreateNew extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insert=1;
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -78,6 +81,7 @@ public class CreateNew extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insert=1;
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -89,6 +93,7 @@ public class CreateNew extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insert=1;
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -101,12 +106,17 @@ public class CreateNew extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                         AlertDialog.Builder builder=new AlertDialog.Builder(CreateNew.this);
                         builder.setMessage("Are you want to cancel creating this journey ?");
                         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(CreateNew.this,Main2Activity.class));
+                                if(insert==1){
+                                    userDBHelper.deleteTripForID(userDBHelper.returnID());
+                                }
+                                finish();
                             }
                         });
                         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -128,13 +138,17 @@ public class CreateNew extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        trip = new Trip();
-                        trip.setTripName(name.getText().toString());
-                        trip.settEDate("N/A");
-                        trip.settSDate("N/A");
-                        trip.setId(-1);
 
-                        userDBHelper.addUser(trip);
+                        if(insert==0) {
+                            trip = new Trip();
+                            trip.setTripName(name.getText().toString());
+                            trip.settEDate("N/A");
+                            trip.settSDate("N/A");
+                            trip.setId(-1);
+
+                            userDBHelper.addUser(trip);
+                            insert=0;
+                        }
                         Toast.makeText(CreateNew.this, "YAY!", Toast.LENGTH_SHORT).show();
                         finish();
                     }

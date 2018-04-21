@@ -6,35 +6,62 @@
     android:layout_height="match_parent"
     tools:context="com.example.gncis.test1.DisplayParts">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:layout_margin="5dp"
+            android:textColor="@color/colorPrimaryLight"
+            android:background="@color/colorPrimary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <TextView
+            android:layout_weight="1"
             android:id="@+id/sdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <TextView
+            android:layout_weight="1"
             android:id="@+id/edate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"/>
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryLight"
+            android:background="@color/colorPrimary"
+            android:layout_marginRight="5dp"/>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/tripList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:dividerHeight="5dp"
+            android:divider="@android:color/transparent"
+            android:transcriptMode="alwaysScroll"
+            tools:listitem="@layout/flight_tile">
+
+        </ListView>
 
     </LinearLayout>
-
-    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
