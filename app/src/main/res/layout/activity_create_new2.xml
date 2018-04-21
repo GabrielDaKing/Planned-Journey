@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="44dp"
-                android:hint="Name"
+                android:hint="Airline"
                 />
 
         </LinearLayout>
@@ -65,7 +65,7 @@
                 android:id="@+id/image1000"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
-                android:src="@drawable/ic_flight_black_36dp"/>
+                android:src="@drawable/ic_flight_takeoff_black_24dp"/>
 
             <EditText
                 android:id="@+id/num"
