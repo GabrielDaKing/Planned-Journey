@@ -5,5 +5,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DisplayPartsBus">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:layout_margin="5dp"
+                android:textColor="@color/colorPrimaryLight"
+                android:background="@color/colorPrimary"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/sdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+
+                <TextView
+                    android:layout_weight="1"
+                    android:id="@+id/edate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:background="@color/colorPrimary"
+                    android:layout_marginRight="5dp"/>
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/bus1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:dividerHeight="5dp"
+                android:divider="@android:color/transparent"
+                android:transcriptMode="alwaysScroll"
+                tools:listitem="@layout/bus_tile">
+
+            </ListView>
+
+            <ListView
+                android:id="@+id/bus2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:dividerHeight="5dp"
+                android:divider="@android:color/transparent"
+                android:transcriptMode="alwaysScroll"
+                tools:listitem="@layout/bus_tile">
+
+            </ListView>
+
+            <ListView
+                android:id="@+id/bus3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:dividerHeight="5dp"
+                android:divider="@android:color/transparent"
+                android:transcriptMode="alwaysScroll"
+                tools:listitem="@layout/bus_tile">
+
+            </ListView>
+
+            <ListView
+                android:id="@+id/bus4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:dividerHeight="5dp"
+                android:divider="@android:color/transparent"
+                android:transcriptMode="alwaysScroll"
+                tools:listitem="@layout/bus_tile">
+
+            </ListView>
+
+
+            <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/cancel_button2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_close_black_36dp"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 </android.support.constraint.ConstraintLayout>
