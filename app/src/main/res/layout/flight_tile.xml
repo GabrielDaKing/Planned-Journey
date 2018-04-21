@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="70dp"
     android:layout_margin="5dp"
-    android:background="@color/buttonTertiary">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:layout_width="60dp"
@@ -23,7 +23,9 @@
             android:id="@+id/number"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:hint="Flight Number" />
+            android:hint="Flight Number"
+            android:textColorHint="@color/colorPrimaryLight"
+            android:textColor="@color/colorPrimaryLight"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,14 +36,18 @@
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:hint="Start Date" />
+                android:hint="Start Date"
+                android:textColorHint="@color/colorPrimaryLight"
+                android:textColor="@color/colorPrimaryLight"/>
 
             <TextView
                 android:id="@+id/edate"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:hint="End Date" />
+                android:hint="End Date"
+                android:textColorHint="@color/colorPrimaryLight"
+                android:textColor="@color/colorPrimaryLight"/>
 
         </LinearLayout>
 
