@@ -13,22 +13,27 @@
         android:gravity="center"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="50dp">
+        tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/img"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
-            android:layout_height="88dp"
-            android:layout_marginTop="115dp"
-            android:layout_gravity="center"
-            android:src="@drawable/tripicon" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/aentury"
+            android:gravity="center"
+            android:text="Tripeze"
+            android:textColor="@android:color/background_light"
+            android:textSize="40sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/bentury"
             android:text="Planning Journeys"
             android:textAllCaps="false"
