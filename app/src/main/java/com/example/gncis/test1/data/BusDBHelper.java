@@ -36,7 +36,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
                 + BusContract.BusEntry.DEPARTURE_TIME + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_DATE + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_TIME + " TEXT, "
-                + BusContract.BusEntry.CLASS + " INTEGER ) ";
+                + BusContract.BusEntry.CLASS + " TEXT ); ";
 
         db.execSQL(SQL_CREATE_BUS_TABLE);
     }

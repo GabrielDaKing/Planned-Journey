@@ -38,8 +38,8 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE " + FlightEntry.TABLE_NAME + "("
-                + FlightEntry.FLIGHT_USER_Id + "INTEGER ,"
+        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE " + FlightEntry.TABLE_NAME + " ( "
+                + FlightEntry.FLIGHT_USER_Id + " INTEGER ,"
                 + FlightEntry.FLIGHT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + FlightEntry.FLIGHT_NO + " TEXT, "
                 + FlightEntry.FLIGHT_SEAT_NO + " TEXT, "
@@ -49,7 +49,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
                 + FlightEntry.DEPARTURE_TIME + " TEXT, "
                 + FlightEntry.ARRIVAL_DATE + " TEXT, "
                 + FlightEntry.ARRIVAL_TIME + " TEXT, "
-                + FlightEntry.CLASS + " INTEGER ) ";
+                + FlightEntry.CLASS + " TEXT ); ";
 
         db.execSQL(SQL_CREATE_FLIGHT_TABLE);
     }

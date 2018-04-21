@@ -37,8 +37,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
                 + TrainContract.TrainEntry.DEPARTURE_TIME + " TEXT, "
                 + TrainContract.TrainEntry.ARRIVAL_DATE + " TEXT, "
                 + TrainContract.TrainEntry.ARRIVAL_TIME + " TEXT, "
-                + TrainContract.TrainEntry.CLASS + " TEXT "
-                + " ); ";
+                + TrainContract.TrainEntry.CLASS + " TEXT ); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_TRAINS_TABLE);
     }

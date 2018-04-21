@@ -33,7 +33,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
                 + UserContract.UserEntry.USER + " TEXT NOT NULL , "
                 + UserContract.UserEntry.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
                 + UserContract.UserEntry.START_DATE + " TEXT , "
-                + UserContract.UserEntry.END_DATE + " TEXT " + " ) ";
+                + UserContract.UserEntry.END_DATE + " TEXT " + " ); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_USER_TABLE);
     }

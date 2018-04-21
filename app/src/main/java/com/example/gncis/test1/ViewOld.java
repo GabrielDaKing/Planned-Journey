@@ -30,7 +30,7 @@ public class ViewOld extends AppCompatActivity {
 
         bar = getSupportActionBar();
 
-        bar.setTitle("Your Current Trip");
+        bar.setTitle("Your Old Trips");
 
         userDBHelper = new UserDBHelper(getApplicationContext());
 
