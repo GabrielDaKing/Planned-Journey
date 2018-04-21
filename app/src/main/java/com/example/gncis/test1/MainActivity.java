@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -17,8 +18,8 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView tv;
-    private ImageView iv;
+    private TextView tv,iv;
+
 
 
    // private Animation.AnimationListener al;
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         tv = (TextView)findViewById(R.id.txt);
-        iv =(ImageView)findViewById(R.id.img);
+        iv =(TextView)findViewById(R.id.txthead);
         Animation myanim = AnimationUtils.loadAnimation(this,R.anim.mytransition);
         tv.startAnimation(myanim);
         iv.startAnimation(myanim);

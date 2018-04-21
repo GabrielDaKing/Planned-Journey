@@ -17,6 +17,8 @@ import com.example.gncis.test1.data.UserDBHelper;
 public class CreateNew extends AppCompatActivity {
 
     ActionBar bar;
+
+
     ImageButton btn1, btn2, btn3, btn4, can, cfrm;
     UserDBHelper userDBHelper;
     static EditText name;
@@ -31,6 +33,7 @@ public class CreateNew extends AppCompatActivity {
         userDBHelper = new UserDBHelper(getApplicationContext());
 
         bar = getSupportActionBar();
+
 
         btn1 = findViewById(R.id.plane);
         btn2 = findViewById(R.id.train);

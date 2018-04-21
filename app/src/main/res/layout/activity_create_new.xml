@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme.NoActionBar"
     tools:context="com.example.gncis.test1.CreateNew">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,12 +18,17 @@
             android:id="@+id/nameOfTrip"
             android:layout_width="match_parent"
             android:layout_height="10dp"
-            android:layout_marginTop="5dp"
+
             android:layout_weight="1"
-            android:hint="Name Of Journey"
+            android:autoText="true"
+            android:background="#000000"
+            android:fontFamily="@font/aentury"
+            android:hint=" Name Of Journey "
             android:singleLine="true"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:textSize="20sp"
+            tools:autoText="true" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,23 +38,23 @@
 
             <ImageButton
                 android:id="@+id/plane"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
-                android:background="#000000"
+                android:background="#b71c1c"
                 android:src="@drawable/ic_flight_black_36dp"
                 android:textSize="30dp" />
 
             <ImageButton
                 android:id="@+id/train"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
-                android:background="#000000"
+                android:background="#6A1B9A"
                 android:src="@drawable/ic_directions_railway_black_36dp"
                 android:textSize="30dp" />
         </LinearLayout>
@@ -64,8 +71,8 @@
             android:layout_weight="1"
             android:textSize="30dp"
             android:src="@drawable/ic_hotel_black_24dp"
-            android:background="#000000"
-            android:layout_margin="5dp"/>
+            android:background="#F57F17"
+            android:layout_margin="0dp"/>
 
         <ImageButton
             android:id="@+id/bus"
@@ -74,8 +81,8 @@
             android:layout_weight="1"
             android:textSize="30dp"
             android:src="@drawable/ic_directions_bus_black_36dp"
-            android:background="#000000"
-            android:layout_margin="5dp"/>
+            android:background="#388E3C"
+            android:layout_margin="0dp"/>
 
     </LinearLayout>
 
@@ -86,22 +93,22 @@
 
         <ImageButton
             android:id="@+id/cancel"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#000000"
-            android:layout_margin="5dp"
+            android:background="#1A237E"
+            android:layout_margin="0dp"
             android:src="@drawable/ic_close_black_36dp"
             android:scaleType="fitCenter"
             />
 
         <ImageButton
             android:id="@+id/confirm"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#000000"
-            android:layout_margin="5dp"
+            android:background="#0D47A1"
+            android:layout_margin="0dp"
             android:src="@drawable/ic_done_black_36dp"
             android:scaleType="fitCenter"
             />
