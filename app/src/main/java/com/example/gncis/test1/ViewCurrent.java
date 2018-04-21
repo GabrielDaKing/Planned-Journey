@@ -6,12 +6,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.gncis.test1.data.UserContract;
 import com.example.gncis.test1.data.UserDBHelper;
+import com.firebase.ui.auth.AuthUI;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -52,10 +57,34 @@ public class ViewCurrent extends AppCompatActivity {
                 bundle.putString("name", trip.getTripName());
                 bundle.putString("sdate", trip.gettSDate());
                 bundle.putString("edate", trip.gettEDate());
-                startActivity(new Intent(ViewCurrent.this,DisplayParts.class).putExtra("trip", bundle));
+                bundle.putInt("id", trip.getId());
+                Toast.makeText(ViewCurrent.this, "Details of trip "+ trip.getTripName(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(ViewCurrent.this,DisplayParts.class).putExtra("TRIP", bundle));
 
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.delete_all_trips, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.delete_all:
+                userDBHelper.deleteAllTrips();
+                trips = userDBHelper.displayAllNewTrips();
+                tripAdapter = new TripAdapter(this, R.layout.user_tile, trips);
+                final ListView listView = findViewById(R.id.currentTripsList);
+                listView.setAdapter(tripAdapter);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

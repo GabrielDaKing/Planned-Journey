@@ -65,18 +65,17 @@ public class UserDBHelper extends SQLiteOpenHelper{
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         cursor.moveToFirst();
 
-        //int i=0;
         while (!cursor.isAfterLast()) {
 
             Trip trip = new Trip();
             trip.setTripName(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER)));
             trip.settSDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE)));
             trip.settEDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE)));
+            trip.setId(cursor.getInt(cursor.getColumnIndex(UserContract.UserEntry.USER_ID)));
 
             trips.add(trip);
             cursor.moveToNext();
         }
-
 
         cursor.close();
         return trips;
@@ -100,6 +99,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
             trip.setTripName(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.USER)));
             trip.settSDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE)));
             trip.settEDate(cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE)));
+            trip.setId(cursor.getInt(cursor.getColumnIndex(UserContract.UserEntry.USER_ID)));
 
             trips.add(trip);
             cursor.moveToNext();
@@ -108,5 +108,25 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
         cursor.close();
         return trips;
+    }
+
+    public int returnID(){
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME ;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToLast();
+
+        int x = cursor.getInt(cursor.getColumnIndex(UserContract.UserEntry.USER_ID));
+
+        cursor.close();
+        return x;
+    }
+
+    public void deleteAllTrips(){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME ;
+        sqLiteDatabase.execSQL(DELETE_QUERY);
     }
 }

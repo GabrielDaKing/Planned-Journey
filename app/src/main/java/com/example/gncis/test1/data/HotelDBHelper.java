@@ -1,11 +1,19 @@
 package com.example.gncis.test1.data;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
+
+import java.util.ArrayList;
+
+import com.example.gncis.test1.Hotel;
+
 /**
- * Created by Anant on 3/28/2018.
+ * Created by Apoorva on 4/21/2018.
  */
 
 public class HotelDBHelper extends SQLiteOpenHelper {
@@ -32,5 +40,72 @@ public class HotelDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+    public void addHotel(Hotel hotel,int id)
+    {
+        SQLiteDatabase sqLiteDatabase=getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(HotelContract.HotelEntry.HOTEL_ID, id);
+        contentValues.put(HotelContract.HotelEntry.HOTEL_NAME, hotel.gethName());
+        contentValues.put(HotelContract.HotelEntry.LOCATION, hotel.gethLoctaion());
+        contentValues.put(HotelContract.HotelEntry.DURATION, hotel.gethDuration());
+        contentValues.put(HotelContract.HotelEntry.CHECKIN_DATE, hotel.gethCheckinDate());
+        contentValues.put(HotelContract.HotelEntry.CHECKOUT_DATE, hotel.gethCheckoutDate());
+        contentValues.put(HotelContract.HotelEntry.ROOM_TYPE, hotel.gethRoomType());
+
+        sqLiteDatabase.insert(HotelContract.HotelEntry.TABLE_NAME, null, contentValues);
+    }
+    public ArrayList<Hotel> displayHotels(int id){
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String query = "SELECT * FROM " + HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID + " = " +id + ";";
+
+        ArrayList<Hotel> hotels = new ArrayList<>();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+
+            Hotel hotel = new Hotel();
+            hotel.sethName(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.HOTEL_NAME)));
+            hotel.sethDuration(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.DURATION)));
+            hotel.sethLoctaion(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.LOCATION)));
+            hotel.sethCheckinDate(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.CHECKIN_DATE)));
+            hotel.sethCheckoutDate(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.CHECKOUT_DATE)));
+            hotel.sethRoomType(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.ROOM_TYPE)));
+            hotels.add(hotel);
+            cursor.moveToNext();
+        }
+
+        return hotels;
+    }
+    public void deleteHotelofTrip(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "DELETE FROM "+ HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID+ " = " +id;
+        sqLiteDatabase.execSQL(Query);
+    }
+    public void deleteHotelint(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "DELETE FROM "+HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID+ " = " + id;
+        sqLiteDatabase.execSQL(Query);
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -19,13 +19,15 @@ public class CreateNew extends AppCompatActivity {
     ActionBar bar;
     ImageButton btn1, btn2, btn3, btn4, can, cfrm;
     UserDBHelper userDBHelper;
-    static EditText name;
+    EditText name;
     Trip trip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
+
+        userDBHelper = new UserDBHelper(getApplicationContext());
 
         bar = getSupportActionBar();
 
@@ -36,50 +38,62 @@ public class CreateNew extends AppCompatActivity {
         can = findViewById(R.id.cancel);
         cfrm = findViewById(R.id.confirm);
 
-        name = findViewById(R.id.name);
+        name = findViewById(R.id.nameOfTrip);
 
         trip = new Trip();
 
         bar.setTitle("A New Trip");
 
-        userDBHelper = new UserDBHelper(getApplicationContext());
-
         onButtonClickListener();
+
 
     }
 
     public void onButtonClickListener(){
 
+
+
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CreateNew.this,CreateNewActivity.class);
-                startActivity(i);
+                userDBHelper = new UserDBHelper(getApplicationContext());
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", userDBHelper.returnID());
+
+                startActivity(new Intent(CreateNew.this,CreateNewActivity.class).putExtra("TRIP", bundle));
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userDBHelper = new UserDBHelper(getApplicationContext());
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", userDBHelper.returnID());
 
-                Intent i = new Intent(CreateNew.this,CreateNewTrain.class);
-                startActivity(i);
+                startActivity(new Intent(CreateNew.this,CreateNewTrain.class).putExtra("TRIP", bundle));
             }
         });
 
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CreateNew.this,CreateNewHotel.class);
-                startActivity(i);
+                userDBHelper = new UserDBHelper(getApplicationContext());
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", userDBHelper.returnID());
+
+                startActivity(new Intent(CreateNew.this,CreateNewHotel.class).putExtra("TRIP", bundle));
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(CreateNew.this,CreateNewBus.class);
-                startActivity(i);
+                userDBHelper = new UserDBHelper(getApplicationContext());
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", userDBHelper.returnID());
+
+                startActivity(new Intent(CreateNew.this,CreateNewBus.class).putExtra("TRIP", bundle));
             }
         });
 
@@ -114,9 +128,11 @@ public class CreateNew extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        trip = new Trip();
                         trip.setTripName(name.getText().toString());
                         trip.settEDate("N/A");
                         trip.settSDate("N/A");
+                        trip.setId(-1);
 
                         userDBHelper.addUser(trip);
                         Toast.makeText(CreateNew.this, "YAY!", Toast.LENGTH_SHORT).show();

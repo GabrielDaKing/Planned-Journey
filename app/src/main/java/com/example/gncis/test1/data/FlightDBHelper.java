@@ -80,7 +80,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Flight> displayFlights(int id){
-        Flight flight = new Flight();
+
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
         String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + ";";
@@ -92,6 +92,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
         while (!cursor.isAfterLast()) {
 
+            Flight flight = new Flight();
             flight.setFnumber(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
             flight.setfSeat(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_SEAT_NO)));
             flight.setfOrigin(cursor.getString(cursor.getColumnIndex(FlightEntry.ORIGIN)));
@@ -100,7 +101,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
             flight.setfDepartureTime(cursor.getString(cursor.getColumnIndex(FlightEntry.DEPARTURE_TIME)));
             flight.setfArrivalDate(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_DATE)));
             flight.setfArrivalTime(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_TIME)));
-            flight.setfClass(cursor.getInt(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+            flight.setfClass(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
 
             flights.add(flight);
             cursor.moveToNext();
@@ -109,5 +110,17 @@ public class FlightDBHelper extends SQLiteOpenHelper {
         return flights;
     }
 
-    public void deleteFlight(){};
+    public void deleteFlightOfTrip(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id;
+        sqLiteDatabase.execSQL(Query);
+    }
+
+    public void deleteFlightint(int id){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id;
+        sqLiteDatabase.execSQL(Query);
+    }
 }
