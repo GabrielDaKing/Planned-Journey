@@ -15,11 +15,12 @@
         <EditText
             android:id="@+id/nameOfTrip"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="10dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
             android:hint="Name Of Journey"
             android:singleLine="true"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -88,9 +89,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/cancel_button2"
+            android:background="#000000"
             android:layout_margin="5dp"
-            android:src="@drawable/cancel_button"
+            android:src="@drawable/ic_close_black_36dp"
             android:scaleType="fitCenter"
             />
 
@@ -99,9 +100,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/confirm_button2"
+            android:background="#000000"
             android:layout_margin="5dp"
-            android:src="@drawable/confrim_button"
+            android:src="@drawable/ic_done_black_36dp"
             android:scaleType="fitCenter"
             />
 
