@@ -49,7 +49,7 @@
                     android:layout_weight="1"
                     android:layout_height="44dp"
                     android:hint="Train Name"
-                    />
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -71,7 +71,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Train Number"/>
+                    android:hint="Train Number"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -93,7 +94,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Seat Number"/>
+                    android:hint="Seat Number"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -114,7 +116,8 @@
                     android:layout_width="0dp"
                     android:hint="Origin"
                     android:layout_height="44dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -134,7 +137,8 @@
                     android:layout_width="0dp"
                     android:hint="Destination"
                     android:layout_height="44dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -251,7 +255,8 @@
                     android:layout_height="44dp"
                     android:inputType="number"
                     android:layout_weight="1"
-                    android:hint="Members in the Party " />
+                    android:hint="Members in the Party "
+                    android:singleLine="true"/>
 
             </LinearLayout>
 

@@ -49,7 +49,7 @@
                     android:layout_weight="1"
                     android:layout_height="44dp"
                     android:hint="Name"
-                    />
+                    android:singleLine="true" />
 
             </LinearLayout>
 
@@ -71,7 +71,8 @@
                     android:layout_width="0dp"
                     android:layout_height="44dp"
                     android:layout_weight="1"
-                    android:hint="Bus Number" />
+                    android:hint="Bus Number"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -93,7 +94,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Seat"/>
+                    android:hint="Seat"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -114,7 +116,8 @@
                     android:layout_width="0dp"
                     android:hint="Origin"
                     android:layout_height="44dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -134,7 +137,8 @@
                     android:layout_width="0dp"
                     android:hint="Destination"
                     android:layout_height="44dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -157,7 +161,7 @@
                     android:clickable="true"
                     android:editable="false"
                     android:focusable="false"
-                    android:hint="Departure Date : DD-MM-YY" />
+                    android:hint="Departure Date " />
 
             </LinearLayout>
 
@@ -251,7 +255,8 @@
                     android:layout_weight="1"
                     android:layout_height="44dp"
                     android:inputType="number"
-                    android:hint="Members in the Party "/>
+                    android:hint="Members in the Party "
+                    android:singleLine="true"/>
 
             </LinearLayout>
 

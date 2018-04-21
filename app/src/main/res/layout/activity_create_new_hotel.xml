@@ -49,7 +49,7 @@
                     android:layout_weight="1"
                     android:layout_height="44dp"
                     android:hint="Name"
-                    />
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -71,7 +71,8 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Location"/>
+                    android:hint="Location"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
@@ -92,7 +93,8 @@
                     android:layout_width="0dp"
                     android:hint="Duration"
                     android:layout_height="44dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:singleLine="true"/>
             </LinearLayout>
 
             <LinearLayout
@@ -132,7 +134,7 @@
                     android:src="@drawable/ic_event_busy_black_24dp" />
 
                 <EditText
-                    android:id="@+id/destination"
+                    android:id="@+id/checkoutdate"
                     android:layout_width="0dp"
                     android:hint="Check-Out Date : DD-MM-YY"
                     android:layout_height="44dp"
@@ -153,14 +155,15 @@
                     android:src="@drawable/sic_hotel_black_24dp" />
 
                 <EditText
-                    android:id="@+id/StartTime2"
+                    android:id="@+id/roomtype"
                     android:layout_width="0dp"
 
                     android:hint="Room Type"
                     android:focusable="false"
                     android:clickable="true"
                     android:layout_height="44dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:singleLine="true"/>
 
             </LinearLayout>
 
