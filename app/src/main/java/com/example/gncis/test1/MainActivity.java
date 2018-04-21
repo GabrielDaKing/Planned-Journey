@@ -18,8 +18,13 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
+<<<<<<< HEAD
     private TextView tv,iv;
 
+=======
+    private TextView tv;
+    private TextView iv;
+>>>>>>> 0a2ecfb6e311d674760ae9366756c134a5dc5594
 
 
    // private Animation.AnimationListener al;
@@ -28,8 +33,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         tv = (TextView)findViewById(R.id.txt);
         iv =(TextView)findViewById(R.id.txthead);
+=======
+        tv = findViewById(R.id.txt);
+        iv =findViewById(R.id.textView);
+>>>>>>> 0a2ecfb6e311d674760ae9366756c134a5dc5594
         Animation myanim = AnimationUtils.loadAnimation(this,R.anim.mytransition);
         tv.startAnimation(myanim);
         iv.startAnimation(myanim);
