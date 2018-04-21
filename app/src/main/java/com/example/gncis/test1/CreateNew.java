@@ -19,7 +19,7 @@ public class CreateNew extends AppCompatActivity {
     ActionBar bar;
     ImageButton btn1, btn2, btn3, btn4, can, cfrm;
     UserDBHelper userDBHelper;
-    EditText name;
+    static EditText name;
     Trip trip;
     static int insert=0;
 
@@ -57,8 +57,14 @@ public class CreateNew extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insert=1;
-                userDBHelper = new UserDBHelper(getApplicationContext());
+                if(insert==0) {
+                    insert = 1;
+                    trip = new Trip();
+                    trip.setTripName(name.getText().toString());
+                    userDBHelper = new UserDBHelper(getApplicationContext());
+                    trip.setId(-1);
+                    userDBHelper.addUser(trip);
+                }
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
 
@@ -69,7 +75,14 @@ public class CreateNew extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insert=1;
+                if(insert==0) {
+                    insert = 1;
+                    trip = new Trip();
+                    trip.setTripName(name.getText().toString());
+                    userDBHelper = new UserDBHelper(getApplicationContext());
+                    trip.setId(-1);
+                    userDBHelper.addUser(trip);
+                }
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -81,7 +94,14 @@ public class CreateNew extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insert=1;
+                if(insert==0) {
+                    insert = 1;
+                    trip = new Trip();
+                    trip.setTripName(name.getText().toString());
+                    userDBHelper = new UserDBHelper(getApplicationContext());
+                    trip.setId(-1);
+                    userDBHelper.addUser(trip);
+                }
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -93,7 +113,14 @@ public class CreateNew extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insert=1;
+                if(insert==0) {
+                    insert = 1;
+                    trip = new Trip();
+                    trip.setTripName(name.getText().toString());
+                    userDBHelper = new UserDBHelper(getApplicationContext());
+                    trip.setId(-1);
+                    userDBHelper.addUser(trip);
+                }
                 userDBHelper = new UserDBHelper(getApplicationContext());
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
@@ -105,8 +132,6 @@ public class CreateNew extends AppCompatActivity {
         can.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
 
                         AlertDialog.Builder builder=new AlertDialog.Builder(CreateNew.this);
                         builder.setMessage("Are you want to cancel creating this journey ?");
