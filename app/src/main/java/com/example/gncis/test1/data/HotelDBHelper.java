@@ -30,8 +30,8 @@ public class HotelDBHelper extends SQLiteOpenHelper {
                 + HotelContract.HotelEntry.DURATION + " TEXT, "
                 + HotelContract.HotelEntry.CHECKIN_DATE + " TEXT, "
                 + HotelContract.HotelEntry.CHECKOUT_DATE + " TEXT, "
-                + HotelContract.HotelEntry.ROOM_TYPE + " TEXT, "
-                +" FOREIGN KEY ( " + HotelContract.HotelEntry.HOTEL_USER_ID + " ) REFERENCES " +UserContract.UserEntry._ID + ")";
+                + HotelContract.HotelEntry.ROOM_TYPE + " TEXT "
+                + ")";
 
         db.execSQL(SQL_CREATE_HOTELS_TABLE);
     }

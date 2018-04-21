@@ -49,8 +49,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
                 + FlightEntry.DEPARTURE_TIME + " TEXT, "
                 + FlightEntry.ARRIVAL_DATE + " TEXT, "
                 + FlightEntry.ARRIVAL_TIME + " TEXT, "
-                + FlightEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ( "+FlightEntry.FLIGHT_USER_Id+ ") REFERENCES "+UserContract.UserEntry._ID+" ) ";
+                + FlightEntry.CLASS + " INTEGER ) ";
 
         db.execSQL(SQL_CREATE_FLIGHT_TABLE);
     }

@@ -30,8 +30,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
                 + BusContract.BusEntry.DEPARTURE_TIME + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_DATE + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_TIME + " TEXT, "
-                + BusContract.BusEntry.CLASS + " INTEGER, "
-                + "FOREIGN KEY ("+ BusContract.BusEntry.BUS_USER_Id+") REFERENCES "+UserContract.UserEntry._ID+" ) ";
+                + BusContract.BusEntry.CLASS + " INTEGER ) ";
 
         db.execSQL(SQL_CREATE_BUS_TABLE);
     }
