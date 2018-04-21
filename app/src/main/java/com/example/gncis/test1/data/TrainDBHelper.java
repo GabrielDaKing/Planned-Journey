@@ -64,6 +64,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
         contentValues.put(TrainContract.TrainEntry.CLASS,train.gettClass());
         sqLiteDatabase.insert(TrainContract.TrainEntry.TABLE_NAME, null, contentValues);
     }
+
     public ArrayList<Train> displayTrains(int id){
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
@@ -88,7 +89,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
             train.settDepartureTime(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.DEPARTURE_TIME)));
             train.settArrivalDate(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.ARRIVAL_DATE)));
             train.settArrivalTime(cursor.getString(cursor.getColumnIndex(TrainContract.TrainEntry.ARRIVAL_TIME)));
-
+            train.setTid(cursor.getInt(cursor.getColumnIndex(TrainContract.TrainEntry.TRAIN_ID)));
 
             trains.add(train);
             cursor.moveToNext();

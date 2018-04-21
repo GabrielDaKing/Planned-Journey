@@ -6,9 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.gncis.test1.DisplayParts">
 
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -51,7 +55,7 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/tripList"
+            android:id="@+id/flightList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -62,13 +66,53 @@
 
         </ListView>
 
+        <ListView
+            android:id="@+id/trainList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:dividerHeight="5dp"
+            android:divider="@android:color/transparent"
+            android:transcriptMode="alwaysScroll"
+            tools:listitem="@layout/flight_tile">
+
+        </ListView>
+
+        <ListView
+            android:id="@+id/hotelList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:dividerHeight="5dp"
+            android:divider="@android:color/transparent"
+            android:transcriptMode="alwaysScroll"
+            tools:listitem="@layout/flight_tile">
+
+        </ListView>
+
+        <ListView
+            android:id="@+id/busList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:dividerHeight="5dp"
+            android:divider="@android:color/transparent"
+            android:transcriptMode="alwaysScroll"
+            tools:listitem="@layout/flight_tile">
+
+        </ListView>
+
+
         <ImageButton
             android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:background="@drawable/cancel_button2"
-            android:src="@drawable/ic_cancel_black_24dp"/>
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_close_black_36dp"/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -74,6 +74,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
             hotel.sethCheckinDate(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.CHECKIN_DATE)));
             hotel.sethCheckoutDate(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.CHECKOUT_DATE)));
             hotel.sethRoomType(cursor.getString(cursor.getColumnIndex(HotelContract.HotelEntry.ROOM_TYPE)));
+            hotel.setHid(cursor.getInt(cursor.getColumnIndex(HotelContract.HotelEntry.HOTEL_ID)));
             hotels.add(hotel);
             cursor.moveToNext();
         }

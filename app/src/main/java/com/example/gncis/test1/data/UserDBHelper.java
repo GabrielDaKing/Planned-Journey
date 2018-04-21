@@ -126,13 +126,29 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public void deleteAllTrips(){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME ;
-        sqLiteDatabase.execSQL(DELETE_QUERY);
+        String DELETE_QUERY1 = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME ;
+        sqLiteDatabase.execSQL(DELETE_QUERY1);
+        String DELETE_QUERY2 = "DELETE FROM "+ FlightContract.FlightEntry.TABLE_NAME;
+        sqLiteDatabase.execSQL(DELETE_QUERY2);
+        String DELETE_QUERY3 = "DELETE FROM "+ TrainContract.TrainEntry.TABLE_NAME ;
+        sqLiteDatabase.execSQL(DELETE_QUERY3);
+        String DELETE_QUERY4 = "DELETE FROM "+ HotelContract.HotelEntry.TABLE_NAME ;
+        sqLiteDatabase.execSQL(DELETE_QUERY4);
+        String DELETE_QUERY5 = "DELETE FROM "+ BusContract.BusEntry.TABLE_NAME ;
+        sqLiteDatabase.execSQL(DELETE_QUERY5);
     }
 
     public void deleteTripForID(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.USER_ID + " = " +id;
         sqLiteDatabase.execSQL(DELETE_QUERY);
+        String DELETE_QUERY2 = "DELETE FROM "+ FlightContract.FlightEntry.TABLE_NAME + " WHERE " + FlightContract.FlightEntry.FLIGHT_USER_Id + " = " +id;
+        sqLiteDatabase.execSQL(DELETE_QUERY2);
+        String DELETE_QUERY3 = "DELETE FROM "+ TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id;
+        sqLiteDatabase.execSQL(DELETE_QUERY3);
+        String DELETE_QUERY4 = "DELETE FROM "+ HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID + " = " +id;
+        sqLiteDatabase.execSQL(DELETE_QUERY4);
+        String DELETE_QUERY5 = "DELETE FROM "+ BusContract.BusEntry.TABLE_NAME + " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " +id;
+        sqLiteDatabase.execSQL(DELETE_QUERY5);
     }
 }

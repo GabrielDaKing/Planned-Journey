@@ -101,12 +101,38 @@ public class FlightDBHelper extends SQLiteOpenHelper {
             flight.setfArrivalDate(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_DATE)));
             flight.setfArrivalTime(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_TIME)));
             flight.setfClass(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+            flight.setFid(cursor.getInt(cursor.getColumnIndex(FlightEntry.FLIGHT_ID)));
 
             flights.add(flight);
             cursor.moveToNext();
         }
 
         return flights;
+    }
+
+    public Flight displayFlight(int id){
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+
+        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id + " ; ";
+
+        Flight flight= new Flight();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToFirst();
+
+        flight.setFnumber(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+        flight.setfSeat(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_SEAT_NO)));
+        flight.setfOrigin(cursor.getString(cursor.getColumnIndex(FlightEntry.ORIGIN)));
+        flight.setfDestination(cursor.getString(cursor.getColumnIndex(FlightEntry.DESTINATION)));
+        flight.setfDepartureDate(cursor.getString(cursor.getColumnIndex(FlightEntry.DEPARTURE_DATE)));
+        flight.setfDepartureTime(cursor.getString(cursor.getColumnIndex(FlightEntry.DEPARTURE_TIME)));
+        flight.setfArrivalDate(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_DATE)));
+        flight.setfArrivalTime(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_TIME)));
+        flight.setfClass(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
+
+        return flight;
+
     }
 
     public void deleteFlightOfTrip(int id){
