@@ -48,7 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Name"
+                    android:hint="Train Name"
                     />
 
             </LinearLayout>
@@ -71,7 +71,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Rail Number"/>
+                    android:hint="Train Number"/>
 
             </LinearLayout>
 
@@ -93,7 +93,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Seat"/>
+                    android:hint="Seat Number"/>
 
             </LinearLayout>
 
@@ -153,7 +153,7 @@
                     android:id="@+id/StartDate2"
                     android:layout_width="0dp"
                     android:editable="false"
-                    android:hint="Start Date : DD-MM-YY"
+                    android:hint="Departure Date : DD-MM-YY"
                     android:focusable="false"
                     android:clickable="true"
                     android:layout_height="44dp"
@@ -178,7 +178,7 @@
                     android:layout_width="0dp"
 
                     android:editable="false"
-                    android:hint="Start Time"
+                    android:hint="Departure Time"
                     android:focusable="false"
                     android:clickable="true"
                     android:layout_height="44dp"
@@ -202,7 +202,7 @@
                     android:layout_width="0dp"
 
                     android:editable="false"
-                    android:hint="End Date : DD-MM-YY"
+                    android:hint="Arrival Date : DD-MM-YY"
                     android:focusable="false"
                     android:clickable="true"
                     android:layout_height="44dp"
@@ -225,7 +225,7 @@
                     android:layout_width="0dp"
 
                     android:editable="false"
-                    android:hint="End Time"
+                    android:hint="Arrival Time"
                     android:focusable="false"
                     android:clickable="true"
                     android:layout_height="44dp"
@@ -245,13 +245,13 @@
                     android:src="@drawable/ic_people_black_24dp" />
 
 
-
                 <EditText
                     android:id="@+id/party"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="44dp"
-                    android:hint="Members in the Party "/>
+                    android:inputType="number"
+                    android:layout_weight="1"
+                    android:hint="Members in the Party " />
 
             </LinearLayout>
 
