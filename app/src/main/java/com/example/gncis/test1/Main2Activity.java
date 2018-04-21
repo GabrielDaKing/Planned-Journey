@@ -2,11 +2,18 @@ package com.example.gncis.test1;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.TransitionInflater;
 import android.transition.TransitionManager;
+import android.view.Gravity;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,6 +49,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        setupWindowAnimations();
 
         btn1 =findViewById(R.id.button_send1);
         btn2 =findViewById(R.id.button_send2);
@@ -77,6 +85,22 @@ public class Main2Activity extends AppCompatActivity {
         onButtonListener();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void setupWindowAnimations() {
+        // Re-enter transition is executed when returning back to this activity
+        Slide slideTransition = new Slide();
+        slideTransition.setSlideEdge(Gravity.LEFT); // Use START if using right - to - left locale
+        slideTransition.setDuration(1000);
+
+        getWindow().setReenterTransition(slideTransition);  // When MainActivity Re-enter the Screen
+        getWindow().setExitTransition(slideTransition);     // When MainActivity Exits the Screen
+
+        // For overlap of Re Entering Activity - MainActivity.java and Exiting TransitionActivity.java
+        getWindow().setAllowReturnTransitionOverlap(false);
+    }
+
+
+
     public void onButtonListener(){
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -84,7 +108,6 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
 
                Toast.makeText(Main2Activity.this, "View Current trip", Toast.LENGTH_SHORT).show();
-
                 startActivity(new Intent(Main2Activity.this , ViewCurrent.class));
 
             }
