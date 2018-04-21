@@ -108,6 +108,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
             cursor.moveToNext();
         }
 
+        cursor.close();
         return flights;
     }
 

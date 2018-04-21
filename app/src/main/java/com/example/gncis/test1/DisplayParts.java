@@ -97,7 +97,7 @@ public class DisplayParts extends AppCompatActivity {
         hotelAdapter = new HotelAdapter(this, R.layout.hotel_tile, hotels);
         hotelListView.setAdapter(hotelAdapter);
 
-        buses = busDBHelper.displayBus(trip.getId());
+        buses = busDBHelper.displayBuses(trip.getId());
 
         ListView busListView = findViewById(R.id.busList);
         busAdapter = new BusAdapter(this, R.layout.bus_tile, buses);

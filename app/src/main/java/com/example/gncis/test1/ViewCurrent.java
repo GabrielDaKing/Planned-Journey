@@ -44,7 +44,7 @@ public class ViewCurrent extends AppCompatActivity {
 
         trips = userDBHelper.displayAllNewTrips();
 
-        final ListView listView = findViewById(R.id.currentTripsList);
+       ListView listView = findViewById(R.id.currentTripsList);
         tripAdapter = new TripAdapter(this, R.layout.user_tile, trips);
         listView.setAdapter(tripAdapter);
 

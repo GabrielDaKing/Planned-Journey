@@ -83,10 +83,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
 
             buses.add(bus);
             cursor.moveToNext();
-
-
         }
-
         return  buses;
 
     }
