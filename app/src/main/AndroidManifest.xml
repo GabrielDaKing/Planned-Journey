@@ -33,7 +33,7 @@
         <activity android:name=".DisplayPartsFlight" />
         <activity android:name=".DisplayPartsTrain" />
         <activity android:name=".DisplayPartsHotel" />
-        <activity android:name=".DisplayPartsBus"></activity>
+        <activity android:name=".DisplayPartsBus" />
         <activity android:name=".About" />
     </application>
 
