@@ -109,7 +109,8 @@
             android:layout_height="30dp"
             android:background="@drawable/cancel_button2"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_close_black_36dp"/>
+            android:src="@drawable/ic_close_black_36dp"
+            android:layout_margin="5dp"/>
 
     </LinearLayout>
 

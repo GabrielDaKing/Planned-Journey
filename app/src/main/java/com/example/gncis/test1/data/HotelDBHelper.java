@@ -38,7 +38,8 @@ public class HotelDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + HotelContract.HotelEntry.TABLE_NAME + ";");
+        onCreate(sqLiteDatabase);
     }
     public void addHotel(Hotel hotel,int id)
     {
