@@ -38,7 +38,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/aentury"
-                android:hint="Start Date"
+                android:hint="@string/dep_date"
                 android:textColor="@color/colorPrimaryLight"
                 android:textColorHint="@color/colorPrimaryLight" />
 
@@ -48,7 +48,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/aentury"
-                android:hint="End Date"
+                android:hint="@string/arr_date"
                 android:textColor="@color/colorPrimaryLight"
                 android:textColorHint="@color/colorPrimaryLight" />
 
