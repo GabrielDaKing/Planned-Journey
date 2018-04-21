@@ -41,6 +41,7 @@ public class HotelAdapter extends ArrayAdapter<Hotel> {
 
         linearLayout.setOnClickListener(new View.OnClickListener(){
             @Override
+            //h
             public void onClick(View v){
                 Intent i;
             }
