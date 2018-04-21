@@ -4,7 +4,7 @@
     android:layout_margin="5dp"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:background="@color/buttonTertiary">
+    android:background="#000000">
 
     <ImageView
         android:layout_width="60dp"
@@ -18,26 +18,33 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:hint="@string/bus_number"/>
+            android:hint="@string/bus_number"
+            android:text="Bus Number"
+            android:textColor="@android:color/background_light" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp">
 
             <TextView
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="@string/start_date"/>
+                android:layout_weight="1"
+                android:hint="@string/start_date"
+                android:text="Start Date"
+                android:textColor="@android:color/background_light" />
 
             <TextView
-                android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
-                android:hint="@string/end_date"/>
+                android:layout_weight="1"
+                android:hint="@string/end_date"
+                android:text="End Date"
+                android:textColor="@android:color/background_light" />
 
         </LinearLayout>
 
