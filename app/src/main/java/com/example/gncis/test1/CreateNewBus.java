@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.gncis.test1.data.BusDBHelper;
 import com.example.gncis.test1.data.FlightDBHelper;
+import com.example.gncis.test1.data.UserDBHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +33,7 @@ public class CreateNewBus extends AppCompatActivity {
         int id;
         Bus bus;
         BusDBHelper busDBHelper;
+        UserDBHelper userDBHelper;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -184,6 +186,10 @@ public class CreateNewBus extends AppCompatActivity {
 
                             Bundle bun = getIntent().getExtras();
                             id = bun.getInt("id");
+
+                            userDBHelper = new UserDBHelper(getApplicationContext());
+                            userDBHelper.updateStartDate(bus.getbDepartureDate(),id);
+                            userDBHelper.updateEndDate(bus.getbArrivalDate(),id);
 
                             busDBHelper.addBus(bus,id);
 

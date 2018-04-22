@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.gncis.test1.data.BusDBHelper;
 import com.example.gncis.test1.data.TrainDBHelper;
+import com.example.gncis.test1.data.UserDBHelper;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +33,7 @@ public class CreateNewTrain extends AppCompatActivity {
     int id;
     Train train;
     TrainDBHelper trainDBHelper;
+    UserDBHelper userDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,6 +188,12 @@ public class CreateNewTrain extends AppCompatActivity {
 
                         Bundle bun = getIntent().getBundleExtra("TRIP");
                         id = bun.getInt("id");
+
+                        userDBHelper = new UserDBHelper(getApplicationContext());
+                        userDBHelper.updateStartDate(train.gettDepartureDate(),id);
+                        userDBHelper.updateEndDate(train.gettArrivalDate(),id);
+
+                        trainDBHelper.addTrain(train,id);
 
                         finish();
                         Toast.makeText(CreateNewTrain.this, "YAY!", Toast.LENGTH_SHORT).show();

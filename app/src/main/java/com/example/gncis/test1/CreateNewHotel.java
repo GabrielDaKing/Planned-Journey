@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.gncis.test1.data.HotelDBHelper;
+import com.example.gncis.test1.data.UserDBHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -27,6 +30,9 @@ public class CreateNewHotel extends AppCompatActivity {
     EditText StartDate, EndDate,number;
     Calendar myCalendar;
     int id;
+    UserDBHelper userDBHelper;
+    HotelDBHelper hotelDBHelper;
+    Hotel hotel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,8 +131,13 @@ public class CreateNewHotel extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
+                            hotel = new Hotel();
+
                             Bundle bun = getIntent().getBundleExtra("TRIP");
                             id = bun.getInt("id");
+                            userDBHelper = new UserDBHelper(getApplicationContext());
+                            userDBHelper.updateStartDate(hotel.gethCheckinDate(),id);
+                            userDBHelper.updateEndDate(hotel.gethCheckoutDate(),id);
 
                             finish();
                             Toast.makeText(CreateNewHotel.this, "YAY!", Toast.LENGTH_SHORT).show();

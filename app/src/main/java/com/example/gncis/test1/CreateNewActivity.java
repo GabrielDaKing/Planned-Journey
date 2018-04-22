@@ -30,6 +30,7 @@ public class CreateNewActivity extends AppCompatActivity {
     EditText StartDate, EndDate,StartTime,EndTime,FlightNumber,Seat,Origin,Destination,Cls;
     Calendar myCalendar;
     FlightDBHelper flightDBHelper;
+    UserDBHelper userDBHelper;
     int id;
     Flight flight;
 
@@ -185,6 +186,10 @@ public class CreateNewActivity extends AppCompatActivity {
                         Bundle bun = getIntent().getExtras();
                         id = bun.getInt("id");
 
+                        userDBHelper = new UserDBHelper(getApplicationContext());
+                        userDBHelper.updateStartDate(flight.getfDepartureDate(),id);
+                        userDBHelper.updateEndDate(flight.getfArrivalDate(),id);
+
                         flightDBHelper.addFlight(flight,id);
                         finish();
                         Toast.makeText(CreateNewActivity.this, "YAY!", Toast.LENGTH_SHORT).show();
@@ -204,14 +209,14 @@ public class CreateNewActivity extends AppCompatActivity {
     }
 
     private void updateLabel1() {
-        String myFormat = "d MMM yyyy";
+        String myFormat = "dd/MM/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
 
         StartDate.setText(sdf.format(myCalendar.getTime()));
     }
 
     private void updateLabel2() {
-        String myFormat = "d MMM yyyy";
+        String myFormat = "dd/MM/yy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
 
         EndDate.setText(sdf.format(myCalendar.getTime()));

@@ -40,7 +40,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + UserContract.UserEntry.TABLE_NAME + ";");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + UserContract.UserEntry.TABLE_NAME + " ; ");
         onCreate(sqLiteDatabase);
     }
 
@@ -57,7 +57,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
     public ArrayList<Trip> displayAllNewTrips(){
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        DateFormat df = new SimpleDateFormat("d MMM yyyy");
+        DateFormat df = new SimpleDateFormat("dd/mm/yy");
         String date = df.format(Calendar.getInstance().getTime());
         ArrayList<Trip> trips = new ArrayList<>();
         String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.END_DATE  + " > " + "\"" + date + "\";";
@@ -85,7 +85,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
     public ArrayList<Trip> displayAllOldTrips(){
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        DateFormat df = new SimpleDateFormat("d MMM yyyy");
+        DateFormat df = new SimpleDateFormat("dd/mm/yy");
         String date = df.format(Calendar.getInstance().getTime());
         ArrayList<Trip> trips = new ArrayList<>();
         String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.END_DATE  + " < " + "\"" + date + "\";";
@@ -110,6 +110,31 @@ public class UserDBHelper extends SQLiteOpenHelper{
         return trips;
     }
 
+    public void updateStartDate(String date,int id){
+
+        if(returnStartDate().compareTo(date)==1) {
+
+            SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(UserContract.UserEntry.START_DATE, date);
+
+            sqLiteDatabase.update(UserContract.UserEntry.TABLE_NAME, values, UserContract.UserEntry.USER_ID + " = " + id, null);
+        }
+    }
+
+    public void updateEndDate(String date,int id){
+
+        if(returnEndDate().compareTo(date)==-1) {
+
+            SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(UserContract.UserEntry.END_DATE, date);
+
+            sqLiteDatabase.update(UserContract.UserEntry.TABLE_NAME, values, UserContract.UserEntry.USER_ID + " = " + id, null);
+
+        }
+    }
+
     public int returnID(){
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
@@ -119,6 +144,34 @@ public class UserDBHelper extends SQLiteOpenHelper{
         cursor.moveToLast();
 
         int x = cursor.getInt(cursor.getColumnIndex(UserContract.UserEntry.USER_ID));
+
+        cursor.close();
+        return x;
+    }
+
+    public String returnStartDate(){
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME ;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToLast();
+
+        String x = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.END_DATE));
+
+        cursor.close();
+        return x;
+    }
+
+    public String returnEndDate(){
+
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME ;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToLast();
+
+        String x = cursor.getString(cursor.getColumnIndex(UserContract.UserEntry.START_DATE));
 
         cursor.close();
         return x;
