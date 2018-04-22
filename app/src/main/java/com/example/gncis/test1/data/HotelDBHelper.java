@@ -46,7 +46,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase sqLiteDatabase=getWritableDatabase();
         ContentValues contentValues=new ContentValues();
-        contentValues.put(HotelContract.HotelEntry.HOTEL_ID, id);
+        //contentValues.put(HotelContract.HotelEntry.HOTEL_ID, id);
         contentValues.put(HotelContract.HotelEntry.HOTEL_NAME, hotel.gethName());
         contentValues.put(HotelContract.HotelEntry.LOCATION, hotel.gethLoctaion());
         contentValues.put(HotelContract.HotelEntry.DURATION, hotel.gethDuration());
@@ -60,7 +60,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID + " = " +id + ";";
+        String query = "SELECT * FROM " + HotelContract.HotelEntry.TABLE_NAME + ";";// WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID + " = " +id + ";";
 
         ArrayList<Hotel> hotels = new ArrayList<>();
 
@@ -92,7 +92,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
     public void deleteHotelint(int id){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String Query = "DELETE FROM "+HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID+ " = " + id;
+        String Query = "DELETE FROM "+HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_ID+ " = " + id;
         sqLiteDatabase.execSQL(Query);
     }
 

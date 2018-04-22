@@ -63,7 +63,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
 
     public ArrayList<Bus> displayBuses(int id){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
-        String query="SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + ";";
+        String query="SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + ";";// WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + ";";
         ArrayList<Bus> buses=new ArrayList<>();
         Cursor cursor =sqLiteDatabase.rawQuery(query,null);
 
@@ -86,6 +86,13 @@ public class BusDBHelper extends SQLiteOpenHelper {
     }
 
     public void deleteBusOfTrip(int id){
+        SQLiteDatabase sqLiteDatabase =getWritableDatabase();
+        String query = "DELETE FROM " + BusContract.BusEntry.TABLE_NAME +  " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + " ; ";
+        sqLiteDatabase.execSQL(query);
+
+    }
+
+    public void deleteBusint(int id){
         SQLiteDatabase sqLiteDatabase =getWritableDatabase();
         String query = "DELETE FROM " + BusContract.BusEntry.TABLE_NAME +  " WHERE " + BusContract.BusEntry.BUS_ID + " = " + id + " ; ";
         sqLiteDatabase.execSQL(query);
