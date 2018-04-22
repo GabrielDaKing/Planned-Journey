@@ -103,7 +103,7 @@ public class CreateNewHotel extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
-                builder.setMessage("Are you want to cancel creating this Hotel Entry ?");
+                builder.setMessage("Are you want to cancel creating this journey ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -127,31 +127,36 @@ public class CreateNewHotel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
-                    builder.setMessage("Are you sure you want to create this Hotel Entry ?");
+                    builder.setMessage("Are you want to create this Hotel Entry ?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            hotel = new Hotel();
+                            try {
 
+                                hotel = new Hotel();
 
-                            hotelDBHelper= new HotelDBHelper(getApplicationContext());
+                                hotelDBHelper = new HotelDBHelper(getApplicationContext());
 
-                            hotel.sethCheckinDate(StartDate.toString());
-                            hotel.sethCheckoutDate(EndDate.toString());
-                            hotel.sethDuration(Dur.toString());
-                            hotel.sethName(Name.toString());
-                            hotel.sethLoctaion(Loc.toString());
-                            hotel.sethRoomType(Typ.toString());
+                                hotel.sethCheckinDate(StartDate.toString());
+                                hotel.sethCheckoutDate(EndDate.toString());
+                                hotel.sethDuration(Dur.toString());
+                                hotel.sethName(Name.toString());
+                                hotel.sethLoctaion(Loc.toString());
+                                hotel.sethRoomType(Typ.toString());
 
-                            Bundle bun = getIntent().getBundleExtra("TRIP");
-                            id = bun.getInt("id");
-                            userDBHelper = new UserDBHelper(getApplicationContext());
-                            userDBHelper.updateStartDate(hotel.gethCheckinDate(),id);
-                            userDBHelper.updateEndDate(hotel.gethCheckoutDate(),id);
+                                Bundle bun = getIntent().getBundleExtra("TRIP");
+                                id = bun.getInt("id");
+                                userDBHelper = new UserDBHelper(getApplicationContext());
+                                userDBHelper.updateStartDate(hotel.gethCheckinDate(), id);
+                                userDBHelper.updateEndDate(hotel.gethCheckoutDate(), id);
 
-                            finish();
-                            Toast.makeText(CreateNewHotel.this, " Hotel Entry Created", Toast.LENGTH_SHORT).show();
+                                finish();
+                                Toast.makeText(CreateNewHotel.this, "YAY!", Toast.LENGTH_SHORT).show();
+                            }
+                            catch(Exception e){
+                                Toast.makeText(CreateNewHotel.this, "Please enter all details", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

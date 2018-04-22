@@ -143,7 +143,7 @@ public class CreateNewTrain extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewTrain.this);
-                builder.setMessage("Are you want to cancel creating this Train Entry ?");
+                builder.setMessage("Are you want to cancel creating this journey ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -169,34 +169,40 @@ public class CreateNewTrain extends AppCompatActivity {
 
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewTrain.this);
-                builder.setMessage("Are you want to create this Train Entry ?");
+                builder.setMessage("Are you want to create this Train Ride?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        train = new Train();
-                        trainDBHelper = new TrainDBHelper(getApplicationContext());
+                        try {
 
-                        train.setTnumber(number.toString());
-                        train.settSeat(seat.toString());
-                        train.settOrigin(origin.toString());
-                        train.settDestination(destination.toString());
-                        train.settDepartureDate(StartDate.toString());
-                        train.settDepartureTime(StartTime.toString());
-                        train.settArrivalDate(EndDate.toString());
-                        train.settArrivalTime(EndTime.toString());
+                            train = new Train();
+                            trainDBHelper = new TrainDBHelper(getApplicationContext());
 
-                        Bundle bun = getIntent().getBundleExtra("TRIP");
-                        id = bun.getInt("id");
+                            train.setTnumber(number.toString());
+                            train.settSeat(seat.toString());
+                            train.settOrigin(origin.toString());
+                            train.settDestination(destination.toString());
+                            train.settDepartureDate(StartDate.toString());
+                            train.settDepartureTime(StartTime.toString());
+                            train.settArrivalDate(EndDate.toString());
+                            train.settArrivalTime(EndTime.toString());
 
-                        userDBHelper = new UserDBHelper(getApplicationContext());
-                        userDBHelper.updateStartDate(train.gettDepartureDate(),id);
-                        userDBHelper.updateEndDate(train.gettArrivalDate(),id);
+                            Bundle bun = getIntent().getBundleExtra("TRIP");
+                            id = bun.getInt("id");
 
-                        trainDBHelper.addTrain(train,id);
+                            userDBHelper = new UserDBHelper(getApplicationContext());
+                            userDBHelper.updateStartDate(train.gettDepartureDate(), id);
+                            userDBHelper.updateEndDate(train.gettArrivalDate(), id);
 
-                        finish();
-                        Toast.makeText(CreateNewTrain.this, " Train Entry Created", Toast.LENGTH_SHORT).show();
+                            trainDBHelper.addTrain(train, id);
+
+                            finish();
+                            Toast.makeText(CreateNewTrain.this, "YAY!", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e){
+                            Toast.makeText(CreateNewTrain.this, "Please enter all details", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

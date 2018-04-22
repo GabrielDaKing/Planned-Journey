@@ -140,7 +140,7 @@ public class CreateNewActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
-                builder.setMessage("Are you want to cancel creating this Flight ?");
+                builder.setMessage("Are you sure want to cancel creating this journey ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -165,34 +165,41 @@ public class CreateNewActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
-                builder.setMessage("Are you want to create this Flight ?");
+                builder.setMessage("Are you sure want to create this Flight ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        flight = new Flight();
 
-                        flightDBHelper = new FlightDBHelper(getApplicationContext());
+                        try {
+                            flight = new Flight();
 
-                        flight.setFnumber(FlightNumber.toString());
-                        flight.setfSeat(Seat.toString());
-                        flight.setfOrigin(Origin.toString());
-                        flight.setfDestination(Destination.toString());
-                        flight.setfDepartureDate(StartDate.toString());
-                        flight.setfDepartureTime(StartTime.toString());
-                        flight.setfArrivalDate(EndDate.toString());
-                        flight.setfArrivalTime(EndTime.toString());
-                        flight.setfClass(Cls.toString());
+                            flightDBHelper = new FlightDBHelper(getApplicationContext());
 
-                        Bundle bun = getIntent().getExtras();
-                        id = bun.getInt("id");
+                            flight.setFnumber(FlightNumber.toString());
+                            flight.setfSeat(Seat.toString());
+                            flight.setfOrigin(Origin.toString());
+                            flight.setfDestination(Destination.toString());
+                            flight.setfDepartureDate(StartDate.toString());
+                            flight.setfDepartureTime(StartTime.toString());
+                            flight.setfArrivalDate(EndDate.toString());
+                            flight.setfArrivalTime(EndTime.toString());
+                            flight.setfClass(Cls.toString());
 
-                        userDBHelper = new UserDBHelper(getApplicationContext());
-                        userDBHelper.updateStartDate(flight.getfDepartureDate(),id);
-                        userDBHelper.updateEndDate(flight.getfArrivalDate(),id);
+                            Bundle bun = getIntent().getExtras();
+                            id = bun.getInt("id");
 
-                        flightDBHelper.addFlight(flight,id);
-                        finish();
-                        Toast.makeText(CreateNewActivity.this, "Flight Created", Toast.LENGTH_SHORT).show();
+                            userDBHelper = new UserDBHelper(getApplicationContext());
+                            userDBHelper.updateStartDate(flight.getfDepartureDate(), id);
+                            userDBHelper.updateEndDate(flight.getfArrivalDate(), id);
+
+                            flightDBHelper.addFlight(flight, id);
+                            finish();
+                            //Toast.makeText(CreateNewActivity.this, "YAY!", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (Exception e){
+                            Toast.makeText(CreateNewActivity.this, "Please enter all data", Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                        }
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
