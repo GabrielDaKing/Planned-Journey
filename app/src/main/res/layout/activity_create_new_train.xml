@@ -90,7 +90,7 @@
                     android:src="@drawable/ic_event_busy_black_24dp" />
 
                 <EditText
-                    android:id="@+id/Origin"
+                    android:id="@+id/origin"
                     android:layout_width="0dp"
                     android:hint="Origin"
                     android:layout_height="44dp"

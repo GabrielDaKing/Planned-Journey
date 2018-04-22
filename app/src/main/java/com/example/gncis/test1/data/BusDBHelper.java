@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class BusDBHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "trip.db";
+    private static final String DATABASE_NAME = "trip5.db";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
 
     public BusDBHelper(Context context) {super(context , DATABASE_NAME, null ,DATABASE_VERSION );}
 

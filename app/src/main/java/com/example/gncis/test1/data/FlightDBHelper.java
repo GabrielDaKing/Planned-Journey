@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 public class FlightDBHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "trip.db";
+    private static final String DATABASE_NAME = "trip4.db";
 
     private static final int DATABASE_VERSION = 1;
 
@@ -83,7 +83,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + ";";
+        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + " ;";
 
         ArrayList<Flight> flights = new ArrayList<>();
 

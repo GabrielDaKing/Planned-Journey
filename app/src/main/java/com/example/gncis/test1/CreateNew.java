@@ -37,7 +37,7 @@ public class CreateNew extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
         //ANIMATIONS
-        Animation AnimShake=AnimationUtils.loadAnimation(this, shake);
+        Animation AnimShake = AnimationUtils.loadAnimation(this, shake);
         userDBHelper = new UserDBHelper(getApplicationContext());
 
         bar = getSupportActionBar();
@@ -63,12 +63,9 @@ public class CreateNew extends AppCompatActivity {
 
     public void onButtonClickListener(){
 
-
-
         btn1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 if(insert==0) {
                     insert = 1;
@@ -83,9 +80,6 @@ public class CreateNew extends AppCompatActivity {
 
                     startActivity(new Intent(CreateNew.this,CreateNewActivity.class).putExtra("TRIP", bundle));
                 }
-
-
-
             }
         });
 
@@ -190,6 +184,10 @@ public class CreateNew extends AppCompatActivity {
 
                             userDBHelper.addUser(trip);
                             insert=0;
+                        }
+
+                        else{
+                            userDBHelper.updateName(name.getText().toString(),userDBHelper.returnID());
                         }
                         Toast.makeText(CreateNew.this, "YAY!", Toast.LENGTH_SHORT).show();
                         finish();

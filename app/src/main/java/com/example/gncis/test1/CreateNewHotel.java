@@ -44,17 +44,12 @@ public class CreateNewHotel extends AppCompatActivity {
 
         Bundle bun = getIntent().getExtras();
 
-        int select;
-
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
         cnfrm=findViewById(R.id.crm);
         
         StartDate=findViewById(R.id.StartDate2);
         EndDate=findViewById(R.id.EndDate2);
-
-
-        select = bun.getInt("selection");
 
         final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
             @Override

@@ -135,6 +135,16 @@ public class UserDBHelper extends SQLiteOpenHelper{
         }
     }
 
+    public void updateName(String name,int id){
+
+            SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(UserContract.UserEntry.USER, name);
+
+            sqLiteDatabase.update(UserContract.UserEntry.TABLE_NAME, values, UserContract.UserEntry.USER_ID + " = " + id, null);
+
+    }
+
     public int returnID(){
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();

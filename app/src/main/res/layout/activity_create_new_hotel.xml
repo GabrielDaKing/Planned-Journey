@@ -134,7 +134,7 @@
                     android:src="@drawable/ic_event_busy_black_24dp" />
 
                 <EditText
-                    android:id="@+id/checkoutdate"
+                    android:id="@+id/EndDate2"
                     android:layout_width="0dp"
                     android:hint="Check-Out Date : DD-MM-YY"
                     android:layout_height="44dp"

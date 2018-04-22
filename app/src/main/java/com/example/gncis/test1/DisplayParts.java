@@ -91,17 +91,47 @@ public class DisplayParts extends AppCompatActivity {
         trainAdapter = new TrainAdapter(this, R.layout.train_tile, trains);
         trainListView.setAdapter(trainAdapter);
 
+        trainListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Train train = trainAdapter.getItem(position);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", train.getTid());
+                startActivity(new Intent(DisplayParts.this,DisplayPartsTrain.class).putExtra("TRAIN", bundle));
+            }
+        });
+
         hotels = hotelDBHelper.displayHotels(trip.getId());
 
         ListView hotelListView = findViewById(R.id.hotelList);
         hotelAdapter = new HotelAdapter(this, R.layout.hotel_tile, hotels);
         hotelListView.setAdapter(hotelAdapter);
 
+        hotelListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Hotel hotel = hotelAdapter.getItem(position);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", hotel.getHid());
+                startActivity(new Intent(DisplayParts.this,DisplayPartsHotel.class).putExtra("HOTEL", bundle));
+            }
+        });
+
         buses = busDBHelper.displayBuses(trip.getId());
 
         ListView busListView = findViewById(R.id.busList);
         busAdapter = new BusAdapter(this, R.layout.bus_tile, buses);
         busListView.setAdapter(busAdapter);
+
+        busListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final Bus bus = busAdapter.getItem(position);
+                Bundle bundle = new Bundle();
+                bundle.putInt("id",bus.getBid());
+                startActivity(new Intent(DisplayParts.this,DisplayPartsBus.class).putExtra("BUS", bundle));
+            }
+        });
 
         deleteOnClickListener();
 
