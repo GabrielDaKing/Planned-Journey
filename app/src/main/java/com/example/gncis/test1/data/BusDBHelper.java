@@ -35,8 +35,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
                 + BusContract.BusEntry.DEPARTURE_DATE + " TEXT, "
                 + BusContract.BusEntry.DEPARTURE_TIME + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_DATE + " TEXT, "
-                + BusContract.BusEntry.ARRIVAL_TIME + " TEXT, "
-                + BusContract.BusEntry.CLASS + " TEXT ); ";
+                + BusContract.BusEntry.ARRIVAL_TIME + " TEXT ); ";
 
         db.execSQL(SQL_CREATE_BUS_TABLE);
     }
@@ -59,7 +58,6 @@ public class BusDBHelper extends SQLiteOpenHelper {
         contentValues.put(BusContract.BusEntry.DEPARTURE_TIME, bus.getbDepartureTime());
         contentValues.put(BusContract.BusEntry.ARRIVAL_DATE,bus.getbArrivalDate());
         contentValues.put(BusContract.BusEntry.ARRIVAL_TIME, bus.getbArrivalTime());
-        contentValues.put(BusContract.BusEntry.CLASS,bus.getbClass());
         sqLiteDatabase.insert(BusContract.BusEntry.TABLE_NAME, null, contentValues);
     }
 
@@ -79,7 +77,6 @@ public class BusDBHelper extends SQLiteOpenHelper {
             bus.setbDepartureTime(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.DEPARTURE_TIME)));
             bus.setbArrivalDate(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.ARRIVAL_DATE)));
             bus.setbArrivalTime(cursor.getString(cursor.getColumnIndex(BusContract.BusEntry.ARRIVAL_TIME)));
-            bus.setbClass(cursor.getColumnIndex(BusContract.BusEntry.CLASS));
 
             buses.add(bus);
             cursor.moveToNext();

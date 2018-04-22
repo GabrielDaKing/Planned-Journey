@@ -188,9 +188,7 @@ public class CreateNew extends AppCompatActivity {
                     }
                 });
                 builder.show();
-
             }
         });
-
     }
 }

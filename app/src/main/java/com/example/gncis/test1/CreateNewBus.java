@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.gncis.test1.data.BusDBHelper;
+import com.example.gncis.test1.data.FlightDBHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -24,34 +27,32 @@ public class CreateNewBus extends AppCompatActivity {
 
         TextView head;
         ImageButton cncl,cnfrm;
-        EditText StartDate, EndDate,StartTime,EndTime,number;
+        EditText StartDate, EndDate,StartTime,EndTime,number,seat,origin,destination,CLS;
         Calendar myCalendar;
+        int id;
+        Bus bus;
+        BusDBHelper busDBHelper;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_create_new_bus);
 
-            number=findViewById(R.id.num);
+            number = findViewById(R.id.num);
             myCalendar = Calendar.getInstance();
 
-            Bundle bun = getIntent().getExtras();
-
-            int select;
-
-            head=findViewById(R.id.head);
             cncl=findViewById(R.id.ccl);
             cnfrm=findViewById(R.id.crm);
 
-            //img1=findViewById(R.id.image1);
+            number=findViewById(R.id.num);
+            origin=findViewById(R.id.origin);
+            destination=findViewById(R.id.destination);
 
             StartTime=findViewById(R.id.StartTime2);
             EndTime=findViewById(R.id.EndTime2);
             StartDate=findViewById(R.id.StartDate2);
             EndDate=findViewById(R.id.EndDate2);
 
-
-            select = bun.getInt("selection");
 
             final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
                 @Override
@@ -103,7 +104,7 @@ public class CreateNewBus extends AppCompatActivity {
                     TimePickerDialog mTimePicker=new TimePickerDialog(CreateNewBus.this, new TimePickerDialog.OnTimeSetListener() {
                         @Override
                         public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                            StartTime.setText(i+":"+i1);
+                            EndTime.setText(i+":"+i1);
                         }
                     },hour,minute,true);
                     mTimePicker.setTitle("Select Time");
@@ -163,16 +164,30 @@ public class CreateNewBus extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(number==null)
-                    Toast.makeText(CreateNewBus.this, "Enter Bus Number", Toast.LENGTH_SHORT).show();
-                else
-                {
                     AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewBus.this);
-                    builder.setMessage("Are you want to create this trip ?");
+                    builder.setMessage("Are sure you want to create this train ride ?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(CreateNewBus.this,CreateNew.class));
+
+                            bus = new Bus();
+                            busDBHelper = new BusDBHelper(getApplicationContext());
+
+                            bus.setbNumber(number.toString());
+                            bus.setbSeat(seat.toString());
+                            bus.setbOrigin(origin.toString());
+                            bus.setbDestination(destination.toString());
+                            bus.setbDepartureDate(StartDate.toString());
+                            bus.setbDepartureTime(StartTime.toString());
+                            bus.setbArrivalDate(EndDate.toString());
+                            bus.setbArrivalTime(EndTime.toString());
+
+                            Bundle bun = getIntent().getExtras();
+                            id = bun.getInt("id");
+
+                            busDBHelper.addBus(bus,id);
+
+                            finish();
                             Toast.makeText(CreateNewBus.this, "YAY!", Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -183,10 +198,6 @@ public class CreateNewBus extends AppCompatActivity {
                         }
                     });
                     builder.show();
-                }
-
-
-
             }
         });
     }

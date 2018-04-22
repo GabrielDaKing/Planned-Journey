@@ -16,17 +16,22 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.gncis.test1.data.BusDBHelper;
+import com.example.gncis.test1.data.TrainDBHelper;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class CreateNewTrain extends AppCompatActivity {
 
-    ImageView img1;
-    TextView head,txt1;
+    TextView head;
     ImageButton cncl,cnfrm;
-    EditText StartDate, EndDate,StartTime,EndTime;
+    EditText StartDate, EndDate,StartTime,EndTime,number,origin,destination,seat;
     Calendar myCalendar;
+    int id;
+    Train train;
+    TrainDBHelper trainDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +40,19 @@ public class CreateNewTrain extends AppCompatActivity {
 
         myCalendar = Calendar.getInstance();
 
-        Bundle bun = getIntent().getExtras();
-
-        int select;
-
         head=findViewById(R.id.head);
         cncl=findViewById(R.id.ccl);
         cnfrm=findViewById(R.id.crm);
 
-        //img1=findViewById(R.id.image1);
+        number=findViewById(R.id.num);
+        origin=findViewById(R.id.origin);
+        destination=findViewById(R.id.destination);
+        seat=findViewById(R.id.seat);
 
         StartTime=findViewById(R.id.StartTime2);
         EndTime=findViewById(R.id.EndTime2);
         StartDate=findViewById(R.id.StartDate2);
         EndDate=findViewById(R.id.EndDate2);
-        select = bun.getInt("selection");
 
         final DatePickerDialog.OnDateSetListener stdate = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -101,7 +104,7 @@ public class CreateNewTrain extends AppCompatActivity {
                 TimePickerDialog mTimePicker=new TimePickerDialog(CreateNewTrain.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-                        StartTime.setText(i+":"+i1);
+                        EndTime.setText(i+":"+i1);
                     }
                 },hour,minute,true);
                 mTimePicker.setTitle("Select Time");
@@ -168,7 +171,23 @@ public class CreateNewTrain extends AppCompatActivity {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(CreateNewTrain.this,CreateNew.class));
+
+                        train = new Train();
+                        trainDBHelper = new TrainDBHelper(getApplicationContext());
+
+                        train.setTnumber(number.toString());
+                        train.settSeat(seat.toString());
+                        train.settOrigin(origin.toString());
+                        train.settDestination(destination.toString());
+                        train.settDepartureDate(StartDate.toString());
+                        train.settDepartureTime(StartTime.toString());
+                        train.settArrivalDate(EndDate.toString());
+                        train.settArrivalTime(EndTime.toString());
+
+                        Bundle bun = getIntent().getBundleExtra("TRIP");
+                        id = bun.getInt("id");
+
+                        finish();
                         Toast.makeText(CreateNewTrain.this, "YAY!", Toast.LENGTH_SHORT).show();
                     }
                 });

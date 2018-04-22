@@ -6,7 +6,6 @@ package com.example.gncis.test1;
 
 public class Train {
 
-    private String tName;
     private String tnumber;
     private String tSeat;
     private String tOrigin;
@@ -24,14 +23,6 @@ public class Train {
 
     public void setTid(int tid) {
         this.tid = tid;
-    }
-
-    public String gettName() {
-        return tName;
-    }
-
-    public void settName(String tName) {
-        this.tName = tName;
     }
 
     public String getTnumber() {

@@ -26,11 +26,12 @@ public class CreateNewHotel extends AppCompatActivity {
     ImageButton cncl,cnfrm;
     EditText StartDate, EndDate,number;
     Calendar myCalendar;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_new_bus);
+        setContentView(R.layout.activity_create_new_hotel);
 
         number=findViewById(R.id.num);
         myCalendar = Calendar.getInstance();
@@ -118,17 +119,16 @@ public class CreateNewHotel extends AppCompatActivity {
         cnfrm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(number==null)
-                    Toast.makeText(CreateNewHotel.this, "Enter Bus Number", Toast.LENGTH_SHORT).show();
-                else
-                {
                     AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
                     builder.setMessage("Are you want to create this trip ?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(CreateNewHotel.this,CreateNew.class));
+
+                            Bundle bun = getIntent().getBundleExtra("TRIP");
+                            id = bun.getInt("id");
+
+                            finish();
                             Toast.makeText(CreateNewHotel.this, "YAY!", Toast.LENGTH_SHORT).show();
                         }
                     });
@@ -139,7 +139,6 @@ public class CreateNewHotel extends AppCompatActivity {
                         }
                     });
                     builder.show();
-                }
             }
         });
     }
