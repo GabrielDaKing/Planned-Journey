@@ -169,7 +169,7 @@ public class CreateNewTrain extends AppCompatActivity {
 
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewTrain.this);
-                builder.setMessage("Are you want to create this trip ?");
+                builder.setMessage("Are you want to create this Train Ride?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

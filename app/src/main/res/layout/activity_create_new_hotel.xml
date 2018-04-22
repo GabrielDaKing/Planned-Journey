@@ -67,12 +67,12 @@
                     android:src="@drawable/ic_place_black_36dp"/>
 
                 <EditText
-                    android:id="@+id/seat"
+                    android:id="@+id/Location"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="44dp"
+                    android:layout_weight="1"
                     android:hint="Location"
-                    android:singleLine="true"/>
+                    android:singleLine="true" />
 
             </LinearLayout>
 
@@ -89,12 +89,12 @@
                     android:src="@drawable/ic_alarm_black_24dp" />
 
                 <EditText
-                    android:id="@+id/Origin"
+                    android:id="@+id/Duration"
                     android:layout_width="0dp"
-                    android:hint="Duration"
                     android:layout_height="44dp"
                     android:layout_weight="1"
-                    android:singleLine="true"/>
+                    android:hint="Duration"
+                    android:singleLine="true" />
             </LinearLayout>
 
             <LinearLayout
@@ -135,6 +135,9 @@
 
                 <EditText
                     android:id="@+id/EndDate2"
+                    android:focusable="false"
+                    android:editable="false"
+                    android:clickable="true"
                     android:layout_width="0dp"
                     android:hint="Check-Out Date : DD-MM-YY"
                     android:layout_height="44dp"

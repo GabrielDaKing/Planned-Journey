@@ -167,7 +167,7 @@ public class CreateNewBus extends AppCompatActivity {
             public void onClick(View v) {
 
                     AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewBus.this);
-                    builder.setMessage("Are sure you want to create this train ride ?");
+                    builder.setMessage("Are sure you want to create this Bus ride ?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
