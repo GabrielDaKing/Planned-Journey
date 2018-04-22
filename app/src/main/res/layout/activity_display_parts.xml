@@ -74,7 +74,7 @@
             android:dividerHeight="5dp"
             android:divider="@android:color/transparent"
             android:transcriptMode="alwaysScroll"
-            tools:listitem="@layout/flight_tile">
+            tools:listitem="@layout/train_tile">
 
         </ListView>
 
@@ -86,7 +86,7 @@
             android:dividerHeight="5dp"
             android:divider="@android:color/transparent"
             android:transcriptMode="alwaysScroll"
-            tools:listitem="@layout/flight_tile">
+            tools:listitem="@layout/hotel_tile">
 
         </ListView>
 
@@ -98,7 +98,7 @@
             android:dividerHeight="5dp"
             android:divider="@android:color/transparent"
             android:transcriptMode="alwaysScroll"
-            tools:listitem="@layout/flight_tile">
+            tools:listitem="@layout/bus_tile">
 
         </ListView>
 

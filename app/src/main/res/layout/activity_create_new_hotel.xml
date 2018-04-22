@@ -167,6 +167,35 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/crm"
+                    android:background="@color/colorPrimaryLight"
+                    android:src="@drawable/confrim_button"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="30dp"
+                    android:scaleType="fitCenter"/>
+
+                <ImageButton
+                    android:id="@+id/ccl"
+                    android:background="@color/colorPrimaryLight"
+                    android:src="@drawable/cancel_button"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="30dp"
+                    android:scaleType="fitCenter"/>
+
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </ScrollView>
