@@ -140,7 +140,7 @@ public class CreateNewActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewActivity.this);
-                builder.setMessage("Are you want to cancel creating this journey ?");
+                builder.setMessage("Are you want to cancel creating this Flight ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -192,7 +192,7 @@ public class CreateNewActivity extends AppCompatActivity {
 
                         flightDBHelper.addFlight(flight,id);
                         finish();
-                        Toast.makeText(CreateNewActivity.this, "YAY!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateNewActivity.this, "Flight Created", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

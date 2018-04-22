@@ -42,7 +42,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
                 + TrainContract.TrainEntry.CLASS + " TEXT ); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_TRAINS_TABLE);
-        Log.v(TAG,"Created train Table");
+        Log.v(TAG,"blahreated train Table");
 
     }
 

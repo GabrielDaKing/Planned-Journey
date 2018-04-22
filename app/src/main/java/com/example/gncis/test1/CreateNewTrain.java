@@ -143,7 +143,7 @@ public class CreateNewTrain extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewTrain.this);
-                builder.setMessage("Are you want to cancel creating this journey ?");
+                builder.setMessage("Are you want to cancel creating this Train Entry ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -169,7 +169,7 @@ public class CreateNewTrain extends AppCompatActivity {
 
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewTrain.this);
-                builder.setMessage("Are you want to create this Train Ride?");
+                builder.setMessage("Are you want to create this Train Entry ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -196,7 +196,7 @@ public class CreateNewTrain extends AppCompatActivity {
                         trainDBHelper.addTrain(train,id);
 
                         finish();
-                        Toast.makeText(CreateNewTrain.this, "YAY!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateNewTrain.this, " Train Entry Created", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

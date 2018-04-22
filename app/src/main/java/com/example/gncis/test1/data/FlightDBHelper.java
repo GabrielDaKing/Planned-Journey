@@ -57,7 +57,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
                 + FlightContract.FlightEntry.CLASS + " TEXT ); ";
 
         db.execSQL(SQL_CREATE_FLIGHT_TABLE);
-        Log.v(TAG,"Created Flight Table");
+        Log.v(TAG,"blahCreated Flight Table");
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.gncis.test1.Bus;
 
@@ -39,6 +40,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
                 + BusContract.BusEntry.ARRIVAL_DATE + " TEXT, "
                 + BusContract.BusEntry.ARRIVAL_TIME + " TEXT ); ";
 
+        Log.v(TAG,"blahCREATES BUS TABLE");
         db.execSQL(SQL_CREATE_BUS_TABLE);
     }
 

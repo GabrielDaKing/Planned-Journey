@@ -38,7 +38,7 @@ public class ViewCurrent extends AppCompatActivity {
 
         bar = getSupportActionBar();
 
-        bar.setTitle("Your Current Trip");
+        bar.setTitle("Your Current Trips");
 
         userDBHelper =new UserDBHelper(getApplicationContext());
 

@@ -36,7 +36,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
                 + HotelContract.HotelEntry.ROOM_TYPE + " TEXT )";
 
         db.execSQL(SQL_CREATE_HOTELS_TABLE);
-        Log.v(TAG,"Createdhotel Table");
+        Log.v(TAG,"blahCreatedhotel Table");
     }
 
     @Override

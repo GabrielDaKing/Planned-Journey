@@ -188,14 +188,14 @@ public class CreateNew extends AppCompatActivity {
                             userDBHelper.addUser(trip);
                             insert=0;
 
-                            Toast.makeText(CreateNew.this, "insert=0", Toast.LENGTH_SHORT).show();
+
                         }
 
                         else{
-                            Toast.makeText(CreateNew.this, "insert=1", Toast.LENGTH_SHORT).show();
+
                             userDBHelper.updateName(name.getText().toString(),userDBHelper.returnID());
                         }
-                       // Toast.makeText(CreateNew.this, "YAY!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateNew.this, "Trip Created", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

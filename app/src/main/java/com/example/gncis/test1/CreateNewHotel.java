@@ -151,7 +151,7 @@ public class CreateNewHotel extends AppCompatActivity {
                             userDBHelper.updateEndDate(hotel.gethCheckoutDate(),id);
 
                             finish();
-                            Toast.makeText(CreateNewHotel.this, "YAY!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CreateNewHotel.this, " Hotel Entry Created", Toast.LENGTH_SHORT).show();
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

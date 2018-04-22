@@ -37,7 +37,7 @@ public class DisplayPartsTrain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(DisplayPartsTrain.this);
-                builder.setMessage("Are you want to delete this train entry?");
+                builder.setMessage("Are you want to delete this Train Entry?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

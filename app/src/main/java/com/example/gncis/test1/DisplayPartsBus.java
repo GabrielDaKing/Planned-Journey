@@ -36,7 +36,7 @@ public class DisplayPartsBus extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(DisplayPartsBus.this);
-                builder.setMessage("Are you want to delete this bus entry ?");
+                builder.setMessage("Are you want to delete this Bus Entry ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

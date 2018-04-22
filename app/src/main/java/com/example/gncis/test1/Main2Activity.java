@@ -112,7 +112,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               Toast.makeText(Main2Activity.this, "View Current trip", Toast.LENGTH_SHORT).show();
+              // Toast.makeText(Main2Activity.this, "View Current trip", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Main2Activity.this , ViewCurrent.class));
 
             }
@@ -121,7 +121,7 @@ public class Main2Activity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main2Activity.this, "Create a new trip", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Main2Activity.this, "Create a new trip", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Main2Activity.this , CreateNew.class));
             }
         });
@@ -129,7 +129,7 @@ public class Main2Activity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main2Activity.this, "View Old Trips", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(Main2Activity.this, "View Old Trips", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Main2Activity.this , ViewOld.class));
             }
         });
