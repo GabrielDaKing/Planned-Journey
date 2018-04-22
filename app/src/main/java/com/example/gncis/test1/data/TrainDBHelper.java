@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class TrainDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "trip2.db";
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public TrainDBHelper(Context context) {super(context , DATABASE_NAME, null ,DATABASE_VERSION );}
 

@@ -37,7 +37,7 @@ public class CreateNew extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
         //ANIMATIONS
-        Animation AnimShake = AnimationUtils.loadAnimation(this, shake);
+        //Animation AnimShake = AnimationUtils.loadAnimation(this, shake);
         userDBHelper = new UserDBHelper(getApplicationContext());
 
         bar = getSupportActionBar();
@@ -66,35 +66,37 @@ public class CreateNew extends AppCompatActivity {
         btn1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userDBHelper = new UserDBHelper(getApplicationContext());
 
                 if(insert==0) {
                     insert = 1;
                     trip = new Trip();
                     trip.setTripName(name.getText().toString());
-                    userDBHelper = new UserDBHelper(getApplicationContext());
+
                     trip.setId(-1);
                     userDBHelper.addUser(trip);
-
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("id", userDBHelper.returnID());
-
-                    startActivity(new Intent(CreateNew.this,CreateNewActivity.class).putExtra("TRIP", bundle));
                 }
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", userDBHelper.returnID());
+
+                startActivity(new Intent(CreateNew.this,CreateNewActivity.class).putExtra("TRIP", bundle));
             }
         });
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userDBHelper = new UserDBHelper(getApplicationContext());
                 if(insert==0) {
                     insert = 1;
                     trip = new Trip();
                     trip.setTripName(name.getText().toString());
-                    userDBHelper = new UserDBHelper(getApplicationContext());
+
                     trip.setId(-1);
                     userDBHelper.addUser(trip);
                 }
-                userDBHelper = new UserDBHelper(getApplicationContext());
+
                 Bundle bundle = new Bundle();
                 bundle.putInt("id", userDBHelper.returnID());
 
@@ -105,11 +107,11 @@ public class CreateNew extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userDBHelper = new UserDBHelper(getApplicationContext());
                 if(insert==0) {
                     insert = 1;
                     trip = new Trip();
                     trip.setTripName(name.getText().toString());
-                    userDBHelper = new UserDBHelper(getApplicationContext());
                     trip.setId(-1);
                     userDBHelper.addUser(trip);
                 }
@@ -124,11 +126,12 @@ public class CreateNew extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                userDBHelper = new UserDBHelper(getApplicationContext());
                 if(insert==0) {
                     insert = 1;
                     trip = new Trip();
                     trip.setTripName(name.getText().toString());
-                    userDBHelper = new UserDBHelper(getApplicationContext());
+
                     trip.setId(-1);
                     userDBHelper.addUser(trip);
                 }
