@@ -6,13 +6,20 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.TransitionManager;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.gncis.test1.data.UserDBHelper;
+
+import static com.example.gncis.test1.R.anim.shake;
 
 public class CreateNew extends AppCompatActivity {
 
@@ -29,7 +36,8 @@ public class CreateNew extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_new);
-
+        //ANIMATIONS
+        Animation AnimShake=AnimationUtils.loadAnimation(this, shake);
         userDBHelper = new UserDBHelper(getApplicationContext());
 
         bar = getSupportActionBar();
@@ -57,9 +65,11 @@ public class CreateNew extends AppCompatActivity {
 
 
 
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if(insert==0) {
                     insert = 1;
                     trip = new Trip();
@@ -67,11 +77,15 @@ public class CreateNew extends AppCompatActivity {
                     userDBHelper = new UserDBHelper(getApplicationContext());
                     trip.setId(-1);
                     userDBHelper.addUser(trip);
-                }
-                Bundle bundle = new Bundle();
-                bundle.putInt("id", userDBHelper.returnID());
 
-                startActivity(new Intent(CreateNew.this,CreateNewActivity.class).putExtra("TRIP", bundle));
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("id", userDBHelper.returnID());
+
+                    startActivity(new Intent(CreateNew.this,CreateNewActivity.class).putExtra("TRIP", bundle));
+                }
+
+
+
             }
         });
 
