@@ -3,7 +3,7 @@
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorPrimaryLight">#ffffff</color>
-    <color name="colorSecondary">#21008d</color>
+    <color name="colorSecondary">#757575</color>
     <color name="colorSecondaryDark">#0077c2</color>
     <color name="colorSecondaryLight">#000080</color>
     <color name="colorAccent">#880e4f</color>
@@ -22,5 +22,6 @@
     <color name="confirmButton">#76ff03</color>
     <color name="confirmButtonLight">#b0ff57</color>
     <color name="confirmButtonDark">#32cb00</color>
+
 
 </resources>
