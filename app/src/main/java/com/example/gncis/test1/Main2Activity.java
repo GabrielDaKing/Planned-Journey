@@ -54,7 +54,7 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        setupWindowAnimations();
+        //setupWindowAnimations();
 
         btn1 =findViewById(R.id.button_send1);
         btn2 =findViewById(R.id.button_send2);
@@ -166,6 +166,8 @@ public class Main2Activity extends AppCompatActivity {
             case R.id.sign_out:
                 AuthUI.getInstance().signOut(this);
                 return true;
+            //case R.id.about:
+             //   startActivity(new Intent(Main2Activity.this, About.class));
 
             default:
                 return super.onOptionsItemSelected(item);

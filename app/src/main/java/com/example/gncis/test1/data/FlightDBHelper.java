@@ -124,7 +124,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id + " ; ";
+        String query = "SELECT * FROM " + FlightContract.FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id + " ; ";
 
         Flight flight= new Flight();
 
@@ -150,14 +150,14 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     public void deleteFlightOfTrip(int id){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id;
+        String Query = "DELETE FROM "+ FlightContract.FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id;
         sqLiteDatabase.execSQL(Query);
     }
 
     public void deleteFlightint(int id){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id;
+        String Query = "DELETE FROM "+ FlightContract.FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id;
         sqLiteDatabase.execSQL(Query);
         Log.v(TAG, " DELETING A FLIGHT");
     }

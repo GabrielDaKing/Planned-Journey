@@ -61,7 +61,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
         DateFormat df = new SimpleDateFormat("dd/mm/yy");
         String date = df.format(Calendar.getInstance().getTime());
         ArrayList<Trip> trips = new ArrayList<>();
-        String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.END_DATE  + " > " + "\"" + date + "\";";
+        String query = "SELECT * FROM " + UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.END_DATE  + " > " + "\"" + date + "\"" + " ORDER BY " + UserContract.UserEntry.USER_ID + " DESC ";
 
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         cursor.moveToFirst();
@@ -106,14 +106,13 @@ public class UserDBHelper extends SQLiteOpenHelper{
             cursor.moveToNext();
         }
 
-
         cursor.close();
         return trips;
     }
 
     public void updateStartDate(String date,int id){
 
-        if(returnStartDate().compareTo(date)==1) {
+        if(returnStartDate().compareTo(date)==1||returnStartDate().equals("N/A")) {
 
             SQLiteDatabase sqLiteDatabase = getWritableDatabase();
             ContentValues values = new ContentValues();
@@ -125,7 +124,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public void updateEndDate(String date,int id){
 
-        if(returnEndDate().compareTo(date)==-1) {
+        if(returnEndDate().compareTo(date)==-1||returnEndDate().equals("N/A")) {
 
             SQLiteDatabase sqLiteDatabase = getWritableDatabase();
             ContentValues values = new ContentValues();
@@ -190,6 +189,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public void deleteAllTrips(){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
         String DELETE_QUERY1 = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME ;
         sqLiteDatabase.execSQL(DELETE_QUERY1);
         String DELETE_QUERY2 = "DELETE FROM "+ FlightContract.FlightEntry.TABLE_NAME;
@@ -204,6 +204,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     public void deleteTripForID(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
         String DELETE_QUERY = "DELETE FROM "+ UserContract.UserEntry.TABLE_NAME + " WHERE " + UserContract.UserEntry.USER_ID + " = " +id;
         sqLiteDatabase.execSQL(DELETE_QUERY);
         String DELETE_QUERY2 = "DELETE FROM "+ FlightContract.FlightEntry.TABLE_NAME + " WHERE " + FlightContract.FlightEntry.FLIGHT_USER_Id + " = " +id;

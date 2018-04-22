@@ -29,8 +29,8 @@ public class TrainDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         String SQL_CREATE_TRAINS_TABLE = "CREATE TABLE IF NOT EXISTS " + TrainContract.TrainEntry.TABLE_NAME + " ( "
-                + TrainContract.TrainEntry.TRAIN_USER_ID + "INTEGER"
                 + TrainContract.TrainEntry.TRAIN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TrainContract.TrainEntry.TRAIN_USER_ID + " INTEGER "
                 + TrainContract.TrainEntry.TRAIN_NO + " TEXT, "
                 + TrainContract.TrainEntry.TRAIN_SEAT_NO + " TEXT, "
                 + TrainContract.TrainEntry.ORIGIN + " TEXT, "

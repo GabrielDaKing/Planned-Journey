@@ -29,7 +29,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String SQL_CREATE_BUS_TABLE = "CREATE TABLE IF NOT EXISTS " + BusContract.BusEntry.TABLE_NAME + "("
-                + BusContract.BusEntry.BUS_USER_Id + "INTEGER"
+                + BusContract.BusEntry.BUS_USER_Id + " INTEGER ,"
                 + BusContract.BusEntry.BUS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BusContract.BusEntry.BUS_NO + " TEXT, "
                 + BusContract.BusEntry.BUS_SEAT_NO + " TEXT, "
