@@ -55,7 +55,7 @@ public class Main2Activity extends AppCompatActivity {
         btn2 =findViewById(R.id.button_send2);
         btn3 =findViewById(R.id.button_send3);
 
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance(); 
 
         mAuthstatelistener = new FirebaseAuth.AuthStateListener() {
             @Override
