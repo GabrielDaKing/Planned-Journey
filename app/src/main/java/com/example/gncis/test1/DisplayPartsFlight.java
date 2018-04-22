@@ -34,7 +34,7 @@ public class DisplayPartsFlight extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(DisplayPartsFlight.this);
-                builder.setMessage("Are you want to cancel creating this journey ?");
+                builder.setMessage("Are you want to delete this flight entry ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

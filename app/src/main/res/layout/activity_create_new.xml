@@ -93,14 +93,13 @@
 
         <ImageButton
             android:id="@+id/cancel"
-            android:layout_width="wrap_content"
+            android:layout_width="72dp"
             android:layout_height="match_parent"
+            android:layout_margin="0dp"
             android:layout_weight="1"
             android:background="#1A237E"
-            android:layout_margin="0dp"
-            android:src="@drawable/ic_close_black_36dp"
             android:scaleType="fitCenter"
-            />
+            android:src="@drawable/ic_close_black_36dp" />
 
         <ImageButton
             android:id="@+id/confirm"
