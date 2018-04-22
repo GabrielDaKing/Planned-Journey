@@ -70,9 +70,6 @@ public class CreateNewHotel extends AppCompatActivity {
         final DatePickerDialog.OnDateSetListener eddate = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
-               //datePicker.setMinDate();
-
                 myCalendar.set(Calendar.YEAR, i);
                 myCalendar.set(Calendar.MONTH, i1);
                 myCalendar.set(Calendar.DAY_OF_MONTH, i2);

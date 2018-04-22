@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.gncis.test1.Hotel;
 import com.example.gncis.test1.Train;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
  */
 
 public class TrainDBHelper extends SQLiteOpenHelper {
+    private static final String TAG = "DB TEST ";
     private static final String DATABASE_NAME = "trip2.db";
 
     private static final int DATABASE_VERSION = 3;
@@ -26,7 +28,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String SQL_CREATE_TRAINS_TABLE = "CREATE TABLE " + TrainContract.TrainEntry.TABLE_NAME + " ( "
+        String SQL_CREATE_TRAINS_TABLE = "CREATE TABLE IF NOT EXISTS " + TrainContract.TrainEntry.TABLE_NAME + " ( "
                 + TrainContract.TrainEntry.TRAIN_USER_ID + "INTEGER"
                 + TrainContract.TrainEntry.TRAIN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TrainContract.TrainEntry.TRAIN_NO + " TEXT, "
@@ -40,6 +42,8 @@ public class TrainDBHelper extends SQLiteOpenHelper {
                 + TrainContract.TrainEntry.CLASS + " TEXT ); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_TRAINS_TABLE);
+        Log.v(TAG,"Created train Table");
+
     }
 
     @Override
@@ -51,7 +55,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
     public void addTrain(Train train, int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(TrainContract.TrainEntry.TRAIN_ID,train.getTid());
+        contentValues.put(TrainContract.TrainEntry.TRAIN_USER_ID,id);
         contentValues.put(TrainContract.TrainEntry.TRAIN_NO,train.getTnumber());
         contentValues.put(TrainContract.TrainEntry.TRAIN_SEAT_NO,train.gettSeat());
         contentValues.put(TrainContract.TrainEntry.ORIGIN,train.gettOrigin());
@@ -68,7 +72,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id + ";";
+        String query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " ;";//+ " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id + ";";
 
         ArrayList<Train> trains = new ArrayList<>();
 
@@ -105,7 +109,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
     public void deleteTrainint(int id){
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        String Query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id ;
+        String Query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_ID + " = " +id ;
         sqLiteDatabase.execSQL(Query);
     }
 }

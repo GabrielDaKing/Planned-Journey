@@ -41,7 +41,7 @@ public class DisplayPartsBus extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        busDBHelper.deleteBusOfTrip(id);
+                        busDBHelper.deleteBusint(id);
 
                         finish();
                     }

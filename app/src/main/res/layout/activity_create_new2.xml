@@ -257,7 +257,7 @@
             <ImageButton
                 android:id="@+id/ccl"
                 android:background="@color/colorPrimaryLight"
-                android:src="@drawable/ic_close_black_36dp"
+                android:src="@drawable/cancel_button"
 
                 android:layout_width="80dp"
                 android:layout_height="80dp"

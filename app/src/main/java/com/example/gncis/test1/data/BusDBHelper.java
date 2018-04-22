@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.gncis.test1.Bus;
 
@@ -15,6 +16,7 @@ import java.util.ArrayList;
  */
 
 public class BusDBHelper extends SQLiteOpenHelper {
+    private static final String TAG = "DB TEST ";
 
     private static final String DATABASE_NAME = "trip5.db";
 
@@ -25,7 +27,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_BUS_TABLE = "CREATE TABLE " + BusContract.BusEntry.TABLE_NAME + "("
+        String SQL_CREATE_BUS_TABLE = "CREATE TABLE IF NOT EXISTS " + BusContract.BusEntry.TABLE_NAME + "("
                 + BusContract.BusEntry.BUS_USER_Id + "INTEGER"
                 + BusContract.BusEntry.BUS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BusContract.BusEntry.BUS_NO + " TEXT, "
@@ -59,11 +61,12 @@ public class BusDBHelper extends SQLiteOpenHelper {
         contentValues.put(BusContract.BusEntry.ARRIVAL_DATE,bus.getbArrivalDate());
         contentValues.put(BusContract.BusEntry.ARRIVAL_TIME, bus.getbArrivalTime());
         sqLiteDatabase.insert(BusContract.BusEntry.TABLE_NAME, null, contentValues);
+        Log.v(TAG,"Created bus Table");
     }
 
     public ArrayList<Bus> displayBuses(int id){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
-        String query="SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + ";";
+        String query="SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + ";";// WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + ";";
         ArrayList<Bus> buses=new ArrayList<>();
         Cursor cursor =sqLiteDatabase.rawQuery(query,null);
 
@@ -86,6 +89,13 @@ public class BusDBHelper extends SQLiteOpenHelper {
     }
 
     public void deleteBusOfTrip(int id){
+        SQLiteDatabase sqLiteDatabase =getWritableDatabase();
+        String query = "DELETE FROM " + BusContract.BusEntry.TABLE_NAME +  " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + " ; ";
+        sqLiteDatabase.execSQL(query);
+
+    }
+
+    public void deleteBusint(int id){
         SQLiteDatabase sqLiteDatabase =getWritableDatabase();
         String query = "DELETE FROM " + BusContract.BusEntry.TABLE_NAME +  " WHERE " + BusContract.BusEntry.BUS_ID + " = " + id + " ; ";
         sqLiteDatabase.execSQL(query);

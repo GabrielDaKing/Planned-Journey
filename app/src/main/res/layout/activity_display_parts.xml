@@ -110,7 +110,8 @@
             android:background="#000000"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_close_white_36dp"
-            android:layout_margin="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
     </LinearLayout>
 

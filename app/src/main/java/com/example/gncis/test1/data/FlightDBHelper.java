@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.gncis.test1.Flight;
 import com.example.gncis.test1.data.FlightContract.FlightEntry;
@@ -29,29 +30,34 @@ import java.util.ArrayList;
 
 public class FlightDBHelper extends SQLiteOpenHelper {
 
+    private static final String TAG = "DB TEST ";
+
     private static final String DATABASE_NAME = "trip4.db";
 
     private static final int DATABASE_VERSION = 1;
 
-    public FlightDBHelper(Context context) {super(context , DATABASE_NAME, null ,DATABASE_VERSION );}
+    public FlightDBHelper(Context context) {
+        super(context , DATABASE_NAME, null ,DATABASE_VERSION );
+    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE " + FlightEntry.TABLE_NAME + " ( "
-                + FlightEntry.FLIGHT_USER_Id + " INTEGER ,"
-                + FlightEntry.FLIGHT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + FlightEntry.FLIGHT_NO + " TEXT, "
-                + FlightEntry.FLIGHT_SEAT_NO + " TEXT, "
-                + FlightEntry.ORIGIN + " TEXT, "
-                + FlightEntry.DESTINATION + " TEXT, "
-                + FlightEntry.DEPARTURE_DATE + " TEXT, "
-                + FlightEntry.DEPARTURE_TIME + " TEXT, "
-                + FlightEntry.ARRIVAL_DATE + " TEXT, "
-                + FlightEntry.ARRIVAL_TIME + " TEXT, "
-                + FlightEntry.CLASS + " TEXT ); ";
+        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE IF NOT EXISTS " + FlightContract.FlightEntry.TABLE_NAME + " ( "
+                + FlightContract.FlightEntry.FLIGHT_USER_Id + " INTEGER , "
+                + FlightContract.FlightEntry.FLIGHT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
+                + FlightContract.FlightEntry.FLIGHT_NO + " TEXT , "
+                + FlightContract.FlightEntry.FLIGHT_SEAT_NO + " TEXT , "
+                + FlightContract.FlightEntry.ORIGIN + " TEXT , "
+                + FlightContract.FlightEntry.DESTINATION + " TEXT , "
+                + FlightContract.FlightEntry.DEPARTURE_DATE + " TEXT , "
+                + FlightContract.FlightEntry.DEPARTURE_TIME + " TEXT , "
+                + FlightContract.FlightEntry.ARRIVAL_DATE + " TEXT , "
+                + FlightContract.FlightEntry.ARRIVAL_TIME + " TEXT , "
+                + FlightContract.FlightEntry.CLASS + " TEXT ); ";
 
         db.execSQL(SQL_CREATE_FLIGHT_TABLE);
+        Log.v(TAG,"Created Flight Table");
     }
 
     @Override
@@ -77,13 +83,14 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
 
         sqLiteDatabase.insert(FlightEntry.TABLE_NAME, null, contentValues);
+        Log.v(TAG,"Flight ADDED");
     }
 
     public ArrayList<Flight> displayFlights(int id){
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + " ;";
+        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " ;";// WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + " ;";
 
         ArrayList<Flight> flights = new ArrayList<>();
 
@@ -109,6 +116,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
         }
 
         cursor.close();
+        Log.v(TAG,"Dispalying all FLIGHTS");
         return flights;
     }
 
@@ -133,7 +141,9 @@ public class FlightDBHelper extends SQLiteOpenHelper {
         flight.setfArrivalTime(cursor.getString(cursor.getColumnIndex(FlightEntry.ARRIVAL_TIME)));
         flight.setfClass(cursor.getString(cursor.getColumnIndex(FlightEntry.FLIGHT_NO)));
 
+        Log.v(TAG, "Displaying a single FLIGHT");
         return flight;
+
 
     }
 
@@ -149,5 +159,6 @@ public class FlightDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
         String Query = "DELETE FROM "+ FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_ID + " = " + id;
         sqLiteDatabase.execSQL(Query);
+        Log.v(TAG, " DELETING A FLIGHT");
     }
 }
