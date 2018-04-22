@@ -106,7 +106,7 @@ public class CreateNewHotel extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
-                builder.setMessage("Are you want to cancel creating this journey ?");
+                builder.setMessage("Are you want to cancel creating this Hotel Entry ?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -130,7 +130,7 @@ public class CreateNewHotel extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                     AlertDialog.Builder builder=new AlertDialog.Builder(CreateNewHotel.this);
-                    builder.setMessage("Are you want to create this Hotel Entry ?");
+                    builder.setMessage("Are you sure you want to create this Hotel Entry ?");
                     builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
