@@ -90,7 +90,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + "  WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + " ;";
+        String query = "SELECT * FROM " + FlightEntry.TABLE_NAME + " WHERE " + FlightEntry.FLIGHT_USER_Id + " = " +id + " ;";
 
         ArrayList<Flight> flights = new ArrayList<>();
 

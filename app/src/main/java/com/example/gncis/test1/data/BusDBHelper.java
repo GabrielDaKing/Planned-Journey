@@ -68,7 +68,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
 
     public ArrayList<Bus> displayBuses(int id){
         SQLiteDatabase sqLiteDatabase=getReadableDatabase();
-        String query="SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + ";";// WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + ";";
+        String query="SELECT * FROM " + BusContract.BusEntry.TABLE_NAME + " WHERE " + BusContract.BusEntry.BUS_USER_Id + " = " + id + ";";
         ArrayList<Bus> buses=new ArrayList<>();
         Cursor cursor =sqLiteDatabase.rawQuery(query,null);
 

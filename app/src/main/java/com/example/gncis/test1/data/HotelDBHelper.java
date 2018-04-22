@@ -62,7 +62,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + HotelContract.HotelEntry.TABLE_NAME + ";";// WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID + " = " +id + ";";
+        String query = "SELECT * FROM " + HotelContract.HotelEntry.TABLE_NAME + " WHERE " + HotelContract.HotelEntry.HOTEL_USER_ID + " = " +id + ";";
 
         ArrayList<Hotel> hotels = new ArrayList<>();
 

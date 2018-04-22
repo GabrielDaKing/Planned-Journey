@@ -72,7 +72,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
 
-        String query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " ;";//+ " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id + ";";
+        String query = "SELECT * FROM " + TrainContract.TrainEntry.TABLE_NAME + " WHERE " + TrainContract.TrainEntry.TRAIN_USER_ID + " = " +id + ";";
 
         ArrayList<Train> trains = new ArrayList<>();
 
