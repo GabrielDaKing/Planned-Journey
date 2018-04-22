@@ -103,13 +103,15 @@
 
 
             <ImageButton
+                android:layout_marginTop="5dp"
                 android:id="@+id/delete"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/cancel_button2"
+                android:background="#000000"
                 android:scaleType="fitCenter"
-                android:src="@drawable/ic_close_black_36dp"
-                android:layout_margin="5dp"/>
+                android:src="@drawable/ic_close_white_36dp"
+
+                ></ImageButton>
 
         </LinearLayout>
 

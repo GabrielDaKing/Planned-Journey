@@ -99,7 +99,7 @@
             android:layout_weight="1"
             android:background="#1A237E"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_close_black_36dp" />
+            android:src="@drawable/ic_close_white_36dp" />
 
         <ImageButton
             android:id="@+id/confirm"
