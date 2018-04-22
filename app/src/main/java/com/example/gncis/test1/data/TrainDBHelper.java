@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.gncis.test1.Hotel;
 import com.example.gncis.test1.Train;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
  */
 
 public class TrainDBHelper extends SQLiteOpenHelper {
+    private static final String TAG = "DB TEST ";
     private static final String DATABASE_NAME = "trip2.db";
 
     private static final int DATABASE_VERSION = 3;
@@ -26,7 +28,7 @@ public class TrainDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String SQL_CREATE_TRAINS_TABLE = "CREATE TABLE " + TrainContract.TrainEntry.TABLE_NAME + " ( "
+        String SQL_CREATE_TRAINS_TABLE = "CREATE TABLE IF NOT EXIST " + TrainContract.TrainEntry.TABLE_NAME + " ( "
                 + TrainContract.TrainEntry.TRAIN_USER_ID + "INTEGER"
                 + TrainContract.TrainEntry.TRAIN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TrainContract.TrainEntry.TRAIN_NO + " TEXT, "
@@ -40,6 +42,8 @@ public class TrainDBHelper extends SQLiteOpenHelper {
                 + TrainContract.TrainEntry.CLASS + " TEXT ); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_TRAINS_TABLE);
+        Log.v(TAG,"Created train Table");
+
     }
 
     @Override

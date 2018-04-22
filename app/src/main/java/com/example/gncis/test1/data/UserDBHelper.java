@@ -29,7 +29,7 @@ public class UserDBHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String SQL_CREATE_USER_TABLE = "CREATE TABLE "+ UserContract.UserEntry.TABLE_NAME + " ( "
+        String SQL_CREATE_USER_TABLE = "CREATE TABLE IF NOT EXIST "+ UserContract.UserEntry.TABLE_NAME + " ( "
                 + UserContract.UserEntry.USER + " TEXT NOT NULL , "
                 + UserContract.UserEntry.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
                 + UserContract.UserEntry.START_DATE + " TEXT , "
