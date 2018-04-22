@@ -27,7 +27,7 @@ public class BusDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_BUS_TABLE = "CREATE TABLE IF NOT EXIST " + BusContract.BusEntry.TABLE_NAME + "("
+        String SQL_CREATE_BUS_TABLE = "CREATE TABLE IF NOT EXISTS " + BusContract.BusEntry.TABLE_NAME + "("
                 + BusContract.BusEntry.BUS_USER_Id + "INTEGER"
                 + BusContract.BusEntry.BUS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + BusContract.BusEntry.BUS_NO + " TEXT, "

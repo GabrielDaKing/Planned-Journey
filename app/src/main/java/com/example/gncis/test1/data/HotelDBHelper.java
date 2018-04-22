@@ -25,7 +25,7 @@ public class HotelDBHelper extends SQLiteOpenHelper {
     public HotelDBHelper(Context context){super(context,DATABASE_NAME,null,DATABASE_VERSION);}
     @Override
     public void onCreate(SQLiteDatabase db){
-        String SQL_CREATE_HOTELS_TABLE = "CREATE TABLE IF NOT EXIST "+ HotelContract.HotelEntry.TABLE_NAME +" ( "
+        String SQL_CREATE_HOTELS_TABLE = "CREATE TABLE IF NOT EXISTS "+ HotelContract.HotelEntry.TABLE_NAME +" ( "
                 + HotelContract.HotelEntry.HOTEL_USER_ID + " INTEGER, "
                 + HotelContract.HotelEntry.HOTEL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + HotelContract.HotelEntry.HOTEL_NAME + " TEXT, "

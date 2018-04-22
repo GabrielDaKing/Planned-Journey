@@ -172,29 +172,37 @@ public class CreateNewBus extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            bus = new Bus();
-                            busDBHelper = new BusDBHelper(getApplicationContext());
+                            try {
+                                bus = new Bus();
+                                busDBHelper = new BusDBHelper(getApplicationContext());
 
-                            bus.setbNumber(number.toString());
-                            bus.setbSeat(seat.toString());
-                            bus.setbOrigin(origin.toString());
-                            bus.setbDestination(destination.toString());
-                            bus.setbDepartureDate(StartDate.toString());
-                            bus.setbDepartureTime(StartTime.toString());
-                            bus.setbArrivalDate(EndDate.toString());
-                            bus.setbArrivalTime(EndTime.toString());
+                                bus.setbNumber(number.toString());
+                                bus.setbSeat(seat.toString());
+                                bus.setbOrigin(origin.toString());
+                                bus.setbDestination(destination.toString());
+                                bus.setbDepartureDate(StartDate.toString());
+                                bus.setbDepartureTime(StartTime.toString());
+                                bus.setbArrivalDate(EndDate.toString());
+                                bus.setbArrivalTime(EndTime.toString());
 
-                            Bundle bun = getIntent().getExtras();
-                            id = bun.getInt("id");
+                                Bundle bun = getIntent().getExtras();
+                                id = bun.getInt("id");
 
-                            userDBHelper = new UserDBHelper(getApplicationContext());
-                            userDBHelper.updateStartDate(bus.getbDepartureDate(),id);
-                            userDBHelper.updateEndDate(bus.getbArrivalDate(),id);
+                                userDBHelper = new UserDBHelper(getApplicationContext());
+                                userDBHelper.updateStartDate(bus.getbDepartureDate(), id);
+                                userDBHelper.updateEndDate(bus.getbArrivalDate(), id);
 
-                            busDBHelper.addBus(bus,id);
+                                busDBHelper.addBus(bus, id);
 
-                            finish();
-                            Toast.makeText(CreateNewBus.this, "YAY!", Toast.LENGTH_SHORT).show();
+                                finish();
+                                Toast.makeText(CreateNewBus.this, "YAY!", Toast.LENGTH_SHORT).show();
+                            }
+
+                            catch(Exception e){
+                                Toast.makeText(CreateNewBus.this, "please Enter all details", Toast.LENGTH_SHORT).show();
+                                dialog.cancel();
+                            }
+
                         }
                     });
                     builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

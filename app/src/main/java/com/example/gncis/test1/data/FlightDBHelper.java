@@ -43,7 +43,7 @@ public class FlightDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE IF NOT EXIST " + FlightContract.FlightEntry.TABLE_NAME + " ( "
+        String SQL_CREATE_FLIGHT_TABLE = "CREATE TABLE IF NOT EXISTS " + FlightContract.FlightEntry.TABLE_NAME + " ( "
                 + FlightContract.FlightEntry.FLIGHT_USER_Id + " INTEGER , "
                 + FlightContract.FlightEntry.FLIGHT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT , "
                 + FlightContract.FlightEntry.FLIGHT_NO + " TEXT , "
