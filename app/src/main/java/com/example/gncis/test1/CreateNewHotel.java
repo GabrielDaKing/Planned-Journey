@@ -97,6 +97,9 @@ public class CreateNewHotel extends AppCompatActivity {
         onConfirmClickListener();
     }
 
+    public void onBackPressed(){
+        finish();
+    }
     public void onCancelClickListener(){
         cncl.setOnClickListener(new View.OnClickListener() {
             @Override

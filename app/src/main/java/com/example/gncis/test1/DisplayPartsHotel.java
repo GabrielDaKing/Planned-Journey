@@ -58,4 +58,7 @@ public class DisplayPartsHotel extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed(){
+        finish();
+    }
 }

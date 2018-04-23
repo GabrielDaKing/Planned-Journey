@@ -59,4 +59,7 @@ public class DisplayPartsTrain extends AppCompatActivity {
         });
 
     }
+    public void onBackPressed(){
+        finish();
+    }
 }

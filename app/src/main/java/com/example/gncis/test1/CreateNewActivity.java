@@ -228,4 +228,7 @@ public class CreateNewActivity extends AppCompatActivity {
 
         EndDate.setText(sdf.format(myCalendar.getTime()));
     }
+    public void onBackPressed(){
+        finish();
+    }
 }

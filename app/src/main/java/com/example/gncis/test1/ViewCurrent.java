@@ -66,6 +66,9 @@ public class ViewCurrent extends AppCompatActivity {
 
     }
 
+    public void onBackPressed(){
+        finish();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

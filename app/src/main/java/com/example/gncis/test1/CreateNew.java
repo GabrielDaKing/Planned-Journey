@@ -209,4 +209,7 @@ public class CreateNew extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed(){
+        finish();
+    }
 }

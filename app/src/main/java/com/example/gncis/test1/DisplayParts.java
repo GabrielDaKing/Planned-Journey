@@ -147,4 +147,7 @@ public class DisplayParts extends AppCompatActivity {
             }
         });
     }
+    public void onBackPressed(){
+        finish();
+    }
 }

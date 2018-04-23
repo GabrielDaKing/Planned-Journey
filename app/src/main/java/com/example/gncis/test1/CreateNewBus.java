@@ -229,5 +229,8 @@ public class CreateNewBus extends AppCompatActivity {
 
         EndDate.setText(sdf.format(myCalendar.getTime()));
     }
+    public void onBackPressed(){
+        finish();
+    }
 }
 

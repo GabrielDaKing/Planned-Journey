@@ -16,6 +16,9 @@ public class DisplayPartsFlight extends AppCompatActivity {
     FlightDBHelper flightDBHelper;
     int id;
 
+    public void onBackPressed(){
+        finish();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
